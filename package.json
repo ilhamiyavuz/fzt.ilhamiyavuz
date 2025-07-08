@@ -4,7 +4,8 @@
   "private": true,
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "firebase": "^10.12.2"  // Bu satırı ekledik veya güncelledik
   },
   "scripts": {
     "start": "react-scripts start",
@@ -34,4 +35,3 @@
     "react-scripts": "^5.0.1"
   }
 }
-
