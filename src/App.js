@@ -6,7 +6,7 @@
     // Firebase yapılandırması ve uygulama kimliği (Canvas tarafından sağlanır)
     const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
     const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
-    const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? initialAuthToken : null; 
+    const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null; 
 
     function App() {
         const [isChatOpen, setIsChatOpen] = useState(false);
