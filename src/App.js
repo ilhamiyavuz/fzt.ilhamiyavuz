@@ -388,6 +388,3 @@
             </div>
         );
     }
-
-    export default App;
-    ```
