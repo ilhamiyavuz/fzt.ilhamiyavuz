@@ -297,7 +297,7 @@
         <p class="text-gray-700 mt-6 text-lg">
             📍 Adres: Doğu Cd No.13, Yeni Mahalle, İlk Paylaşım Özel Eğitim Merkezi – Ardahan
         </p>
-        <p class="text-700 text-lg">
+        <p class="text-gray-700 text-lg">
             📧 E-posta: <a href="mailto:fztilhamiyavuz@gmail.com" class="text-blue-600 hover:underline">fztilhamiyavuz@gmail.com</a>
         </p>
         <p class="text-gray-700 text-lg">
@@ -486,7 +486,15 @@
         // Kullanıcının mesajını gönder
         async function sendMessage() {
             const userMessage = chatInput.value.trim();
-            if (userMessage === '') return;
+            if (userMessage === '' || isLoading) {
+                return;
+            }
+
+            // Remove initial welcome message if present
+            const welcomeMessage = chatMessages.querySelector('.italic');
+            if (welcomeMessage) {
+                welcomeMessage.remove();
+            }
 
             displayMessage(userMessage, 'user');
             chatInput.value = '';
@@ -525,7 +533,7 @@
             try {
                 // BURAYA KENDİ API ANAHTARINIZI YAPIŞTIRIN
                 // Google AI Studio'dan aldığınız API anahtarını tırnak işaretleri arasına yapıştırın.
-                const apiKey = ""AIzaSyB2dNPeX_HSyZHIaNuINnzZ5LgdDf88aiU""; 
+                const apiKey = "AIzaSyB2dNPeX_HSyZHIaNuINnzZ5LgdDf88aiU"; // Canvas ortamı tarafından sağlanacak
                 const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
 
                 const payload = {
@@ -582,6 +590,12 @@
                     loadingMessageElement.remove();
                 }
                 displayMessage("Bir hata oluştu, lütfen daha sonra tekrar deneyin.", 'bot');
+            } finally {
+                // Mesaj gönderimi tamamlandığında veya hata oluştuğunda giriş ve gönder düğmesini etkinleştir
+                isLoading = false;
+                chatSendBtn.disabled = false;
+                chatInput.disabled = false;
+                chatInput.focus(); // Giriş alanına odaklan
             }
         }
 
