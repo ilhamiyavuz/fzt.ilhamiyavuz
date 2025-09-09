@@ -467,7 +467,8 @@
                                   `Diğer iletişim bilgilerini (WhatsApp, e-posta, Instagram vb.) asla verme. ` +
                                   `Kullanıcının son mesajı: "${userMessage}"`;
         
-                const apiKey = ""; // Canvas ortamı tarafından sağlanacak
+                // Hata çözümü: API anahtarını doğrudan Canvas ortamından al
+                const apiKey = typeof __api_key !== 'undefined' ? __api_key : '';
                 const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
         
                 const payload = {
