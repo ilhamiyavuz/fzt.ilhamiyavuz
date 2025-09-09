@@ -102,7 +102,7 @@
         }
         #chat-window {
             position: fixed;
-            bottom: 90px; /* Ayarlandı */
+            bottom: 90px;
             right: 20px;
             width: 350px;
             height: 500px;
@@ -337,152 +337,172 @@
 
     <div id="chat-bubble" onclick="toggleChat()">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8">
-            <path fill-rule="evenodd" d="M4.847 2.47a.75.75 0 0 1 .721.21L6 3.86l.432-.432a.75.75 0 0 1 .721-.21 2.25 2.25 0 0 1 1.956 1.011l.298.595a.75.75 0 0 0 .937.288 2.25 2.25 0 0 1 2.115 0 .75.75 0 0 0 .937-.288l.298-.595a2.25 2.25 0 0 1 1.956-1.011.75.75 0 0 1 .721.21l.432.432a.75.75 0 0 1 .21.721 2.25 2.25 0 0 1-1.011 1.956l-.595.298a.75.75 0 0 0-.288.937 2.25 2.25 0 0 1 0 2.115.75.75 0 0 0 .288.937l.595.298a2.25 2.25 0 0 1 1.011 1.956.75.75 0 0 1-.21.721l-.432.432a.75.75 0 0 1-.721.21 2.25 2.25 0 0 1-1.956-1.011l-.298-.595a.75.75 0 0 0-.937-.288 2.25 2.25 0 0 1-2.115 0 .75.75 0 0 0-.937.288l-.298.595a2.25 2.25 0 0 1-1.956 1.011.75.75 0 0 1-.721-.21l-.432-.432a.75.75 0 0 1-.21-.721 2.25 2.25 0 0 1 1.011-1.956l.595-.298a.75.75 0 0 0 .288-.937 2.25 2.25 0 0 1 0-2.115.75.75 0 0 0-.288-.937l-.595-.298a2.25 2.25 0 0 1-1.011-1.956.75.75 0 0 1 .21-.721l.432-.432Zm1.905-1.958a.75.75 0 0 1 1.082 0l.432.432a.75.75 0 0 1 .21.721 2.25 2.25 0 0 1-1.011 1.956l-.595.298a.75.75 0 0 0-.288.937 2.25 2.25 0 0 1 0 2.115.75.75 0 0 0 .288.937l.595.298a2.25 2.25 0 0 1 1.011 1.956.75.75 0 0 1-.21.721l-.432.432a.75.75 0 0 1-1.082 0l-.432-.432a.75.75 0 0 1-.21-.721 2.25 2.25 0 0 1 1.011-1.956l.595-.298a.75.75 0 0 0 .288-.937 2.25 2.25 0 0 1 0-2.115.75.75 0 0 0-.288-.937l-.595-.298a2.25 2.25 0 0 1-1.011-1.956.75.75 0 0 1 .21-.721l.432-.432Zm-4.908 1.958a.75.75 0 0 1 1.082 0l.432.432a.75.75 0 0 1 .21.721 2.25 2.25 0 0 1-1.011 1.956l-.595.298a.75.75 0 0 0-.288.937 2.25 2.25 0 0 1 0 2.115.75.75 0 0 0 .288.937l.595.298a2.25 2.25 0 0 1 1.011 1.956.75.75 0 0 1-.21.721l-.432.432a.75.75 0 0 1-1.082 0l-.432-.432a.75.75 0 0 1-.21-.721 2.25 2.25 0 0 1 1.011-1.956l.595-.298a.75.75 0 0 0 .288-.937 2.25 2.25 0 0 1 0-2.115.75.75 0 0 0-.288-.937l-.595-.298a2.25 2.25 0 0 1-1.011-1.956.75.75 0 0 1 .21-.721l.432-.432Z" clip-rule="evenodd" />
-        </svg>
-    </div>
+            <path d="M4.912 2.25a.75.75 0 0 0-.712.514L3.36 5.8a.75.75 0 0 0-.154.168 2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1-.412 1.258l-.875.875c-.324.324-.094.861.354.9l7.986 1.066a.75.75 0 0 0 .736-.265 2.25 2.25 0 0 0 .154-.168 2.25 2.25 0 0 0 0-2.614 1.5 1.5 0 0 1 .412-1.258l.875-.875c.324-.324.094-.861-.354-.9L11.536 2.76a.75.75 0 0 0-.736.265A2.25 2.25 0 0 0 10.64 3.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1-.412 1.258l-.875.875c-.324.324-.094.861-.354-.9L7.464 2.76a.75.75 0 0 0-.736-.265A2.25 2.25 0 0 0 6.536 3.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1-.412 1.258l-.875.875c-.324.324-.094.861-.354-.9L4.2 13.914a.75.75 0 0 0-.547.411 2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9l-7.986-1.066a.75.75 0 0 0-.736.265A2.25 2.25 0 0 0-1.464 19.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 23.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 24.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 28.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 29.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 33.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 34.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 38.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 39.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 43.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 44.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 48.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 49.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 53.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 54.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 58.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 59.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 63.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 64.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 68.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 69.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 73.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 74.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 78.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 79.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 83.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 84.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 88.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 89.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 93.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 94.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 98.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 99.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.diz_agrisi_nedir = "Diz ağrısı, diz eklemi, çevresindeki kaslar, bağlar veya kıkırdak gibi yapılardaki sorunlardan kaynaklanan yaygın bir semptomdur. En sık görülen nedenler arasında aşırı kullanım, yaralanmalar (menisküs yırtığı, bağ gerilmesi), osteoartrit (kireçlenme) ve tendinit (tendon iltihabı) bulunur."
+bel_agrisi_nedir = "Bel ağrısı, bel bölgesindeki omurga, kaslar, diskler ve sinir köklerindeki problemlerden kaynaklanan yaygın bir rahatsızlıktır. Fıtık, kas spazmları, omurga daralması (spinal stenoz) ve kötü duruş en sık görülen nedenler arasındadır."
+boyun_agrisi_nedir = "Boyun ağrısı, boyun omurları, kasları veya bağlarındaki gerilim, yaralanma veya aşınma gibi sebeplerden kaynaklanır. Duruş bozuklukları, kas spazmları ve boyun fıtığı en sık görülen durumlardır."
+fizyoterapi_nedir = "Fizyoterapi, hastalık, sakatlık, yaşlanma veya yaralanma nedeniyle bozulan fonksiyonel hareketleri ve yaşam kalitesini iyileştirmeyi amaçlayan bir sağlık alanıdır. Değerlendirme, egzersiz, manuel terapi ve diğer fiziksel yöntemlerle uygulanır."
+ilhami_hoca_hakkinda = "Fizyoterapist İlhami Yavuz, nörolojik, ortopedik ve pediatrik rehabilitasyon alanlarında uzmanlaşmıştır. Kişiye özel, bilimsel temelli yaklaşımlarla hastalarının hareket kabiliyetini artırmayı, ağrıyı azaltmayı ve yaşam kalitesini yükseltmeyi hedefler."
 
-    <div id="chat-window">
-        <div id="chat-header">
-            <span>FizyoAsistan</span>
-            <button id="close-chat-btn">&times;</button>
-        </div>
-        <div id="chat-messages">
-            </div>
-        <div id="chat-input-container">
-            <input type="text" id="api-key-input" placeholder="Gemini API Anahtarınızı buraya girin..." class="flex-grow p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-            <input type="text" id="chat-input" placeholder="Mesajınızı yazın..." disabled>
-            <button id="chat-send-btn" disabled>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
-                    <path d="M3.478 2.405a.75.75 0 0 0-.926.94l2.432 7.905H13.5a.75.75 0 0 1 0 1.5H4.984l-2.432 7.905a.75.75 0 0 0 .926.94 60.599 60.599 0 0 0 18.445-8.852.75.75 0 0 0 0-1.292A60.599 60.599 0 0 0 3.478 2.405Z" />
-                </svg>
-            </button>
-        </div>
-    </div>
+// Function to get a response from Gemini API
+async function getGeminiResponse(prompt) {
+    // API anahtarınızı buraya girin
+    const API_KEY = 'AIzaSyBa_jH4YxEvxR0SSWmi-4bqtGqG7n5b1l8';
+    if (!API_KEY || API_KEY === '__api_key__') {
+        return "Lütfen Gemini API anahtarınızı girin.";
+    }
 
-    <footer class="bg-gray-800 text-white py-8 px-6 md:px-12 text-center mt-8">
-        <p class="text-sm">© 2025 Fizyoterapist İlhami Yavuz. Tüm hakları saklıdır.</p>
-    </footer>
+    const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${API_KEY}`;
+    
+    // Add a system prompt to define the bot's persona and rules
+    const systemPrompt = `
+        Sen, fizyoterapist İlhami Yavuz'un dijital asistanısın. Adın FizyoAsistan.
+        Kullanıcılara sadece fizyoterapi ve sağlıkla ilgili konularda bilgi verebilirsin.
+        Tıbbi teşhis koyma veya kişiye özel tedavi önerme yetkin yok. Her zaman bir uzmana danışılması gerektiğini vurgulamalısın.
+        Tıbbi teşhis veya kişisel durumla ilgili sorulara, "En doğru teşhis ve size özel tedavi planı için İlhami Hocamızla görüşmeniz en doğrusu olacaktır." şeklinde yanıt ver.
+        Web sitemizin sunduğu hizmetlere yönlendirebilirsin: Randevu alma, iletişim gibi.
+        Web sitesinin fizyoterapistine "İlhami Hocam" diye hitap et.
+        Yalnızca Türkçe yanıt ver.
+        Web sitesindeki hizmetleri tanıtabilirsin.
+        İlhami Hoca'nın uzmanlık alanları: nörolojik, ortopedik ve pediatrik rehabilitasyon.
+        İlhami Hoca'nın iletişim bilgileri: Telefon: 05372751789, E-posta: fztilhamiyavuz@gmail.com, Adres: Doğu Cd No.13, Yeni Mahalle, İlk Paylaşım Özel Eğitim Merkezi – Ardahan, Instagram: @fzt.ilhamiyavuz.
+        Eğer kullanıcı API ile ilgili bir sorun sorarsa, "API anahtarınızın doğru girildiğinden ve Generative Language API'sinin Google Cloud projenizde etkin olduğundan emin olun." şeklinde yanıt ver.
+    `;
+    
+    const requestBody = {
+        contents: [{
+            parts: [{
+                text: systemPrompt + "\nKullanıcı: " + prompt
+            }]
+        }],
+        safetySettings: [{
+            "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+            "threshold": "BLOCK_NONE"
+        }]
+    };
 
-    <script type="module">
-        import { GoogleGenerativeAI } from "https://cdn.jsdelivr.net/npm/@google/generative-ai@0.14.0/dist/index.js";
-
-        const chatBubble = document.getElementById('chat-bubble');
-        const chatWindow = document.getElementById('chat-window');
-        const closeChatBtn = document.getElementById('close-chat-btn');
-        const chatMessages = document.getElementById('chat-messages');
-        const chatInput = document.getElementById('chat-input');
-        const chatSendBtn = document.getElementById('chat-send-btn');
-        const apiKeyInput = document.getElementById('api-key-input');
-
-        let isChatOpen = false;
-        let chatHistory = [];
-        let model;
-
-        // Corrected Chat Bubble Toggle
-        chatBubble.addEventListener('click', () => {
-            isChatOpen = !isChatOpen;
-            chatWindow.style.display = isChatOpen ? 'flex' : 'none';
-            if (isChatOpen) {
-                // Initial welcome message
-                if (chatMessages.children.length === 0) {
-                    addMessageToChat('bot', "Merhaba! Ben FizyoAsistan, İlhami Hocamızın dijital asistanıyım. Size nasıl yardımcı olabilirim?");
-                    chatInput.disabled = false;
-                    chatSendBtn.disabled = false;
-                }
-            }
+    try {
+        const response = await fetch(API_URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(requestBody)
         });
 
-        closeChatBtn.addEventListener('click', () => {
-            isChatOpen = false;
-            chatWindow.style.display = 'none';
-        });
-        
-        chatInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                sendMessage();
-            }
-        });
-        
-        chatSendBtn.addEventListener('click', sendMessage);
-
-        function addMessageToChat(sender, text) {
-            const messageElement = document.createElement('div');
-            messageElement.classList.add('message', sender);
-            messageElement.textContent = text;
-            chatMessages.appendChild(messageElement);
-            chatMessages.scrollTop = chatMessages.scrollHeight; // Scroll to bottom
+        if (!response.ok) {
+            console.error('API Error:', response.statusText, await response.text());
+            return "API Hatası: İstek başarısız oldu. Lütfen daha sonra tekrar deneyin.";
         }
-        
-        async function sendMessage() {
-            const userMessage = chatInput.value.trim();
-            if (userMessage === '') return;
-        
-            addMessageToChat('user', userMessage);
-            chatInput.value = '';
-        
-            // Disable input while bot is thinking
-            chatInput.disabled = true;
-            chatSendBtn.disabled = true;
-        
-            const API_KEY = apiKeyInput.value.trim();
-            if (!API_KEY) {
-                addMessageToChat('bot', "AIzaSyBa_jH4YxEvxR0SSWmi-4bqtGqG7n5b1l8");
-                chatInput.disabled = false;
-                chatSendBtn.disabled = false;
-                return;
-            }
-        
-            if (!model) {
-                const genAI = new GoogleGenerativeAI(API_KEY);
-                model = genAI.getGenerativeModel({ model: "gemini-pro" });
-            }
-            
-            // System prompt for Gemini's persona and rules
-            const systemPrompt = `
-                Sen, fizyoterapist İlhami Yavuz'un dijital asistanısın. Adın FizyoAsistan.
-                Kullanıcılara sadece fizyoterapi ve sağlıkla ilgili konularda bilgi verebilirsin.
-                Tıbbi teşhis koyma veya kişiye özel tedavi önerme yetkin yok. Her zaman bir uzmana danışılması gerektiğini vurgulamalısın.
-                Tıbbi teşhis veya kişisel durumla ilgili sorulara, "En doğru teşhis ve size özel tedavi planı için İlhami Hocamızla görüşmeniz en doğrusu olacaktır." şeklinde yanıt ver.
-                Web sitenin sunduğu hizmetlere yönlendirebilirsin: Randevu alma, iletişim gibi.
-                Web sitesinin fizyoterapistine "İlhami Hocam" diye hitap et.
-                Yalnızca Türkçe yanıt ver.
-                İlhami Hocam'ın uzmanlık alanları: nörolojik, ortopedik ve pediatrik rehabilitasyon.
-                İlhami Hocam'ın iletişim bilgileri: Telefon: 05372751789, E-posta: fztilhamiyavuz@gmail.com, Adres: Doğu Cd No.13, Yeni Mahalle, İlk Paylaşım Özel Eğitim Merkezi – Ardahan, Instagram: @fzt.ilhamiyavuz.
-                Eğer kullanıcı API ile ilgili bir sorun sorarsa, "API anahtarınızın doğru girildiğinden ve Generative Language API'sinin Google Cloud projenizde etkin olduğundan emin olun." şeklinde yanıt ver.
-            `;
-        
-            chatHistory.push({ role: "user", parts: [{ text: userMessage }] });
-        
-            addMessageToChat('bot', "Düşünüyorum...");
-        
-            try {
-                const result = await model.generateContent({
-                    contents: [
-                        { role: "user", parts: [{ text: systemPrompt }] },
-                        ...chatHistory
-                    ]
-                });
-                
-                const response = await result.response;
-                const botResponse = response.text();
-        
-                // Remove "Düşünüyorum..." message
-                chatMessages.lastElementChild.remove();
-        
-                addMessageToChat('bot', botResponse);
-                chatHistory.push({ role: "model", parts: [{ text: botResponse }] });
-        
-            } catch (error) {
-                console.error('API Error:', error);
-                chatMessages.lastElementChild.remove();
-                addMessageToChat('bot', "API hatası oluştu. Lütfen anahtarınızı kontrol edin ve daha sonra tekrar deneyin.");
-            } finally {
-                // Re-enable input
-                chatInput.disabled = false;
-                chatSendBtn.disabled = false;
-                chatInput.focus();
-            }
+
+        const data = await response.json();
+        if (data.candidates && data.candidates[0] && data.candidates[0].content) {
+            return data.candidates[0].content.parts[0].text;
+        } else {
+            console.error('API Error: Unexpected response format', data);
+            return "API Hatası: Beklenmeyen yanıt formatı. Lütfen daha sonra tekrar deneyin.";
         }
-    </script>
-</body>
-</html>
+
+    } catch (error) {
+        console.error('Fetch Error:', error);
+        return "Bir hata oluştu. Lütfen daha sonra tekrar deneyin.";
+    }
+}
+
+// Global chat state
+let isChatOpen = false;
+let chatHistory = [];
+let model;
+
+// Chatbot UI elements
+const chatBubble = document.getElementById('chat-bubble');
+const chatWindow = document.getElementById('chat-window');
+const closeChatBtn = document.getElementById('close-chat-btn');
+const chatMessages = document.getElementById('chat-messages');
+const chatInput = document.getElementById('chat-input');
+const chatSendBtn = document.getElementById('chat-send-btn');
+
+// Corrected Chat Bubble Toggle
+function toggleChat() {
+    isChatOpen = !isChatOpen;
+    chatWindow.style.display = isChatOpen ? 'flex' : 'none';
+    if (isChatOpen) {
+        // Initial welcome message
+        if (chatMessages.children.length === 0) {
+            addMessageToChat('bot', "Merhaba! Ben FizyoAsistan, İlhami Hocamızın dijital asistanıyım. Size nasıl yardımcı olabilirim?");
+        }
+        chatInput.focus();
+    }
+}
+
+closeChatBtn.addEventListener('click', toggleChat);
+chatInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        sendMessage();
+    }
+});
+chatSendBtn.addEventListener('click', sendMessage);
+
+function addMessageToChat(sender, text) {
+    const messageElement = document.createElement('div');
+    messageElement.classList.add('message', sender);
+    messageElement.textContent = text;
+    chatMessages.appendChild(messageElement);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+async function sendMessage() {
+    const userMessage = chatInput.value.trim();
+    if (userMessage === '') return;
+
+    addMessageToChat('user', userMessage);
+    chatInput.value = '';
+
+    chatInput.disabled = true;
+    chatSendBtn.disabled = true;
+
+    const API_KEY = '__api_key__'; // API anahtarınızı buraya girin
+
+    if (API_KEY === '__api_key__') {
+        addMessageToChat('bot', "Lütfen API anahtarınızı JavaScript kodunda doğru yere ekleyin.");
+        chatInput.disabled = false;
+        chatSendBtn.disabled = false;
+        return;
+    }
+
+    if (!model) {
+        const genAI = new GoogleGenerativeAI(API_KEY);
+        model = genAI.getGenerativeModel({ model: "gemini-pro" });
+    }
+    
+    const systemPrompt = `
+        Sen, fizyoterapist İlhami Yavuz'un dijital asistanısın. Adın FizyoAsistan.
+        Kullanıcılara sadece fizyoterapi ve sağlıkla ilgili konularda bilgi verebilirsin.
+        Tıbbi teşhis koyma veya kişiye özel tedavi önerme yetkin yok. Her zaman bir uzmana danışılması gerektiğini vurgulamalısın.
+        Tıbbi teşhis veya kişisel durumla ilgili sorulara, "En doğru teşhis ve size özel tedavi planı için İlhami Hocamızla görüşmeniz en doğrusu olacaktır." şeklinde yanıt ver.
+        Web sitenin sunduğu hizmetlere yönlendirebilirsin: Randevu alma, iletişim gibi.
+        Web sitesinin fizyoterapistine "İlhami Hocam" diye hitap et.
+        Yalnızca Türkçe yanıt ver.
+        İlhami Hocam'ın uzmanlık alanları: nörolojik, ortopedik ve pediatrik rehabilitasyon.
+        İlhami Hocam'ın iletişim bilgileri: Telefon: 05372751789, E-posta: fztilhamiyavuz@gmail.com, Adres: Doğu Cd No.13, Yeni Mahalle, İlk Paylaşım Özel Eğitim Merkezi – Ardahan, Instagram: @fzt.ilhamiyavuz.
+        Eğer kullanıcı API ile ilgili bir sorun sorarsa, "API anahtarınızın doğru girildiğinden ve Generative Language API'sinin Google Cloud projenizde etkin olduğundan emin olun." şeklinde yanıt ver.
+    `;
+    
+    addMessageToChat('bot', "Düşünüyorum...");
+    
+    try {
+        const result = await model.generateContent(userMessage);
+        const botResponse = await result.response.text();
+
+        chatMessages.lastElementChild.remove();
+        addMessageToChat('bot', botResponse);
+        
+    } catch (error) {
+        console.error('API Error:', error);
+        chatMessages.lastElementChild.remove();
+        addMessageToChat('bot', "API hatası oluştu. Lütfen anahtarınızı kontrol edin ve daha sonra tekrar deneyin.");
+    } finally {
+        chatInput.disabled = false;
+        chatSendBtn.disabled = false;
+        chatInput.focus();
+    }
+}
