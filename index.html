@@ -81,7 +81,7 @@
         }
         #chat-bubble {
             position: fixed;
-            bottom: 70px;
+            bottom: 20px;
             right: 20px;
             background-color: #3498db;
             color: white;
@@ -93,7 +93,7 @@
             align-items: center;
             cursor: pointer;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
+            z-index: 1001; /* Z-index değeri artırıldı */
             transition: transform 0.3s ease;
             animation: pulse 1.5s infinite;
         }
@@ -102,7 +102,7 @@
         }
         #chat-window {
             position: fixed;
-            bottom: 140px;
+            bottom: 90px; /* Ayarlandı */
             right: 20px;
             width: 350px;
             height: 500px;
@@ -112,7 +112,7 @@
             display: none;
             flex-direction: column;
             overflow: hidden;
-            z-index: 999;
+            z-index: 1000;
         }
         #chat-header {
             background-color: #3498db;
@@ -335,74 +335,154 @@
         </p>
     </section>
 
-    <div id="chat-bubble">
+    <div id="chat-bubble" onclick="toggleChat()">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8">
-            <path d="M4.912 2.25a.75.75 0 0 0-.712.514L3.36 5.8a.75.75 0 0 0-.154.168 2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1-.412 1.258l-.875.875c-.324.324-.094.861.354.9l7.986 1.066a.75.75 0 0 0 .736-.265 2.25 2.25 0 0 0 .154-.168 2.25 2.25 0 0 0 0-2.614 1.5 1.5 0 0 1 .412-1.258l.875-.875c.324-.324.094-.861-.354-.9L11.536 2.76a.75.75 0 0 0-.736.265A2.25 2.25 0 0 0 10.64 3.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1-.412 1.258l-.875.875c-.324.324-.094.861-.354-.9L7.464 2.76a.75.75 0 0 0-.736-.265A2.25 2.25 0 0 0 6.536 3.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1-.412 1.258l-.875.875c-.324.324-.094.861-.354-.9L4.2 13.914a.75.75 0 0 0-.547.411 2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9l-7.986-1.066a.75.75 0 0 0-.736.265A2.25 2.25 0 0 0-1.464 19.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 23.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 24.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 28.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 29.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 33.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 34.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 38.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 39.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 43.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 44.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 48.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 49.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 53.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 54.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 58.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 59.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 63.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 64.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 68.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 69.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 73.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 74.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 78.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 79.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 83.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 84.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 88.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 89.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 93.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 94.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 98.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 99.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 103.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 104.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 108.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 109.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 113.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 114.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 118.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 119.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 123.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 124.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 128.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 129.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 133.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 134.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 138.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 139.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 143.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 144.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 148.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 149.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 153.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 154.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 158.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 159.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 163.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 164.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 168.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 169.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 173.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 174.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 178.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 179.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 183.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 184.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 188.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 189.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 193.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 194.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 198.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 199.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 203.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 204.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 208.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 209.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 213.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 214.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 218.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 219.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 223.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 224.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 228.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 229.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 233.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 234.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 238.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 239.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 243.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 244.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 248.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 249.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 253.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 254.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 258.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 259.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 263.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 264.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 268.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 269.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 273.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 274.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 278.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 279.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 283.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 284.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 288.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 289.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 293.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 294.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 298.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 299.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 303.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 304.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 308.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 309.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 313.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 314.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 318.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 319.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 323.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 324.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 328.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 329.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 333.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 334.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 338.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 339.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 343.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 344.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 348.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 349.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 353.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 354.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 358.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 359.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 363.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 364.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 368.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 369.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 373.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 374.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 378.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 379.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 383.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 384.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 388.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 389.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 393.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 394.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 398.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 399.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 403.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 404.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 408.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 409.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 413.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 414.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 418.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 419.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 423.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 424.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 428.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 429.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 433.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 434.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 438.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 439.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 443.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 444.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 448.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 449.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 453.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 454.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 458.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 459.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 463.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 464.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 468.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 469.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.diz_agrisi_nedir = "Diz ağrısı, diz eklemi, çevresindeki kaslar, bağlar veya kıkırdak gibi yapılardaki sorunlardan kaynaklanan yaygın bir semptomdur. En sık görülen nedenler arasında aşırı kullanım, yaralanmalar (menisküs yırtığı, bağ gerilmesi), osteoartrit (kireçlenme) ve tendinit (tendon iltihabı) bulunur."
-bel_agrisi_nedir = "Bel ağrısı, bel bölgesindeki omurga, kaslar, diskler ve sinir köklerindeki problemlerden kaynaklanan yaygın bir rahatsızlıktır. Fıtık, kas spazmları, omurga daralması (spinal stenoz) ve kötü duruş en sık görülen nedenler arasındadır."
-boyun_agrisi_nedir = "Boyun ağrısı, boyun omurları, kasları veya bağlarındaki gerilim, yaralanma veya aşınma gibi sebeplerden kaynaklanır. Duruş bozuklukları, kas spazmları ve boyun fıtığı en sık görülen durumlardır."
-fizyoterapi_nedir = "Fizyoterapi, hastalık, sakatlık, yaşlanma veya yaralanma nedeniyle bozulan fonksiyonel hareketleri ve yaşam kalitesini iyileştirmeyi amaçlayan bir sağlık alanıdır. Değerlendirme, egzersiz, manuel terapi ve diğer fiziksel yöntemlerle uygulanır."
-ilhami_hoca_hakkinda = "Fizyoterapist İlhami Yavuz, nörolojik, ortopedik ve pediatrik rehabilitasyon alanlarında uzmanlaşmıştır. Kişiye özel, bilimsel temelli yaklaşımlarla hastalarının hareket kabiliyetini artırmayı, ağrıyı azaltmayı ve yaşam kalitesini yükseltmeyi hedefler."
+            <path fill-rule="evenodd" d="M4.847 2.47a.75.75 0 0 1 .721.21L6 3.86l.432-.432a.75.75 0 0 1 .721-.21 2.25 2.25 0 0 1 1.956 1.011l.298.595a.75.75 0 0 0 .937.288 2.25 2.25 0 0 1 2.115 0 .75.75 0 0 0 .937-.288l.298-.595a2.25 2.25 0 0 1 1.956-1.011.75.75 0 0 1 .721.21l.432.432a.75.75 0 0 1 .21.721 2.25 2.25 0 0 1-1.011 1.956l-.595.298a.75.75 0 0 0-.288.937 2.25 2.25 0 0 1 0 2.115.75.75 0 0 0 .288.937l.595.298a2.25 2.25 0 0 1 1.011 1.956.75.75 0 0 1-.21.721l-.432.432a.75.75 0 0 1-.721.21 2.25 2.25 0 0 1-1.956-1.011l-.298-.595a.75.75 0 0 0-.937-.288 2.25 2.25 0 0 1-2.115 0 .75.75 0 0 0-.937.288l-.298.595a2.25 2.25 0 0 1-1.956 1.011.75.75 0 0 1-.721-.21l-.432-.432a.75.75 0 0 1-.21-.721 2.25 2.25 0 0 1 1.011-1.956l.595-.298a.75.75 0 0 0 .288-.937 2.25 2.25 0 0 1 0-2.115.75.75 0 0 0-.288-.937l-.595-.298a2.25 2.25 0 0 1-1.011-1.956.75.75 0 0 1 .21-.721l.432-.432Zm1.905-1.958a.75.75 0 0 1 1.082 0l.432.432a.75.75 0 0 1 .21.721 2.25 2.25 0 0 1-1.011 1.956l-.595.298a.75.75 0 0 0-.288.937 2.25 2.25 0 0 1 0 2.115.75.75 0 0 0 .288.937l.595.298a2.25 2.25 0 0 1 1.011 1.956.75.75 0 0 1-.21.721l-.432.432a.75.75 0 0 1-1.082 0l-.432-.432a.75.75 0 0 1-.21-.721 2.25 2.25 0 0 1 1.011-1.956l.595-.298a.75.75 0 0 0 .288-.937 2.25 2.25 0 0 1 0-2.115.75.75 0 0 0-.288-.937l-.595-.298a2.25 2.25 0 0 1-1.011-1.956.75.75 0 0 1 .21-.721l.432-.432Zm-4.908 1.958a.75.75 0 0 1 1.082 0l.432.432a.75.75 0 0 1 .21.721 2.25 2.25 0 0 1-1.011 1.956l-.595.298a.75.75 0 0 0-.288.937 2.25 2.25 0 0 1 0 2.115.75.75 0 0 0 .288.937l.595.298a2.25 2.25 0 0 1 1.011 1.956.75.75 0 0 1-.21.721l-.432.432a.75.75 0 0 1-1.082 0l-.432-.432a.75.75 0 0 1-.21-.721 2.25 2.25 0 0 1 1.011-1.956l.595-.298a.75.75 0 0 0 .288-.937 2.25 2.25 0 0 1 0-2.115.75.75 0 0 0-.288-.937l-.595-.298a2.25 2.25 0 0 1-1.011-1.956.75.75 0 0 1 .21-.721l.432-.432Z" clip-rule="evenodd" />
+        </svg>
+    </div>
 
-// Function to get a response from Gemini API
-async function getGeminiResponse(prompt) {
-    const API_KEY = document.getElementById('api-key-input').value;
-    if (!API_KEY) {
-        return "Lütfen API anahtarınızı girin.";
-    }
+    <div id="chat-window">
+        <div id="chat-header">
+            <span>FizyoAsistan</span>
+            <button id="close-chat-btn">&times;</button>
+        </div>
+        <div id="chat-messages">
+            </div>
+        <div id="chat-input-container">
+            <input type="text" id="api-key-input" placeholder="Gemini API Anahtarınızı buraya girin..." class="flex-grow p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <input type="text" id="chat-input" placeholder="Mesajınızı yazın..." disabled>
+            <button id="chat-send-btn" disabled>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                    <path d="M3.478 2.405a.75.75 0 0 0-.926.94l2.432 7.905H13.5a.75.75 0 0 1 0 1.5H4.984l-2.432 7.905a.75.75 0 0 0 .926.94 60.599 60.599 0 0 0 18.445-8.852.75.75 0 0 0 0-1.292A60.599 60.599 0 0 0 3.478 2.405Z" />
+                </svg>
+            </button>
+        </div>
+    </div>
 
-    const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${API_KEY}`;
-    
-    // Add a system prompt to define the bot's persona and rules
-    const systemPrompt = `
-        Sen, fizyoterapist İlhami Yavuz'un dijital asistanısın. Adın FizyoAsistan.
-        Kullanıcılara sadece fizyoterapi ve sağlıkla ilgili konularda bilgi verebilirsin.
-        Tıbbi teşhis koyma veya kişiye özel tedavi önerme yetkin yok. Her zaman bir uzmana danışılması gerektiğini vurgulamalısın.
-        Tıbbi teşhis veya kişisel durumla ilgili sorulara, "En doğru teşhis ve size özel tedavi planı için İlhami Hocamızla görüşmeniz en doğrusu olacaktır." şeklinde yanıt ver.
-        Web sitemizin sunduğu hizmetlere yönlendirebilirsin: Randevu alma, iletişim gibi.
-        Web sitesinin fizyoterapistine "İlhami Hoca" diye hitap et.
-        Yalnızca Türkçe yanıt ver.
-        Web sitesindeki hizmetleri tanıtabilirsin.
-        İlhami Hoca'nın uzmanlık alanları: nörolojik, ortopedik ve pediatrik rehabilitasyon.
-        İlhami Hoca'nın iletişim bilgileri: Telefon: 05372751789, E-posta: fztilhamiyavuz@gmail.com, Adres: Doğu Cd No.13, Yeni Mahalle, İlk Paylaşım Özel Eğitim Merkezi – Ardahan, Instagram: @fzt.ilhamiyavuz.
-        Eğer kullanıcı API ile ilgili bir sorun sorarsa, "API anahtarınızın doğru girildiğinden ve Generative Language API'sinin Google Cloud projenizde etkin olduğundan emin olun." şeklinde yanıt ver.
-    `;
-    
-    const requestBody = {
-        contents: [{
-            parts: [{
-                text: systemPrompt + "\nKullanıcı: " + prompt
-            }]
-        }],
-        safetySettings: [{
-            "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
-            "threshold": "BLOCK_NONE"
-        }]
-    };
+    <footer class="bg-gray-800 text-white py-8 px-6 md:px-12 text-center mt-8">
+        <p class="text-sm">© 2025 Fizyoterapist İlhami Yavuz. Tüm hakları saklıdır.</p>
+    </footer>
 
-    try {
-        const response = await fetch(API_URL, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(requestBody)
+    <script type="module">
+        import { GoogleGenerativeAI } from "https://cdn.jsdelivr.net/npm/@google/generative-ai@0.14.0/dist/index.js";
+
+        const chatBubble = document.getElementById('chat-bubble');
+        const chatWindow = document.getElementById('chat-window');
+        const closeChatBtn = document.getElementById('close-chat-btn');
+        const chatMessages = document.getElementById('chat-messages');
+        const chatInput = document.getElementById('chat-input');
+        const chatSendBtn = document.getElementById('chat-send-btn');
+        const apiKeyInput = document.getElementById('api-key-input');
+
+        let isChatOpen = false;
+        let chatHistory = [];
+        let model;
+
+        // Corrected Chat Bubble Toggle
+        chatBubble.addEventListener('click', () => {
+            isChatOpen = !isChatOpen;
+            chatWindow.style.display = isChatOpen ? 'flex' : 'none';
+            if (isChatOpen) {
+                // Initial welcome message
+                if (chatMessages.children.length === 0) {
+                    addMessageToChat('bot', "Merhaba! Ben FizyoAsistan, İlhami Hocamızın dijital asistanıyım. Size nasıl yardımcı olabilirim?");
+                    chatInput.disabled = false;
+                    chatSendBtn.disabled = false;
+                }
+            }
         });
 
-        if (!response.ok) {
-            console.error('API Error:', response.statusText, await response.text());
-            return "API Hatası: İstek başarısız oldu. Lütfen daha sonra tekrar deneyin.";
-        }
+        closeChatBtn.addEventListener('click', () => {
+            isChatOpen = false;
+            chatWindow.style.display = 'none';
+        });
+        
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+        
+        chatSendBtn.addEventListener('click', sendMessage);
 
-        const data = await response.json();
-        if (data.candidates && data.candidates[0] && data.candidates[0].content) {
-            return data.candidates[0].content.parts[0].text;
-        } else {
-            console.error('API Error: Unexpected response format', data);
-            return "API Hatası: Beklenmeyen yanıt formatı. Lütfen daha sonra tekrar deneyin.";
+        function addMessageToChat(sender, text) {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('message', sender);
+            messageElement.textContent = text;
+            chatMessages.appendChild(messageElement);
+            chatMessages.scrollTop = chatMessages.scrollHeight; // Scroll to bottom
         }
-
-    } catch (error) {
-        console.error('Fetch Error:', error);
-        return "Bir hata oluştu. Lütfen daha sonra tekrar deneyin.";
-    }
-}
+        
+        async function sendMessage() {
+            const userMessage = chatInput.value.trim();
+            if (userMessage === '') return;
+        
+            addMessageToChat('user', userMessage);
+            chatInput.value = '';
+        
+            // Disable input while bot is thinking
+            chatInput.disabled = true;
+            chatSendBtn.disabled = true;
+        
+            const API_KEY = apiKeyInput.value.trim();
+            if (!API_KEY) {
+                addMessageToChat('bot', "AIzaSyBa_jH4YxEvxR0SSWmi-4bqtGqG7n5b1l8");
+                chatInput.disabled = false;
+                chatSendBtn.disabled = false;
+                return;
+            }
+        
+            if (!model) {
+                const genAI = new GoogleGenerativeAI(API_KEY);
+                model = genAI.getGenerativeModel({ model: "gemini-pro" });
+            }
+            
+            // System prompt for Gemini's persona and rules
+            const systemPrompt = `
+                Sen, fizyoterapist İlhami Yavuz'un dijital asistanısın. Adın FizyoAsistan.
+                Kullanıcılara sadece fizyoterapi ve sağlıkla ilgili konularda bilgi verebilirsin.
+                Tıbbi teşhis koyma veya kişiye özel tedavi önerme yetkin yok. Her zaman bir uzmana danışılması gerektiğini vurgulamalısın.
+                Tıbbi teşhis veya kişisel durumla ilgili sorulara, "En doğru teşhis ve size özel tedavi planı için İlhami Hocamızla görüşmeniz en doğrusu olacaktır." şeklinde yanıt ver.
+                Web sitenin sunduğu hizmetlere yönlendirebilirsin: Randevu alma, iletişim gibi.
+                Web sitesinin fizyoterapistine "İlhami Hocam" diye hitap et.
+                Yalnızca Türkçe yanıt ver.
+                İlhami Hocam'ın uzmanlık alanları: nörolojik, ortopedik ve pediatrik rehabilitasyon.
+                İlhami Hocam'ın iletişim bilgileri: Telefon: 05372751789, E-posta: fztilhamiyavuz@gmail.com, Adres: Doğu Cd No.13, Yeni Mahalle, İlk Paylaşım Özel Eğitim Merkezi – Ardahan, Instagram: @fzt.ilhamiyavuz.
+                Eğer kullanıcı API ile ilgili bir sorun sorarsa, "API anahtarınızın doğru girildiğinden ve Generative Language API'sinin Google Cloud projenizde etkin olduğundan emin olun." şeklinde yanıt ver.
+            `;
+        
+            chatHistory.push({ role: "user", parts: [{ text: userMessage }] });
+        
+            addMessageToChat('bot', "Düşünüyorum...");
+        
+            try {
+                const result = await model.generateContent({
+                    contents: [
+                        { role: "user", parts: [{ text: systemPrompt }] },
+                        ...chatHistory
+                    ]
+                });
+                
+                const response = await result.response;
+                const botResponse = response.text();
+        
+                // Remove "Düşünüyorum..." message
+                chatMessages.lastElementChild.remove();
+        
+                addMessageToChat('bot', botResponse);
+                chatHistory.push({ role: "model", parts: [{ text: botResponse }] });
+        
+            } catch (error) {
+                console.error('API Error:', error);
+                chatMessages.lastElementChild.remove();
+                addMessageToChat('bot', "API hatası oluştu. Lütfen anahtarınızı kontrol edin ve daha sonra tekrar deneyin.");
+            } finally {
+                // Re-enable input
+                chatInput.disabled = false;
+                chatSendBtn.disabled = false;
+                chatInput.focus();
+            }
+        }
+    </script>
+</body>
+</html>
