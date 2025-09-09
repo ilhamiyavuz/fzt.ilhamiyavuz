@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fizyoterapist İlhami Yavuz</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
@@ -93,7 +94,7 @@
             align-items: center;
             cursor: pointer;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            z-index: 1001; /* Z-index değeri artırıldı */
+            z-index: 1001;
             transition: transform 0.3s ease;
             animation: pulse 1.5s infinite;
         }
@@ -204,6 +205,7 @@
 </head>
 <body class="antialiased">
 
+    <!-- Header Section -->
     <header class="bg-white shadow-sm py-4 px-6 md:px-12 flex flex-col md:flex-row justify-between items-center rounded-b-lg">
         <div class="text-2xl font-bold text-gray-800 mb-4 md:mb-0">Fizyoterapist İlhami Yavuz</div>
         <nav class="nav-menu flex flex-wrap justify-center gap-4 md:gap-8 text-lg font-medium">
@@ -216,6 +218,7 @@
         </nav>
     </header>
 
+    <!-- Hero Section -->
     <section id="home" class="bg-gradient-to-r from-blue-400 to-blue-600 text-white py-16 px-6 md:px-12 flex flex-col md:flex-row items-center justify-center rounded-xl m-4 md:m-8">
         <div class="hero-content text-center md:text-left max-w-2xl">
             <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4">Hareketi Özgürleştir, Yaşam Kaliteni Artır.</h1>
@@ -231,6 +234,7 @@
         </div>
     </section>
 
+    <!-- About Section -->
     <section id="about" class="py-16 px-6 md:px-12 bg-white m-4 md:m-8 rounded-xl shadow-lg flex flex-col items-center justify-center">
         <div class="md:w-full text-center md:text-left max-w-4xl mx-auto">
             <h2 class="text-3xl section-title">Fizyoterapist İlhami Yavuz</h2>
@@ -240,6 +244,7 @@
         </div>
     </section>
 
+    <!-- Services Section -->
     <section id="services" class="py-16 px-6 md:px-12 bg-gray-50 m-4 md:m-8 rounded-xl shadow-lg">
         <h2 class="text-3xl section-title text-center">Bireye Özel Fizyoterapi Hizmetleri</h2>
         <div class="services-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
@@ -261,6 +266,7 @@
         </div>
     </section>
 
+    <!-- Appointment Section -->
     <section id="appointment" class="py-16 px-6 md:px-12 bg-white m-4 md:m-8 rounded-xl shadow-lg text-center">
         <h2 class="text-3xl section-title">Randevunuzu Hemen Oluşturun</h2>
         <p class="text-lg leading-relaxed text-gray-700 mb-8 max-w-3xl mx-auto">
@@ -291,6 +297,7 @@
         </p>
     </section>
 
+    <!-- Testimonials Section -->
     <section id="testimonials" class="py-16 px-6 md:px-12 bg-white m-4 md:m-8 rounded-xl shadow-lg">
         <h2 class="text-3xl section-title text-center">Danışanlarımızdan Gelenler</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -305,6 +312,7 @@
         </div>
     </section>
 
+    <!-- Contact Section -->
     <section id="contact" class="py-16 px-6 md:px-12 bg-gray-50 m-4 md:m-8 rounded-xl shadow-lg text-center">
         <h2 class="text-3xl section-title">Benimle İletişime Geçin</h2>
         <p class="text-lg leading-relaxed text-gray-700 mb-8 max-w-3xl mx-auto">
@@ -335,9 +343,10 @@
         </p>
     </section>
 
+    <!-- Chatbot Bubble -->
     <div id="chat-bubble" onclick="toggleChat()">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8">
-            <path d="M4.912 2.25a.75.75 0 0 0-.712.514L3.36 5.8a.75.75 0 0 0-.154.168 2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1-.412 1.258l-.875.875c-.324.324-.094.861.354.9l7.986 1.066a.75.75 0 0 0 .736-.265 2.25 2.25 0 0 0 .154-.168 2.25 2.25 0 0 0 0-2.614 1.5 1.5 0 0 1 .412-1.258l.875-.875c.324-.324.094-.861-.354-.9L11.536 2.76a.75.75 0 0 0-.736.265A2.25 2.25 0 0 0 10.64 3.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1-.412 1.258l-.875.875c-.324.324-.094.861-.354-.9L7.464 2.76a.75.75 0 0 0-.736-.265A2.25 2.25 0 0 0 6.536 3.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1-.412 1.258l-.875.875c-.324.324-.094.861-.354-.9L4.2 13.914a.75.75 0 0 0-.547.411 2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9l-7.986-1.066a.75.75 0 0 0-.736.265A2.25 2.25 0 0 0-1.464 19.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 23.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 24.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 28.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 29.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 33.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 34.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 38.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 39.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 43.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 44.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 48.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 49.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 53.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 54.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 58.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 59.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 63.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 64.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 68.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 69.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 73.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 74.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 78.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 79.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 83.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 84.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 88.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 89.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 93.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 94.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 98.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 99.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.diz_agrisi_nedir = "Diz ağrısı, diz eklemi, çevresindeki kaslar, bağlar veya kıkırdak gibi yapılardaki sorunlardan kaynaklanan yaygın bir semptomdur. En sık görülen nedenler arasında aşırı kullanım, yaralanmalar (menisküs yırtığı, bağ gerilmesi), osteoartrit (kireçlenme) ve tendinit (tendon iltihabı) bulunur."
+            <path d="M4.912 2.25a.75.75 0 0 0-.712.514L3.36 5.8a.75.75 0 0 0-.154.168 2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1-.412 1.258l-.875.875c-.324.324-.094.861.354.9l7.986 1.066a.75.75 0 0 0 .736-.265 2.25 2.25 0 0 0 .154-.168 2.25 2.25 0 0 0 0-2.614 1.5 1.5 0 0 1 .412-1.258l.875-.875c.324-.324.094-.861-.354-.9L11.536 2.76a.75.75 0 0 0-.736.265A2.25 2.25 0 0 0 10.64 3.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1-.412 1.258l-.875.875c-.324.324-.094.861-.354-.9L7.464 2.76a.75.75 0 0 0-.736-.265A2.25 2.25 0 0 0 6.536 3.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1-.412 1.258l-.875.875c-.324.324-.094.861-.354-.9L4.2 13.914a.75.75 0 0 0-.547.411 2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9l-7.986-1.066a.75.75 0 0 0-.736.265A2.25 2.25 0 0 0-1.464 19.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 23.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 24.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 28.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 29.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 33.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 34.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 38.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 39.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 43.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 44.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 48.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 49.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 53.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 54.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 58.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 59.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 63.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 64.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 68.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 69.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 73.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 74.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 78.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 79.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 83.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 84.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 88.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 89.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 93.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 94.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 98.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 99.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 103.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 104.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.diz_agrisi_nedir = "Diz ağrısı, diz eklemi, çevresindeki kaslar, bağlar veya kıkırdak gibi yapılardaki sorunlardan kaynaklanan yaygın bir semptomdur. En sık görülen nedenler arasında aşırı kullanım, yaralanmalar (menisküs yırtığı, bağ gerilmesi), osteoartrit (kireçlenme) ve tendinit (tendon iltihabı) bulunur."
 bel_agrisi_nedir = "Bel ağrısı, bel bölgesindeki omurga, kaslar, diskler ve sinir köklerindeki problemlerden kaynaklanan yaygın bir rahatsızlıktır. Fıtık, kas spazmları, omurga daralması (spinal stenoz) ve kötü duruş en sık görülen nedenler arasındadır."
 boyun_agrisi_nedir = "Boyun ağrısı, boyun omurları, kasları veya bağlarındaki gerilim, yaralanma veya aşınma gibi sebeplerden kaynaklanır. Duruş bozuklukları, kas spazmları ve boyun fıtığı en sık görülen durumlardır."
 fizyoterapi_nedir = "Fizyoterapi, hastalık, sakatlık, yaşlanma veya yaralanma nedeniyle bozulan fonksiyonel hareketleri ve yaşam kalitesini iyileştirmeyi amaçlayan bir sağlık alanıdır. Değerlendirme, egzersiz, manuel terapi ve diğer fiziksel yöntemlerle uygulanır."
@@ -345,26 +354,23 @@ ilhami_hoca_hakkinda = "Fizyoterapist İlhami Yavuz, nörolojik, ortopedik ve pe
 
 // Function to get a response from Gemini API
 async function getGeminiResponse(prompt) {
-    // API anahtarınızı buraya girin
-    const API_KEY = 'AIzaSyBa_jH4YxEvxR0SSWmi-4bqtGqG7n5b1l8';
+    const API_KEY = '__api_key__';
     if (!API_KEY || API_KEY === '__api_key__') {
         return "Lütfen Gemini API anahtarınızı girin.";
     }
 
     const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${API_KEY}`;
     
-    // Add a system prompt to define the bot's persona and rules
     const systemPrompt = `
         Sen, fizyoterapist İlhami Yavuz'un dijital asistanısın. Adın FizyoAsistan.
         Kullanıcılara sadece fizyoterapi ve sağlıkla ilgili konularda bilgi verebilirsin.
         Tıbbi teşhis koyma veya kişiye özel tedavi önerme yetkin yok. Her zaman bir uzmana danışılması gerektiğini vurgulamalısın.
         Tıbbi teşhis veya kişisel durumla ilgili sorulara, "En doğru teşhis ve size özel tedavi planı için İlhami Hocamızla görüşmeniz en doğrusu olacaktır." şeklinde yanıt ver.
-        Web sitemizin sunduğu hizmetlere yönlendirebilirsin: Randevu alma, iletişim gibi.
+        Web sitenin sunduğu hizmetlere yönlendirebilirsin: Randevu alma, iletişim gibi.
         Web sitesinin fizyoterapistine "İlhami Hocam" diye hitap et.
         Yalnızca Türkçe yanıt ver.
-        Web sitesindeki hizmetleri tanıtabilirsin.
-        İlhami Hoca'nın uzmanlık alanları: nörolojik, ortopedik ve pediatrik rehabilitasyon.
-        İlhami Hoca'nın iletişim bilgileri: Telefon: 05372751789, E-posta: fztilhamiyavuz@gmail.com, Adres: Doğu Cd No.13, Yeni Mahalle, İlk Paylaşım Özel Eğitim Merkezi – Ardahan, Instagram: @fzt.ilhamiyavuz.
+        İlhami Hocam'ın uzmanlık alanları: nörolojik, ortopedik ve pediatrik rehabilitasyon.
+        İlhami Hocam'ın iletişim bilgileri: Telefon: 05372751789, E-posta: fztilhamiyavuz@gmail.com, Adres: Doğu Cd No.13, Yeni Mahalle, İlk Paylaşım Özel Eğitim Merkezi – Ardahan, Instagram: @fzt.ilhamiyavuz.
         Eğer kullanıcı API ile ilgili bir sorun sorarsa, "API anahtarınızın doğru girildiğinden ve Generative Language API'sinin Google Cloud projenizde etkin olduğundan emin olun." şeklinde yanıt ver.
     `;
     
@@ -421,12 +427,10 @@ const chatMessages = document.getElementById('chat-messages');
 const chatInput = document.getElementById('chat-input');
 const chatSendBtn = document.getElementById('chat-send-btn');
 
-// Corrected Chat Bubble Toggle
 function toggleChat() {
     isChatOpen = !isChatOpen;
     chatWindow.style.display = isChatOpen ? 'flex' : 'none';
     if (isChatOpen) {
-        // Initial welcome message
         if (chatMessages.children.length === 0) {
             addMessageToChat('bot', "Merhaba! Ben FizyoAsistan, İlhami Hocamızın dijital asistanıyım. Size nasıl yardımcı olabilirim?");
         }
@@ -434,7 +438,9 @@ function toggleChat() {
     }
 }
 
+chatBubble.addEventListener('click', toggleChat);
 closeChatBtn.addEventListener('click', toggleChat);
+
 chatInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
         sendMessage();
@@ -460,9 +466,8 @@ async function sendMessage() {
     chatInput.disabled = true;
     chatSendBtn.disabled = true;
 
-    const API_KEY = '__api_key__'; // API anahtarınızı buraya girin
-
-    if (API_KEY === '__api_key__') {
+    const API_KEY = '__api_key__';
+    if (!API_KEY || API_KEY === '__api_key__') {
         addMessageToChat('bot', "Lütfen API anahtarınızı JavaScript kodunda doğru yere ekleyin.");
         chatInput.disabled = false;
         chatSendBtn.disabled = false;
@@ -506,3 +511,4 @@ async function sendMessage() {
         chatInput.focus();
     }
 }
+
