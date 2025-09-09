@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fizyoterapist İlhami Yavuz</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
@@ -43,11 +42,11 @@
             border-radius: 1rem;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             padding: 1.5rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Kart animasyonları */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .card:hover {
-            transform: translateY(-5px); /* Hafifçe yukarı kalkma */
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Gölgeyi belirginleştirme */
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
         .nav-link {
             transition: color 0.3s ease;
@@ -55,13 +54,12 @@
         .nav-link:hover {
             color: #3498db;
         }
-        /* Responsive adjustments for smaller screens */
         @media (max-width: 768px) {
             .hero-section {
                 flex-direction: column;
                 text-align: center;
             }
-            .hero-image { /* Added back for mobile */
+            .hero-image {
                 margin-top: 2rem;
             }
             .nav-menu {
@@ -81,10 +79,9 @@
                 margin-bottom: 1rem;
             }
         }
-        /* Chatbot specific styles */
         #chat-bubble {
             position: fixed;
-            bottom: 70px; /* Adjusted further up */
+            bottom: 70px;
             right: 20px;
             background-color: #3498db;
             color: white;
@@ -98,21 +95,21 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             z-index: 1000;
             transition: transform 0.3s ease;
-            animation: pulse 1.5s infinite; /* Added pulse animation */
+            animation: pulse 1.5s infinite;
         }
         #chat-bubble:hover {
             transform: scale(1.05);
         }
         #chat-window {
             position: fixed;
-            bottom: 140px; /* Adjusted further up */
+            bottom: 140px;
             right: 20px;
-            width: 350px; /* Genişliği artırıldı */
-            height: 500px; /* Yüksekliği artırıldı */
+            width: 350px;
+            height: 500px;
             background-color: white;
             border-radius: 1rem;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-            display: none; /* Varsayılan olarak gizli */
+            display: none;
             flex-direction: column;
             overflow: hidden;
             z-index: 999;
@@ -149,7 +146,7 @@
             word-wrap: break-word;
         }
         .message.bot {
-            background-color: #e2e8f0; /* Gray-200 */
+            background-color: #e2e8f0;
             align-self: flex-start;
             border-bottom-left-radius: 0;
         }
@@ -167,7 +164,7 @@
         #chat-input {
             flex-grow: 1;
             padding: 0.75rem;
-            border: 1px solid #cbd5e0; /* Gray-300 */
+            border: 1px solid #cbd5e0;
             border-radius: 9999px;
             margin-right: 0.5rem;
             outline: none;
@@ -189,7 +186,6 @@
             background-color: #2980b9;
         }
 
-        /* Pulse Animation */
         @keyframes pulse {
             0% {
                 transform: scale(1);
@@ -208,7 +204,6 @@
 </head>
 <body class="antialiased">
 
-    <!-- Header Section -->
     <header class="bg-white shadow-sm py-4 px-6 md:px-12 flex flex-col md:flex-row justify-between items-center rounded-b-lg">
         <div class="text-2xl font-bold text-gray-800 mb-4 md:mb-0">Fizyoterapist İlhami Yavuz</div>
         <nav class="nav-menu flex flex-wrap justify-center gap-4 md:gap-8 text-lg font-medium">
@@ -221,7 +216,6 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
     <section id="home" class="bg-gradient-to-r from-blue-400 to-blue-600 text-white py-16 px-6 md:px-12 flex flex-col md:flex-row items-center justify-center rounded-xl m-4 md:m-8">
         <div class="hero-content text-center md:text-left max-w-2xl">
             <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4">Hareketi Özgürleştir, Yaşam Kaliteni Artır.</h1>
@@ -232,13 +226,11 @@
                 <a href="#appointment" class="btn-primary">Randevu Al</a>
             </div>
         </div>
-        <!-- İlhami Hocamın fotoğrafı -->
         <div class="hero-image md:ml-12 mt-8 md:mt-0">
-            <img src="./images/IMG-20250707-WA0011.jpg" alt="Fizyoterapist İlhami Yavuz" class="rounded-full shadow-lg w-48 h-48 md:w-64 md:h-64 object-cover mx-auto" onerror="this.onerror=null;this.src='https://placehold.co/256x256/cccccc/000000?text=Resim+Yok';">
+            <img src="./images/IMG-20250707-WA0011.jpg" alt="Fizyoterapist İlhami Yavuz" class="rounded-full shadow-lg w-48 h-48 md:w-64 md:h-64 object-cover mx-auto" onerror="this.onerror=null;this.src=\'https://placehold.co/256x256/cccccc/000000?text=Resim+Yok\';">
         </div>
     </section>
 
-    <!-- About Section -->
     <section id="about" class="py-16 px-6 md:px-12 bg-white m-4 md:m-8 rounded-xl shadow-lg flex flex-col items-center justify-center">
         <div class="md:w-full text-center md:text-left max-w-4xl mx-auto">
             <h2 class="text-3xl section-title">Fizyoterapist İlhami Yavuz</h2>
@@ -246,35 +238,29 @@
                 Fizyoterapi ve Rehabilitasyon alanında edindiğim akademik bilgi ve sahadaki deneyimimle, bireylerin yaşam kalitesini artırmak ve potansiyellerini en üst düzeye taşımak için çalışıyorum. Çalışma alanımın merkezinde; pediatrik rehabilitasyon, ortopedik problemler, duruş bozuklukları, denge-yürüyüş eğitimi ve gelişimsel gecikmelere yönelik fizyoterapi uygulamaları yer alıyor. Her bireyin ihtiyacına özel değerlendirme ve egzersiz planlaması yaparak, süreci bilimsel temelli ve fonksiyonel hedeflerle ilerletiyorum.
             </p>
         </div>
-        <!-- Hakkımda bölümü için yer tutucu görsel kaldırıldı -->
     </section>
 
-    <!-- Services Section -->
     <section id="services" class="py-16 px-6 md:px-12 bg-gray-50 m-4 md:m-8 rounded-xl shadow-lg">
         <h2 class="text-3xl section-title text-center">Bireye Özel Fizyoterapi Hizmetleri</h2>
         <div class="services-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <!-- Pediatrik Fizyoterapi -->
             <div class="card p-6 flex flex-col items-center text-center">
-                <img src="./images/pexels-thisisengineering-3912370.jpg" alt="Pediatrik Fizyoterapi" class="rounded-full mb-4 w-24 h-24 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/100x100/cccccc/000000?text=Resim+Yok';">
+                <img src="./images/pexels-thisisengineering-3912370.jpg" alt="Pediatrik Fizyoterapi" class="rounded-full mb-4 w-24 h-24 object-cover" onerror="this.onerror=null;this.src=\'https://placehold.co/100x100/cccccc/000000?text=Resim+Yok\';">
                 <h3 class="text-xl font-semibold text-gray-800 mb-2">Pediatrik Fizyoterapi</h3>
                 <p class="text-gray-600">Down sendromu, serebral palsi, gelişim geriliği gibi durumlarda çocukların motor gelişimini desteklemek amacıyla oyun temelli ve bilimsel yaklaşımlarla bireysel terapi uygulamaları sunuyorum.</p>
             </div>
-            <!-- Nörolojik Rehabilitasyon -->
             <div class="card p-6 flex flex-col items-center text-center">
-                <img src="./images/pexels-pixabay-39671.jpg" alt="Nörolojik Rehabilitasyon" class="rounded-full mb-4 w-24 h-24 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/100x100/cccccc/000000?text=Resim+Yok';">
+                <img src="./images/pexels-pixabay-39671.jpg" alt="Nörolojik Rehabilitasyon" class="rounded-full mb-4 w-24 h-24 object-cover" onerror="this.onerror=null;this.src=\'https://placehold.co/100x100/cccccc/000000?text=Resim+Yok\';">
                 <h3 class="text-xl font-semibold text-gray-800 mb-2">Nörolojik Rehabilitasyon</h3>
                 <p class="text-gray-600">İnme, multiple skleroz (MS), beyin travması gibi nörolojik durumlara özel hareket kabiliyeti ve fonksiyonel bağımsızlığı yeniden kazandırmayı hedefleyen egzersiz programları sunuyorum.</p>
             </div>
-            <!-- Ortopedik Rehabilitasyon -->
             <div class="card p-6 flex flex-col items-center text-center">
-                <img src="./images/pexels-maksgelatin-6094033.jpg" alt="Ortopedik Rehabilitasyon" class="rounded-full mb-4 w-24 h-24 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/100x100/cccccc/000000?text=Resim+Yok';">
+                <img src="./images/pexels-maksgelatin-6094033.jpg" alt="Ortopedik Rehabilitasyon" class="rounded-full mb-4 w-24 h-24 object-cover" onerror="this.onerror=null;this.src=\'https://placehold.co/100x100/cccccc/000000?text=Resim+Yok\';">
                 <h3 class="text-xl font-semibold text-gray-800 mb-2">Ortopedik Rehabilitasyon</h3>
                 <p class="text-gray-600">Skolyoz, bel-boyun fıtığı, ameliyat sonrası kas iskelet sistemi problemleri ve postür bozukluklarına yönelik kişiye özel tedavi planları oluşturuyorum.</p>
             </div>
         </div>
     </section>
 
-    <!-- Appointment Section -->
     <section id="appointment" class="py-16 px-6 md:px-12 bg-white m-4 md:m-8 rounded-xl shadow-lg text-center">
         <h2 class="text-3xl section-title">Randevunuzu Hemen Oluşturun</h2>
         <p class="text-lg leading-relaxed text-gray-700 mb-8 max-w-3xl mx-auto">
@@ -305,7 +291,6 @@
         </p>
     </section>
 
-    <!-- Testimonials Section -->
     <section id="testimonials" class="py-16 px-6 md:px-12 bg-white m-4 md:m-8 rounded-xl shadow-lg">
         <h2 class="text-3xl section-title text-center">Danışanlarımızdan Gelenler</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -320,315 +305,36 @@
         </div>
     </section>
 
-    <!-- Footer Section -->
-    <footer class="bg-gray-800 text-white py-8 px-6 md:px-12 text-center rounded-t-lg mt-4 md:mt-8">
-        <p>&copy; 2025 Fizyoterapist İlhami Yavuz. Tüm Hakları Saklıdır.</p>
-    </footer>
-
-    <!-- Chatbot Bubble -->
-    <div id="chat-bubble">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H16.5m-1.5 2.25h.75m-7.5-3.75h.75m4.5-1.5h.75M12 18a9.75 9.75 0 0 1-9.75-9.75V6.75a2.25 2.25 0 0 1 2.25-2.25h10.5a2.25 2.25 0 0 1 2.25 2.25v2.25m-4.5 0h.75M12 18a9.75 9.75 0 0 0 9.75-9.75V6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v2.25m-4.5 0h.75" />
-        </svg>
-    </div>
-
-    <!-- Chatbot Window -->
-    <div id="chat-window">
-        <div id="chat-header">
-            <span>FizyoAsistan</span>
-            <button id="close-chat-btn">&times;</button>
-        </div>
-        <div id="chat-messages">
-            <!-- Messages will be appended here -->
-        </div>
-        <div id="chat-input-container">
-            <input type="text" id="chat-input" placeholder="Mesajınızı yazın...">
-            <button id="chat-send-btn">
+    <section id="contact" class="py-16 px-6 md:px-12 bg-gray-50 m-4 md:m-8 rounded-xl shadow-lg text-center">
+        <h2 class="text-3xl section-title">Benimle İletişime Geçin</h2>
+        <p class="text-lg leading-relaxed text-gray-700 mb-8 max-w-3xl mx-auto">
+            Fizyoterapi hizmetleri hakkında detaylı bilgi almak veya randevu oluşturmak için aşağıdaki iletişim kanallarından bana ulaşabilirsiniz.
+        </p>
+        <div class="flex flex-col md:flex-row justify-center items-center gap-6">
+            <a href="tel:05372751789" class="btn-primary flex items-center gap-2">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.166.44l-1.417 2.126a6.002 6.002 0 0 1-3.094-3.094l2.126-1.417c.385-.264.55-.726.44-1.166L13.5 7.125c-.125-.501-.575-.852-1.091-.852H10.5a2.25 2.25 0 0 0-2.25 2.25v2.25M12 12l.042-.042a.75.75 0 0 1 .91-.04L15 9.75M12 12l-1.5 1.5M12 12l-.042.042a.75.75 0 0 0-.91.04L9 14.25" />
                 </svg>
-            </button>
+                Telefon
+            </a>
+            <a href="https://wa.me/905372751789" target="_blank" class="btn-primary flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.455.343 2.906 1.07 4.277A10.5 10.5 0 0 0 12 21c2.246 0 4.47-.63 6.38-1.873a10.5 10.5 0 0 0 1.07-4.277V8.25a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v5.26Z" />
+                </svg>
+                WhatsApp ile Hızlı Randevu
+            </a>
         </div>
-    </div>
+        <p class="text-gray-700 mt-6 text-lg">
+            📍 Adres: Doğu Cd No.13, Yeni Mahalle, İlk Paylaşım Özel Eğitim Merkezi – Ardahan
+        </p>
+        <p class="text-gray-700 text-lg">
+            📧 E-posta: <a href="mailto:fztilhamiyavuz@gmail.com" class="text-blue-600 hover:underline">fztilhamiyavuz@gmail.com</a>
+        </p>
+        <p class="text-gray-700 text-lg">
+            📷 Instagram: <a href="https://www.instagram.com/fzt.ilhamiyavuz" target="_blank" class="text-blue-600 hover:underline">@fzt.ilhamiyavuz</a>
+        </p>
+    </section>
 
-    <script type="module">
-        // Firebase kütüphanelerini import etme
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, collection, addDoc, query, orderBy, onSnapshot, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-
-        // Global Firebase değişkenleri
-        let app;
-        let db;
-        let auth;
-        let userId = null;
-        let initialChatLoadComplete = false; // Sohbetin ilk yüklemesinin tamamlandığını belirtmek için bayrak
-
-        // Firebase yapılandırmasını ve uygulama kimliğini al
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
-        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
-
-        // Firebase'i başlatma ve kimlik doğrulama
-        const initializeFirebase = async () => {
-            try {
-                app = initializeApp(firebaseConfig);
-                db = getFirestore(app);
-                auth = getAuth(app);
-
-                // Kimlik doğrulama dinleyicisi
-                onAuthStateChanged(auth, async (user) => {
-                    if (user) {
-                        userId = user.uid;
-                        console.log("Firebase Authenticated. User ID:", userId);
-                        // Kullanıcı kimliği hazır olduğunda sohbet geçmişini yükle
-                        loadChatMessages();
-                    } else {
-                        // Eğer token yoksa veya geçersizse anonim olarak oturum aç
-                        try {
-                            if (initialAuthToken) {
-                                await signInWithCustomToken(auth, initialAuthToken);
-                            } else {
-                                await signInAnonymously(auth);
-                            }
-                        } catch (error) {
-                            console.error("Firebase authentication failed:", error);
-                        }
-                    }
-                });
-
-                // Eğer kimlik doğrulama henüz tamamlanmadıysa ve token varsa dene
-                if (!auth.currentUser) { // Sadece henüz oturum açılmamışsa dene
-                    if (initialAuthToken) {
-                        signInWithCustomToken(auth, initialAuthToken).catch(e => console.error("Custom token sign-in failed:", e));
-                    } else {
-                        signInAnonymously(auth).catch(e => console.error("Anonymous sign-in failed:", e));
-                    }
-                }
-
-            } catch (error) {
-                console.error("Firebase initialization error:", error);
-            }
-        };
-
-        // Sohbet balonu ve penceresi elementleri
-        const chatBubble = document.getElementById('chat-bubble');
-        const chatWindow = document.getElementById('chat-window');
-        const closeChatBtn = document.getElementById('close-chat-btn');
-        const chatMessages = document.getElementById('chat-messages');
-        const chatInput = document.getElementById('chat-input');
-        const chatSendBtn = document.getElementById('chat-send-btn');
-
-        // Sohbet penceresini aç/kapa
-        chatBubble.addEventListener('click', () => {
-            console.log("Chat bubble clicked!"); // Debugging: Check if click event fires
-
-            if (chatWindow.style.display === 'flex') {
-                chatWindow.style.display = 'none';
-                console.log("Chat window closed."); // Debugging
-            } else {
-                chatWindow.style.display = 'flex';
-                console.log("Chat window opened."); // Debugging
-                chatMessages.scrollTop = chatMessages.scrollHeight; // En alta kaydır
-
-                // Sohbet penceresi açıldığında Firebase'i başlat (henüz başlatılmadıysa)
-                if (!app) {
-                    initializeFirebase();
-                } else if (userId && !initialChatLoadComplete) {
-                    // Eğer Firebase başlatıldıysa ve kullanıcı ID'si varsa ama sohbet geçmişi yüklenmediyse yükle
-                    loadChatMessages();
-                }
-
-                // Sohbet penceresi açıldığında giriş alanına odaklan
-                chatInput.focus();
-            }
-        });
-
-        closeChatBtn.addEventListener('click', () => {
-            chatWindow.style.display = 'none';
-        });
-
-        // Mesajı sohbet penceresine ekle
-        function displayMessage(message, sender, id = null) {
-            const messageElement = document.createElement('div');
-            messageElement.classList.add('message', sender);
-            messageElement.textContent = message;
-            if (id) {
-                messageElement.id = id;
-            }
-            chatMessages.appendChild(messageElement);
-            chatMessages.scrollTop = chatMessages.scrollHeight; // En alta kaydır
-        }
-
-        // Kullanıcının mesajını gönder
-        let isLoading = false; // Mesaj gönderme durumunu takip eden bayrak
-        async function sendMessage() {
-            const userMessage = chatInput.value.trim();
-            if (userMessage === '' || isLoading) {
-                return;
-            }
-
-            // Yükleme sırasında input ve butonları devre dışı bırak
-            isLoading = true;
-            chatSendBtn.disabled = true;
-            chatInput.disabled = true;
-            console.log('Düğme ve giriş devre dışı bırakıldı.'); // Debugging log
-
-            displayMessage(userMessage, 'user');
-            chatInput.value = '';
-
-            // Yüklenme mesajını göster
-            displayMessage("Biraz bekleyin, FizyoAsistan yanıtınızı hazırlıyor...", 'bot', 'loading-message');
-
-            try {
-                // LLM API çağrısı için prompt oluştur
-                let chatHistory = [];
-                // Mevcut sohbet geçmişini LLM'ye göndermek için al
-                // Sadece son birkaç mesajı göndermek performansı artırabilir
-                const currentMessages = Array.from(chatMessages.children).filter(el => el.id !== 'loading-message').map(msg => {
-                    return {
-                        role: msg.classList.contains('user') ? 'user' : 'model',
-                        parts: [{ text: msg.textContent }]
-                    };
-                });
-                // Son 10 mesajı al (veya ihtiyaca göre ayarla)
-                chatHistory = currentMessages.slice(Math.max(0, currentMessages.length - 10));
-
-                // LLM'ye gönderilecek prompt'u oluştururken, fizyoterapi ile ilgili genel bilgi vermesi ve
-                // İlhami Hocamızla görüşmesi gerektiğini belirtmesi için ek talimatlar ekleyelim.
-                // Ayrıca teşhis koymaktan veya kişiye özel tedavi önermekten kaçınmasını isteyelim.
-                const llmPrompt = `Sen Fizyoterapist İlhami Yavuz'un profesyonel ve özlü dijital asistanı FizyoAsistan'sın. ` +
-                                  `İlhami Hocamız Ardahan'da çalışmaktadır. ` +
-                                  `Kullanıcıya genel fizyoterapi bilgileri sağla. ` +
-                                  `Asla teşhis koyma veya kişiye özel tedavi önerme. ` +
-                                  `Eğer kullanıcı hangi şehirde çalıştığını sorarsa, Ardahan'da çalıştığını belirt. ` +
-                                  `Her zaman, en doğru değerlendirme ve kişiye özel tedavi planı için Fizyoterapist İlhami Yavuz ile görüşmesi gerektiğini kısa ve net bir şekilde belirt. ` +
-                                  `İlhami Hocamızın telefon numarası: 05372751789. ` +
-                                  `Bu telefon numarasını, sadece kullanıcı açıkça iletişim bilgisi sorduğunda veya konuşmanın sonunda bir kereye mahsus olarak ver. ` +
-                                  `Diğer iletişim bilgilerini (WhatsApp, e-posta, Instagram vb.) asla verme. ` +
-                                  `Kullanıcının son mesajı: "${userMessage}"`;
-
-
-                // BURAYA KENDİ API ANAHTARINIZI YAPIŞTIRIN
-                // Google AI Studio'dan aldığınız API anahtarını tırnak işaretleri arasına yapıştırın.
-                const apiKey = "AIzaSyBa_jH4YxEvxR0SSWmi-4bqtGqG7n5b1l8"; // Canvas ortamı tarafından sağlanacak
-                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
-
-                const payload = {
-                    contents: [
-                        ...chatHistory.map(msg => ({ role: msg.role, parts: msg.parts })),
-                        { role: "user", parts: [{ text: llmPrompt }] }
-                    ]
-                };
-
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-                const result = await response.json();
-
-                // Yüklenme mesajını kaldır
-                const loadingMessageElement = document.getElementById('loading-message');
-                if (loadingMessageElement) {
-                    loadingMessageElement.remove();
-                }
-
-                let botResponse = "Üzgünüm, şu an yanıt oluşturamıyorum. Lütfen daha sonra tekrar deneyin veya İlhami Hocamızla doğrudan iletişime geçin.";
-                if (result.candidates && result.candidates.length > 0 &&
-                    result.candidates[0].content && result.candidates[0].content.parts &&
-                    result.candidates[0].content.parts.length > 0) {
-                    botResponse = result.candidates[0].content.parts[0].text;
-                } else {
-                    console.error("LLM response structure unexpected:", result); // Log the unexpected structure
-                    if (result.error && result.error.message) {
-                        botResponse = `API Hatası: ${result.error.message}. Lütfen daha sonra tekrar deneyin.`;
-                    }
-                }
-
-                displayMessage(botResponse, 'bot');
-
-                // Firestore'a mesajı kaydet
-                if (db && userId) {
-                    try {
-                        await addDoc(collection(db, `artifacts/${appId}/users/${userId}/chatMessages`), {
-                            user: userMessage,
-                            bot: botResponse,
-                            timestamp: serverTimestamp()
-                        });
-                    } catch (error) {
-                        console.error("Error writing message to Firestore:", error);
-                    }
-                }
-            } catch (error) {
-                console.error("LLM API call failed:", error);
-                // Hata durumunda da yüklenme mesajını kaldır
-                const loadingMessageElement = document.getElementById('loading-message');
-                if (loadingMessageElement) {
-                    loadingMessageElement.remove();
-                }
-                displayMessage("Bir hata oluştu, lütfen daha sonra tekrar deneyin.", 'bot');
-            } finally {
-                // Mesaj gönderimi tamamlandığında veya hata oluştuğunda giriş ve gönder düğmesini etkinleştir
-                isLoading = false;
-                chatSendBtn.disabled = false;
-                chatInput.disabled = false;
-                console.log('Düğme ve giriş etkinleştirildi.'); // Debugging log
-                chatInput.focus(); // Giriş alanına odaklan
-            }
-        }
-
-        // Sohbet geçmişini Firestore'dan yükle
-        function loadChatMessages() {
-            if (db && userId && !initialChatLoadComplete) { // Sadece ilk yüklemede çalıştır
-                const q = query(collection(db, `artifacts/${appId}/users/${userId}/chatMessages`), orderBy("timestamp"));
-                onSnapshot(q, (snapshot) => {
-                    chatMessages.innerHTML = ''; // Mevcut mesajları temizle
-                    let hasHistory = false;
-                    snapshot.forEach((doc) => {
-                        hasHistory = true;
-                        const data = doc.data();
-                        displayMessage(data.user, 'user');
-                        displayMessage(data.bot, 'bot');
-                    });
-
-                    // Hiç geçmiş yoksa karşılama mesajını göster
-                    if (!hasHistory) {
-                        displayMessage("Merhaba! Ben FizyoAsistan. İlhami Hocamızın dijital asistanıyım ve size yardımcı olmak için buradayım. Size nasıl destek olabilirim?", 'bot');
-                    }
-                    initialChatLoadComplete = true; // İlk yükleme tamamlandı olarak işaretle
-                    chatMessages.scrollTop = chatMessages.scrollHeight; // En alta kaydır
-                }, (error) => {
-                    console.error("Error loading chat messages:", error);
-                    // Hata durumunda da karşılama mesajını göster
-                    if (chatMessages.children.length === 0) {
-                        displayMessage("Merhaba! Ben FizyoAsistan. İlhami Hocamızın dijital asistanıyım ve size yardımcı olmak için buradayım. Size nasıl destek olabilirim?", 'bot');
-                    }
-                    initialChatLoadComplete = true; // Hata olsa bile ilk yükleme tamamlandı
-                });
-            } else if (!db || !userId) {
-                // Firebase veya userId hazır değilse, varsayılan karşılama mesajını göster (sadece bir kez)
-                if (chatMessages.children.length === 0 && !initialChatLoadComplete) {
-                    displayMessage("Merhaba! Ben FizyoAsistan. İlhami Hocamızın dijital asistanıyım ve size yardımcı olmak için buradayım. Size nasıl destek olabilirim?", 'bot');
-                    initialChatLoadComplete = true;
-                }
-            }
-        }
-
-        // Enter tuşuna basıldığında mesaj gönder
-        chatInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                sendMessage();
-            }
-        });
-
-        // Gönder butonuna tıklandığında mesaj gönder
-        chatSendBtn.addEventListener('click', sendMessage);
-
-        // Sayfa yüklendiğinde Firebase'i başlat
-        window.onload = initializeFirebase;
-
-    </script>
-</body>
-</html>
-
+    <div id="chat-bubble">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8">
+            <path d="M4.912 2.25a.75.75 0 0 0-.712.514L3.36 5.8a.75.75 0 0 0-.154.168 2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1-.412 1.258l-.875.875c-.324.324-.094.861.354.9l7.986 1.066a.75.75 0 0 0 .736-.265 2.25 2.25 0 0 0 .154-.168 2.25 2.25 0 0 0 0-2.614 1.5 1.5 0 0 1 .412-1.258l.875-.875c.324-.324.094-.861-.354-.9L11.536 2.76a.75.75 0 0 0-.736.265A2.25 2.25 0 0 0 10.64 3.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1-.412 1.258l-.875.875c-.324.324-.094.861-.354-.9L7.464 2.76a.75.75 0 0 0-.736-.265A2.25 2.25 0 0 0 6.536 3.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1-.412 1.258l-.875.875c-.324.324-.094.861-.354-.9L4.2 13.914a.75.75 0 0 0-.547.411 2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9l-7.986-1.066a.75.75 0 0 0-.736.265A2.25 2.25 0 0 0-1.464 19.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 23.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 24.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 28.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 29.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 33.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 34.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 38.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 39.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 43.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 44.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 48.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 49.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 53.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 54.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 58.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 59.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 63.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 64.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 68.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 69.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 73.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 74.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 78.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 79.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 83.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 84.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 88.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 89.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 93.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 94.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 98.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 99.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 103.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 104.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 108.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 109.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 113.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 114.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 118.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 119.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 123.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 124.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 128.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 129.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 133.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 134.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 138.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 139.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 143.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 144.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 148.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 149.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 153.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 154.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 158.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 159.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 163.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 164.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 168.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 169.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 173.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 174.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 178.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 179.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 183.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 184.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 188.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 189.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 193.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 194.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 198.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 199.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 203.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 204.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 208.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 209.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 213.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 214.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 218.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 219.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 223.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 224.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 228.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 229.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 233.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 234.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 238.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 239.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 243.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 244.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 248.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 249.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 253.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 254.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 258.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 259.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 263.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 264.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 268.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 269.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 273.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 274.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 278.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 279.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 283.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 284.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 288.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 289.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 293.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 294.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 298.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 299.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 303.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 304.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 308.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 309.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 313.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 314.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 318.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 319.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 323.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 324.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 328.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 329.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 333.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 334.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 338.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 339.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 343.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 344.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 348.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 349.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 353.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 354.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 358.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 359.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 363.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 364.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 368.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 369.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 373.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 374.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 378.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 379.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 383.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 384.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 388.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 389.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 393.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 394.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 398.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 399.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 403.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 404.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 408.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 409.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 413.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 414.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 418.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 419.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 423.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 424.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 428.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 429.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 433.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 434.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 438.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 439.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 443.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 444.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 448.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 449.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 453.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 454.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 458.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 459.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 463.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 464.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 468.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 469.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 473.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 474.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 478.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 479.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 483.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 484.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 488.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 489.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 493.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 494.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 498.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 499.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 503.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 504.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 508.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 509.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 513.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 514.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 518.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 519.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 523.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 524.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 528.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 529.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 533.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 534.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 538.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 539.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 543.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 544.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 548.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 549.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 553.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 554.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 558.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 559.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 563.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 564.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 568.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 569.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 573.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 574.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 578.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 579.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 583.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 584.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 588.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 589.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 593.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 594.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 598.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 599.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 603.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 604.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 608.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 609.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 613.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 614.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 618.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 619.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 623.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 624.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 628.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 629.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 633.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 634.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 638.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 639.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 643.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 644.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 648.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 649.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 653.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 654.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 658.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 659.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 663.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 664.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 668.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 669.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 673.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 674.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 678.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 679.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 683.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 684.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 688.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 689.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 693.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 694.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 698.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 699.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 703.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 704.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 708.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 709.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 713.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 714.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 718.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 719.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 723.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 724.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 728.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 729.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 733.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 734.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 738.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 739.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 743.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 744.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 748.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 749.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 753.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 754.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 758.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 759.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 763.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 764.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 768.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 769.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 773.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 774.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 778.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 779.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 783.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 784.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 788.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 789.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 793.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 794.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 798.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 799.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 803.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 804.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 808.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 809.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 813.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 814.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 818.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 819.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 823.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 824.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 828.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 829.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 833.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 834.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 838.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 839.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 843.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 844.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 848.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 849.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 853.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 854.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 858.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 859.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 863.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 864.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 868.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 869.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 873.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 874.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 878.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 879.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 883.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 884.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 888.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 889.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 893.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 894.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 898.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 899.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 903.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 904.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 908.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 909.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 913.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 914.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 918.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 919.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 923.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 924.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 928.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 929.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 933.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 934.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 938.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 939.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 943.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 944.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 948.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 949.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 953.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 954.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 958.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 959.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 963.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 964.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 968.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 969.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 973.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 974.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 978.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 979.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 983.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 984.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 988.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 989.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 993.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 994.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 998.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 999.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1003.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1004.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1008.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1009.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1013.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1014.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1018.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1019.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1023.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1024.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1028.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1029.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1033.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1034.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1038.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1039.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1043.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1044.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1048.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1049.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1053.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1054.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1058.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1059.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1063.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1064.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1068.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1069.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1073.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1074.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1078.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1079.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1083.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1084.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1088.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1089.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1093.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1094.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1098.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1099.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1103.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1104.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1108.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1109.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1113.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1114.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1118.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1119.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1123.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1124.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1128.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1129.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1133.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1134.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1138.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1139.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1143.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1144.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1148.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1149.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1153.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1154.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1158.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1159.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1163.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1164.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1168.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1169.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1173.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1174.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1178.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1179.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1183.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1184.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1188.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1189.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1193.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1194.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1198.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1199.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1203.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1204.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1208.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1209.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1213.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1214.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1218.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1219.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1223.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1224.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1228.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1229.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1233.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1234.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1238.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1239.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1243.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1244.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1248.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1249.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1253.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1254.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1258.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1259.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1263.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1264.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1268.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1269.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1273.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1274.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1278.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1279.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1283.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1284.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1288.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1289.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1293.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1294.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1298.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1299.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1303.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1304.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1308.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1309.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1313.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1314.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1318.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1319.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1323.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1324.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1328.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1329.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1333.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1334.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1338.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1339.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1343.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1344.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1348.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1349.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1353.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1354.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1358.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1359.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1363.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1364.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1368.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1369.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1373.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1374.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1378.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1379.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1383.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1384.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1388.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1389.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1393.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1394.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1398.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1399.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1403.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1404.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1408.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1409.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1413.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1414.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1418.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1419.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1423.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1424.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1428.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1429.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1433.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1434.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1438.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1439.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1443.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1444.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1448.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1449.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1453.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1454.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1458.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1459.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1463.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1464.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1468.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1469.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1473.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1474.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1478.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1479.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1483.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1484.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1488.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1489.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1493.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1494.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1498.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1499.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1503.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1504.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1508.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1509.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1513.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1514.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1518.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1519.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1523.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1524.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1528.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1529.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1533.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1534.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1538.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1539.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1543.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1544.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1548.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1549.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1553.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1554.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1558.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1559.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1563.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1564.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1568.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1569.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1573.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1574.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1578.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1579.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1583.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1584.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1588.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1589.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1593.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1594.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1598.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1599.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1603.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1604.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1608.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1609.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1613.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1614.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1618.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1619.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1623.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1624.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1628.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1629.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1633.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1634.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1638.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1639.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1643.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1644.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1648.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1649.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1653.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1654.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1658.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1659.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1663.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1664.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1668.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1669.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1673.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1674.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1678.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1679.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1683.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1684.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1688.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1689.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1693.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1694.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1698.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1699.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1703.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1704.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1708.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1709.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1713.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1714.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1718.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1719.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1723.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1724.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1728.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1729.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1733.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1734.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1738.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1739.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1743.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1744.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1748.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1749.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1753.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1754.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1758.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1759.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1763.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1764.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1768.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1769.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1773.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1774.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1778.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1779.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1783.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1784.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1788.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1789.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1793.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1794.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1798.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1799.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1803.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1804.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1808.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1809.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1813.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1814.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1818.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1819.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1823.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1824.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1828.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1829.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1833.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1834.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1838.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1839.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1843.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1844.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1848.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1849.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1853.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1854.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1858.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1859.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1863.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1864.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1868.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1869.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1873.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1874.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1878.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1879.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1883.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1884.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1888.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1889.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1893.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1894.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1898.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1899.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1903.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1904.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1908.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1909.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1913.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1914.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1918.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1919.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1923.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1924.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1928.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1929.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1933.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1934.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1938.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1939.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1943.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1944.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1948.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1949.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1953.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1954.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1958.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1959.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1963.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1964.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1968.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1969.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1973.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1974.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1978.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1979.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .412 1.258l.875.875c.324.324.094.861-.354.9L-1.786 1983.914a.75.75 0 0 0-.547.411A2.25 2.25 0 0 0-2.464 1984.16a2.25 2.25 0 0 0 0 2.614 1.5 1.5 0 0 1 .
