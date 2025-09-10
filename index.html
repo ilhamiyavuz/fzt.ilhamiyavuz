@@ -88,20 +88,24 @@
             right: 20px;
             background-color: #3498db;
             color: white;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
+            border-radius: 9999px; /* Rounded corners */
+            padding: 0.75rem 1.25rem;
             display: flex;
-            justify-content: center;
             align-items: center;
+            gap: 0.5rem;
             cursor: pointer;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             z-index: 1000;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, background-color 0.3s ease;
             animation: pulse 1.5s infinite;
         }
         #chat-bubble:hover {
             transform: scale(1.05);
+            background-color: #2980b9;
+        }
+        #chat-bubble svg {
+            width: 1.5rem;
+            height: 1.5rem;
         }
         #chat-window {
             position: fixed;
@@ -327,6 +331,7 @@
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
             <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H16.5m-1.5 2.25h.75m-7.5-3.75h.75m4.5-1.5h.75M12 18a9.75 9.75 0 0 1-9.75-9.75V6.75a2.25 2.25 0 0 1 2.25-2.25h10.5a2.25 2.25 0 0 1 2.25 2.25v2.25m-4.5 0h.75M12 18a9.75 9.75 0 0 0 9.75-9.75V6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v2.25m-4.5 0h.75" />
         </svg>
+        <span class="font-semibold">FizyoAsistan</span>
     </div>
 
     <!-- Chatbot Window -->
@@ -456,7 +461,6 @@
             displayMessage("Biraz bekleyin, FizyoAsistan yanıtınızı hazırlıyor...", 'bot', 'loading-message');
         
             try {
-                // LLM'ye gönderilecek prompt'u oluştur
                 const llmPrompt = `Sen Fizyoterapist İlhami Yavuz'un profesyonel ve özlü dijital asistanı FizyoAsistan'sın. ` +
                                   `İlhami Hocamız Ardahan'da çalışmaktadır. Kullanıcıya genel fizyoterapi bilgileri sağla. ` +
                                   `Asla teşhis koyma veya kişiye özel tedavi önerme. ` +
@@ -467,7 +471,6 @@
                                   `Diğer iletişim bilgilerini (WhatsApp, e-posta, Instagram vb.) asla verme. ` +
                                   `Kullanıcının son mesajı: "${userMessage}"`;
         
-                // Hata çözümü: Sağlanan API anahtarını doğrudan kullan
                 const apiKey = "AIzaSyBa_jH4YxEvxR0SSWmi-4bqtGqG7n5b1l8";
                 const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
         
@@ -549,20 +552,20 @@
                     });
         
                     if (!hasHistory) {
-                        displayMessage("Merhaba! Ben FizyoAsistan. İlhami Hocamıza ait bir dijital asistanım ve size yardımcı olmak için buradayım. Size nasıl destek olabilirim?", 'bot');
+                        displayMessage("Merhaba, ben FizyoAsistan. Sağlığınızla ilgili merak ettiklerinizi bana sorabilir, yaşadığınız rahatsızlıklar konusunda destek alabilirsiniz. Size yardımcı olmak için buradayım.", 'bot');
                     }
                     initialChatLoadComplete = true;
                     chatMessages.scrollTop = chatMessages.scrollHeight;
                 }, (error) => {
                     console.error("Error loading chat messages:", error);
                     if (chatMessages.children.length === 0) {
-                        displayMessage("Merhaba! Ben FizyoAsistan. İlhami Hocamıza ait bir dijital asistanım ve size yardımcı olmak için buradayım. Size nasıl destek olabilirim?", 'bot');
+                        displayMessage("Merhaba, ben FizyoAsistan. Sağlığınızla ilgili merak ettiklerinizi bana sorabilir, yaşadığınız rahatsızlıklar konusunda destek alabilirsiniz. Size yardımcı olmak için buradayım.", 'bot');
                     }
                     initialChatLoadComplete = true;
                 });
             } else if (!db || !userId) {
                 if (chatMessages.children.length === 0 && !initialChatLoadComplete) {
-                    displayMessage("Merhaba! Ben FizyoAsistan. İlhami Hocamıza ait bir dijital asistanım ve size yardımcı olmak için buradayım. Size nasıl destek olabilirim?", 'bot');
+                    displayMessage("Merhaba, ben FizyoAsistan. Sağlığınızla ilgili merak ettiklerinizi bana sorabilir, yaşadığınız rahatsızlıklar konusunda destek alabilirsiniz. Size yardımcı olmak için buradayım.", 'bot');
                     initialChatLoadComplete = true;
                 }
             }
