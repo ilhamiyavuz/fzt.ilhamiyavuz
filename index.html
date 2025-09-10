@@ -415,11 +415,18 @@
         const chatInput = document.getElementById('chat-input');
         const chatSendBtn = document.getElementById('chat-send-btn');
         
+        // Chatbot bubble'ına tıklama olayı
         chatBubble.addEventListener('click', () => {
             if (chatWindow.style.display === 'flex') {
                 chatWindow.style.display = 'none';
             } else {
                 chatWindow.style.display = 'flex';
+                // Eğer sohbet geçmişi henüz yüklenmediyse ve ekranda mesaj yoksa,
+                // karşılama mesajını hemen göster
+                if (!initialChatLoadComplete && chatMessages.children.length === 0) {
+                    displayMessage("Merhaba, ben FizyoAsistan. Sağlığınızla ilgili merak ettiklerinizi bana sorabilir, yaşadığınız rahatsızlıklar konusunda destek alabilirsiniz. Size yardımcı olmak için buradayım.", 'bot');
+                }
+                
                 if (!app) {
                     initializeFirebase();
                 } else if (userId && !initialChatLoadComplete) {
@@ -552,12 +559,14 @@
                     });
         
                     if (!hasHistory) {
+                        // Eğer geçmiş yoksa, karşılama mesajını göster
                         displayMessage("Merhaba, ben FizyoAsistan. Sağlığınızla ilgili merak ettiklerinizi bana sorabilir, yaşadığınız rahatsızlıklar konusunda destek alabilirsiniz. Size yardımcı olmak için buradayım.", 'bot');
                     }
                     initialChatLoadComplete = true;
                     chatMessages.scrollTop = chatMessages.scrollHeight;
                 }, (error) => {
                     console.error("Error loading chat messages:", error);
+                    // Hata durumunda bile karşılama mesajını göster
                     if (chatMessages.children.length === 0) {
                         displayMessage("Merhaba, ben FizyoAsistan. Sağlığınızla ilgili merak ettiklerinizi bana sorabilir, yaşadığınız rahatsızlıklar konusunda destek alabilirsiniz. Size yardımcı olmak için buradayım.", 'bot');
                     }
