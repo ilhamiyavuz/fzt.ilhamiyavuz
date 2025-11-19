@@ -400,7 +400,8 @@
 
         // --- Configuration ---
         const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
+        // Config'i güvenli çekme: GitHub ortamında config undefined gelebilir, bu yüzden boş obje atıyoruz.
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : null;
         
         // API Key - Embedded
         const apiKey = "AIzaSyByZmUaagr72XApsfgy_rTYOuc0p0IMw9g"; 
@@ -420,6 +421,7 @@
         let db, auth, userId;
         let isChatOpen = false;
         let isLoading = false;
+        let firebaseInitialized = false;
 
         // --- UI Functions ---
         
@@ -449,7 +451,15 @@
             chatWindow.classList.remove('hidden');
             chatWindow.classList.add('flex');
             chatTrigger.classList.add('hidden');
-            initializeFirebase(); // Init on first click to save resources
+            
+            if (!firebaseInitialized && firebaseConfig) {
+                 initializeFirebase(); 
+            }
+            
+            // İlk açılışta karşılama mesajı yoksa ekle
+            if (chatMessages.children.length === 0) {
+                appendMessage("Merhaba! Fizyoterapi, rehabilitasyon süreçleri veya randevu hakkında nasıl yardımcı olabilirim?", "bot");
+            }
             scrollToBottom();
         });
 
@@ -507,7 +517,14 @@
         // --- Logic ---
 
         async function initializeFirebase() {
-            if (db) return; // Already initialized
+            if (firebaseInitialized) return; 
+
+            // Eğer config yoksa (GitHub Pages gibi ortamlar), Firebase'i başlatmaya çalışma, sadece chat çalışsın.
+            if (!firebaseConfig) {
+                console.log("Firebase config bulunamadı, offline modda çalışılıyor.");
+                firebaseInitialized = true; // Tekrar denemesin diye true yapıyoruz
+                return;
+            }
 
             try {
                 const app = initializeApp(firebaseConfig);
@@ -529,28 +546,27 @@
                         loadChatHistory();
                     }
                 });
+                firebaseInitialized = true;
 
             } catch (e) {
-                console.error("Firebase Init Error:", e);
-                appendMessage("Bağlantı hatası oluştu. Lütfen sayfayı yenileyin.", "bot");
+                console.error("Firebase Init Error (Görmezden gelinebilir):", e);
+                // Kullanıcıya hata gösterme, sessizce devam et.
+                firebaseInitialized = true;
             }
         }
 
         function loadChatHistory() {
             if (!userId || !db) return;
 
-            // Listen to messages
             const q = query(
                 collection(db, `artifacts/${appId}/users/${userId}/messages`), 
                 orderBy('timestamp', 'asc')
             );
 
             onSnapshot(q, (snapshot) => {
-                // Only process changes if needed, but for simplicity we assume local append handles immediate feedback
-                // Real implementation would sync here. 
-                // For this demo, we just show welcome if empty.
                 if (snapshot.empty && chatMessages.children.length === 0) {
-                     appendMessage("Merhaba! Ben İlhami Hocam'ın dijital asistanı FizyoAsistan. Fizyoterapi, rehabilitasyon süreçleri veya randevu hakkında sorularınızı cevaplayabilirim.", "bot");
+                     // Mesaj geçmişi boşsa varsayılan mesajı göster
+                     // (Zaten butona basınca gösteriyoruz ama garanti olsun)
                 }
             }, (error) => {
                 console.error("Snapshot Error:", error);
@@ -569,27 +585,27 @@
             showTypingIndicator();
 
             try {
-                // Check if API Key is present
-                if (!apiKey) {
-                    throw new Error("API Key Missing");
-                }
+                if (!apiKey) throw new Error("API Key Missing");
 
-                // 1. Save User Message to Firestore
+                // 1. Save User Message to Firestore (If available)
                 if (userId && db) {
-                    await addDoc(collection(db, `artifacts/${appId}/users/${userId}/messages`), {
-                        role: 'user',
-                        content: text,
-                        timestamp: serverTimestamp()
-                    });
+                    try {
+                        await addDoc(collection(db, `artifacts/${appId}/users/${userId}/messages`), {
+                            role: 'user',
+                            content: text,
+                            timestamp: serverTimestamp()
+                        });
+                    } catch(e) { console.log("Mesaj kaydedilemedi (offline)"); }
                 }
 
                 // 2. Call Gemini API
-                const systemPrompt = `Sen Fizyoterapist İlhami Yavuz'un profesyonel dijital asistanı FizyoAsistan'sın. 
-                                      İlhami Hocamız Ardahan'da, "İlk Paylaşım Özel Eğitim Merkezi"nde çalışmaktadır.
-                                      Kullanıcıya genel fizyoterapi (Pediatrik, Nörolojik, Ortopedik) bilgileri sağla.
-                                      Asla kesin tıbbi teşhis koyma. "En doğru değerlendirme için İlhami Hocamıza klinik ortamında muayene olmanız gerekir" uyarısını yap.
-                                      İlhami Hocamızın telefon numarası: 05372751789. Bu numarayı sadece iletişim sorulursa ver.
-                                      Teknik terimler (propriosepsiyon, spastisite, mobilizasyon vb.) kullanmaktan çekinme ama açıkla.`;
+                // Prompt güncellemesi: Tekrarı önlemek için talimat eklendi.
+                const systemPrompt = `Sen Fizyoterapist İlhami Yavuz'un asistanı FizyoAsistan'sın. 
+                                      Bağlam: Ardahan "İlk Paylaşım Özel Eğitim Merkezi"nde hizmet veriyoruz.
+                                      Görev: Kullanıcının sorusuna, sanki konuşmanın ortasındaymış gibi doğrudan, doğal ve profesyonel cevap ver.
+                                      Kural 1: Asla kendini tekrar tanıtma ("Merhaba ben FizyoAsistan" deme).
+                                      Kural 2: Tıbbi teşhis koyma, sadece genel bilgi ve yönlendirme yap.
+                                      Kural 3: Randevu veya iletişim sorulursa İlhami Hocamızın telefonunu (05372751789) ver.`;
 
                 const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
                     method: 'POST',
@@ -602,9 +618,7 @@
 
                 const data = await response.json();
                 
-                if (!response.ok) {
-                     throw new Error(data.error?.message || "API Error");
-                }
+                if (!response.ok) throw new Error(data.error?.message || "API Error");
 
                 const botReply = data.candidates?.[0]?.content?.parts?.[0]?.text || "Şu an cevap veremiyorum, lütfen randevu için arayınız.";
 
@@ -612,23 +626,21 @@
                 removeTypingIndicator();
                 appendMessage(botReply, 'bot');
 
-                // 4. Save Bot Reply to Firestore
+                // 4. Save Bot Reply to Firestore (If available)
                 if (userId && db) {
-                    await addDoc(collection(db, `artifacts/${appId}/users/${userId}/messages`), {
-                        role: 'model',
-                        content: botReply,
-                        timestamp: serverTimestamp()
-                    });
+                    try {
+                        await addDoc(collection(db, `artifacts/${appId}/users/${userId}/messages`), {
+                            role: 'model',
+                            content: botReply,
+                            timestamp: serverTimestamp()
+                        });
+                    } catch(e) { console.log("Cevap kaydedilemedi (offline)"); }
                 }
 
             } catch (error) {
                 console.error(error);
                 removeTypingIndicator();
-                let errorMessage = "Bir hata oluştu. Lütfen 0537 275 17 89 numarasından ulaşınız.";
-                if (error.message === "API Key Missing") {
-                    errorMessage = "Sohbet botunun çalışması için kodun 'apiKey' kısmına geçerli bir Google API anahtarı girmeniz gerekmektedir.";
-                }
-                appendMessage(errorMessage, "bot");
+                appendMessage("Bir hata oluştu. Lütfen 0537 275 17 89 numarasından ulaşınız.", "bot");
             } finally {
                 isLoading = false;
                 chatSend.disabled = false;
