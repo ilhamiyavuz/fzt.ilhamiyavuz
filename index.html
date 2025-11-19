@@ -31,25 +31,26 @@
                             700: '#1d4ed8',
                             900: '#1e3a8a',
                         }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                     }
                 }
             }
         }
     </script>
     <style>
-        @keyframes pulse-soft {
-            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.7); }
-            50% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(37, 99, 235, 0); }
-        }
-        .animate-pulse-soft {
-            animation: pulse-soft 2s infinite;
-        }
         .scrollbar-hide::-webkit-scrollbar {
             display: none;
         }
         .scrollbar-hide {
             -ms-overflow-style: none;
             scrollbar-width: none;
+        }
+        
+        /* Chat Button Gölge Efekti */
+        .shadow-glow {
+            box-shadow: 0 0 15px rgba(37, 99, 235, 0.5);
         }
     </style>
 </head>
@@ -99,7 +100,6 @@
     <!-- Hero Section -->
     <header id="home" class="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-slate-900">
         <div class="absolute inset-0 z-0">
-            <!-- Hero Background Image -->
             <img src="https://images.unsplash.com/photo-1576091160550-2187d80a16f7?auto=format&fit=crop&q=80" alt="Rehabilitasyon Merkezi" class="w-full h-full object-cover opacity-40">
             <div class="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/90 to-transparent"></div>
         </div>
@@ -113,7 +113,7 @@
                 
                 <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
                     Hareketi Özgürleştir, <br/>
-                    <span class="text-primary-500 bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-blue-600">Yaşam Kaliteni</span> Artır.
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-blue-400 to-blue-500">Yaşam Kaliteni Artır.</span>
                 </h1>
                 
                 <p class="text-lg text-slate-300 mb-10 max-w-2xl leading-relaxed">
@@ -141,7 +141,6 @@
                 <!-- Profile Image Area -->
                 <div class="lg:w-1/2 relative group">
                     <div class="absolute inset-0 bg-primary-600 rounded-2xl rotate-3 opacity-10 group-hover:rotate-6 transition-transform duration-300"></div>
-                    <!-- İlhami Yavuz Profil Fotoğrafı - Canlı Renkli -->
                     <img 
                         src="./images/IMG-20250707-WA0011.jpg" 
                         onerror="this.onerror=null;this.src='https://placehold.co/600x800?text=Fzt.+İlhami+Yavuz'"
@@ -384,10 +383,41 @@
             </div>
         </div>
 
-        <!-- Chat Bubble Trigger -->
-        <button id="chat-trigger" class="bg-primary-600 text-white p-4 rounded-full shadow-lg shadow-primary-600/30 hover:bg-primary-700 transition-all hover:scale-110 animate-pulse-soft group flex items-center gap-2">
-            <i class="ph ph-chat-teardrop-text text-2xl"></i>
-            <span class="max-w-0 overflow-hidden group-hover:max-w-[100px] transition-all duration-500 whitespace-nowrap font-bold text-sm">Asistana Sor</span>
+        <!-- Chat Bubble Trigger - PROFESYONEL MÜHÜR (STAMP) TASARIMI -->
+        <button id="chat-trigger" class="group relative flex items-center justify-center bg-white rounded-full shadow-glow shadow-blue-600/40 transition-transform hover:scale-105 animate-pulse-slow">
+            <!-- Daire Çerçeve -->
+            <div class="w-24 h-24 relative">
+                <svg viewBox="0 0 100 100" width="100" height="100" class="w-full h-full fill-primary-700 font-bold">
+                    <!-- Yollar: Metin hizalaması için üst ve alt yaylar -->
+                    <defs>
+                        <!-- Üst Yay: Saat 9'dan 3'e -->
+                        <path id="top-curve" d="M 15,50 A 35,35 0 0 1 85,50" />
+                        <!-- Alt Yay: Saat 3'ten 9'a (Ters yönde çizim, metni düz tutmak için) -->
+                        <path id="bottom-curve" d="M 85,50 A 35,35 0 0 1 15,50" />
+                    </defs>
+                    
+                    <!-- Üst Metin -->
+                    <text font-size="10.5" text-anchor="middle" letter-spacing="1">
+                        <textPath xlink:href="#top-curve" startOffset="50%">
+                            FizyoAsistan
+                        </textPath>
+                    </text>
+
+                    <!-- Alt Metin -->
+                    <text font-size="10.5" text-anchor="middle" letter-spacing="1">
+                        <textPath xlink:href="#bottom-curve" startOffset="50%">
+                            Sohbet Başlat
+                        </textPath>
+                    </text>
+                </svg>
+                
+                <!-- Merkezdeki İkon (Sabit) -->
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center shadow-lg border-2 border-white">
+                        <i class="ph ph-chat-teardrop-text text-2xl"></i>
+                    </div>
+                </div>
+            </div>
         </button>
     </div>
 
@@ -400,7 +430,7 @@
 
         // --- Configuration ---
         const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-        // Config'i güvenli çekme: GitHub ortamında config undefined gelebilir, bu yüzden boş obje atıyoruz.
+        // Config'i güvenli çekme
         const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : null;
         
         // API Key - Embedded
@@ -599,9 +629,10 @@
                 }
 
                 // 2. Call Gemini API
-                // Prompt güncellemesi: Tekrarı önlemek için talimat eklendi.
+                // Prompt güncellemesi: İlhami Yavuz 25 yaşındadır.
                 const systemPrompt = `Sen Fizyoterapist İlhami Yavuz'un asistanı FizyoAsistan'sın. 
                                       Bağlam: Ardahan "İlk Paylaşım Özel Eğitim Merkezi"nde hizmet veriyoruz.
+                                      Kişisel Bilgi: Fizyoterapist İlhami Yavuz 25 yaşındadır, genç ve dinamik bir uzmandır.
                                       Görev: Kullanıcının sorusuna, sanki konuşmanın ortasındaymış gibi doğrudan, doğal ve profesyonel cevap ver.
                                       Kural 1: Asla kendini tekrar tanıtma ("Merhaba ben FizyoAsistan" deme).
                                       Kural 2: Tıbbi teşhis koyma, sadece genel bilgi ve yönlendirme yap.
