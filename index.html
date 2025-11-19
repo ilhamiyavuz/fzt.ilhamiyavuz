@@ -141,12 +141,12 @@
                 <!-- Profile Image Area -->
                 <div class="lg:w-1/2 relative group">
                     <div class="absolute inset-0 bg-primary-600 rounded-2xl rotate-3 opacity-10 group-hover:rotate-6 transition-transform duration-300"></div>
-                    <!-- İlhami Yavuz Profil Fotoğrafı -->
+                    <!-- İlhami Yavuz Profil Fotoğrafı - Canlı Renkli -->
                     <img 
                         src="./images/IMG-20250707-WA0011.jpg" 
                         onerror="this.onerror=null;this.src='https://placehold.co/600x800?text=Fzt.+İlhami+Yavuz'"
                         alt="Fizyoterapist İlhami Yavuz" 
-                        class="relative rounded-2xl shadow-2xl w-full object-cover h-[500px] grayscale group-hover:grayscale-0 transition-all duration-500"
+                        class="relative rounded-2xl shadow-2xl w-full object-cover h-[500px] transition-all duration-500 transform hover:scale-[1.01]"
                     >
                     <div class="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur p-4 rounded-xl shadow-lg border border-slate-100">
                         <div class="flex items-center gap-3">
@@ -402,8 +402,8 @@
         const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
         const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
         
-        // Gemini API Key (Preview Environment uses empty string and proxy)
-        const apiKey = ""; 
+        // API Key - Embedded
+        const apiKey = "AIzaSyByZmUaagr72XApsfgy_rTYOuc0p0IMw9g"; 
         
         // --- UI Elements ---
         const chatTrigger = document.getElementById('chat-trigger');
@@ -569,6 +569,11 @@
             showTypingIndicator();
 
             try {
+                // Check if API Key is present
+                if (!apiKey) {
+                    throw new Error("API Key Missing");
+                }
+
                 // 1. Save User Message to Firestore
                 if (userId && db) {
                     await addDoc(collection(db, `artifacts/${appId}/users/${userId}/messages`), {
@@ -596,6 +601,11 @@
                 });
 
                 const data = await response.json();
+                
+                if (!response.ok) {
+                     throw new Error(data.error?.message || "API Error");
+                }
+
                 const botReply = data.candidates?.[0]?.content?.parts?.[0]?.text || "Şu an cevap veremiyorum, lütfen randevu için arayınız.";
 
                 // 3. UI Update with Bot Reply
@@ -614,7 +624,11 @@
             } catch (error) {
                 console.error(error);
                 removeTypingIndicator();
-                appendMessage("Bir hata oluştu. Lütfen 0537 275 17 89 numarasından ulaşınız.", "bot");
+                let errorMessage = "Bir hata oluştu. Lütfen 0537 275 17 89 numarasından ulaşınız.";
+                if (error.message === "API Key Missing") {
+                    errorMessage = "Sohbet botunun çalışması için kodun 'apiKey' kısmına geçerli bir Google API anahtarı girmeniz gerekmektedir.";
+                }
+                appendMessage(errorMessage, "bot");
             } finally {
                 isLoading = false;
                 chatSend.disabled = false;
