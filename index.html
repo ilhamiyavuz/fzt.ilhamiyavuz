@@ -51,7 +51,7 @@
         .shadow-glow {
             box-shadow: 0 0 15px rgba(37, 99, 235, 0.5);
         }
-        
+
         @keyframes fade-in {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
@@ -88,14 +88,12 @@
                     </a>
                 </div>
 
-                <!-- Mobile Menu Button -->
                 <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-700 hover:text-primary-600 transition-colors">
                     <i class="ph ph-list text-2xl"></i>
                 </button>
             </div>
         </div>
 
-        <!-- Mobile Menu Dropdown -->
         <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white shadow-xl border-t border-slate-100 flex-col p-4 gap-2 md:hidden">
             <a href="#home" class="p-3 rounded-lg hover:bg-slate-50 font-medium text-slate-700">Anasayfa</a>
             <a href="#about" class="p-3 rounded-lg hover:bg-slate-50 font-medium text-slate-700">Hakkımda</a>
@@ -147,8 +145,9 @@
             <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
                 <div class="lg:w-1/2 relative group">
                     <div class="absolute inset-0 bg-primary-600 rounded-2xl rotate-3 opacity-10 group-hover:rotate-6 transition-transform duration-300"></div>
+                    <!-- YEREL DOSYA YOLU: IMG-20250707-WA0011.jpg -->
                     <img 
-                        src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80" 
+                        src="./images/IMG-20250707-WA0011.jpg" 
                         onerror="this.onerror=null;this.src='https://placehold.co/600x800?text=Fzt.+İlhami+Yavuz'"
                         alt="Fizyoterapist İlhami Yavuz" 
                         class="relative rounded-2xl shadow-2xl w-full object-cover h-[500px] transition-all duration-500 transform hover:scale-[1.01]"
@@ -205,67 +204,47 @@
             <div class="text-center max-w-2xl mx-auto mb-16">
                 <h2 class="text-primary-600 font-bold text-sm tracking-wider uppercase mb-2">Klinik Uygulamalar</h2>
                 <h3 class="text-3xl font-bold text-slate-900">Uzmanlık Alanları</h3>
-                <p class="text-slate-600 mt-4">
-                    Çocuklardan yetişkinlere, her yaş grubu için özelleştirilmiş tedavi modaliteleri.
-                </p>
+                <p class="text-slate-600 mt-4">Çocuklardan yetişkinlere, her yaş grubu için özelleştirilmiş tedavi modaliteleri.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 
-                <!-- Pediatrik -->
+                <!-- Service 1: Pediatrik -->
                 <div class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 group overflow-hidden">
                     <div class="h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80" alt="Pediatrik Rehabilitasyon" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <img src="./images/pexels-thisisengineering-3912370.jpg" alt="Pediatrik Rehabilitasyon" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                     </div>
                     <div class="p-8">
                         <h4 class="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2">
                             <i class="ph ph-baby text-orange-500"></i> Pediatrik Rehab.
                         </h4>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
-                            Serebral Palsi, Spina Bifida ve gelişimsel gerilik durumlarında, motor fonksiyon kazanımı için özel terapiler.
-                        </p>
-                        <ul class="text-xs text-slate-500 space-y-2 border-t border-slate-100 pt-4">
-                            <li class="flex items-center gap-2"><i class="ph ph-check text-orange-500"></i> Cuevas Medek Terapi (CME)</li>
-                            <li class="flex items-center gap-2"><i class="ph ph-check text-orange-500"></i> Bobath Konsepti</li>
-                        </ul>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">Serebral Palsi, Spina Bifida ve gelişimsel gerilik durumlarında, motor fonksiyon kazanımı için özel terapiler.</p>
                     </div>
                 </div>
 
-                <!-- Nörolojik -->
+                <!-- Service 2: Nörolojik -->
                 <div class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 group overflow-hidden">
                     <div class="h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&q=80" alt="Nörolojik Rehabilitasyon" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <img src="./images/pexels-pixabay-39671.jpg" alt="Nörolojik Rehabilitasyon" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                     </div>
                     <div class="p-8">
                         <h4 class="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2">
                             <i class="ph ph-brain text-blue-500"></i> Nörolojik Rehab.
                         </h4>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
-                            İnme (SVO), MS, Parkinson ve kafa travmaları sonrası nöroplastisiteyi hedefleyen, günlük yaşam aktivitelerine dönüş tedavileri.
-                        </p>
-                        <ul class="text-xs text-slate-500 space-y-2 border-t border-slate-100 pt-4">
-                            <li class="flex items-center gap-2"><i class="ph ph-check text-blue-500"></i> Denge & Koordinasyon</li>
-                            <li class="flex items-center gap-2"><i class="ph ph-check text-blue-500"></i> Yürüyüş Analizi</li>
-                        </ul>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">İnme (SVO), MS, Parkinson ve kafa travmaları sonrası nöroplastisiteyi hedefleyen tedaviler.</p>
                     </div>
                 </div>
 
-                <!-- Ortopedik -->
+                <!-- Service 3: Ortopedik -->
                 <div class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 group overflow-hidden">
                     <div class="h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80" alt="Ortopedik Rehabilitasyon" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <img src="./images/pexels-maksgelatin-6094033.jpg" alt="Ortopedik Rehabilitasyon" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                     </div>
                     <div class="p-8">
                         <h4 class="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2">
                             <i class="ph ph-person-simple-run text-green-500"></i> Ortopedik & Manuel
                         </h4>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
-                            Bel-boyun fıtığı, skolyoz, post-op rehabilitasyon ve sporcu yaralanmalarında miyofasiyal gevşetme ve mobilizasyon.
-                        </p>
-                        <ul class="text-xs text-slate-500 space-y-2 border-t border-slate-100 pt-4">
-                            <li class="flex items-center gap-2"><i class="ph ph-check text-green-500"></i> Manuel Terapi</li>
-                            <li class="flex items-center gap-2"><i class="ph ph-check text-green-500"></i> Klinik Egzersiz</li>
-                        </ul>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">Bel-boyun fıtığı, skolyoz ve sporcu yaralanmalarında miyofasiyal gevşetme ve mobilizasyon.</p>
                     </div>
                 </div>
 
@@ -279,12 +258,7 @@
             <div class="flex flex-col lg:flex-row gap-8">
                 <div class="lg:w-1/3 bg-slate-900 text-white p-8 rounded-2xl relative overflow-hidden">
                     <div class="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-primary-500 rounded-full opacity-20 blur-xl"></div>
-                    
                     <h3 class="text-2xl font-bold mb-6">İletişim</h3>
-                    <p class="text-slate-400 mb-8 text-sm">
-                        Değerlendirme seansı ve randevu planlaması için lütfen iletişime geçiniz.
-                    </p>
-
                     <div class="space-y-6">
                         <div class="flex items-start gap-4">
                             <div class="bg-white/10 p-2.5 rounded-lg text-primary-400">
@@ -295,7 +269,6 @@
                                 <p class="text-sm font-medium leading-relaxed">Doğu Cd No.13, Yeni Mahalle,<br>İlk Paylaşım Özel Eğitim Merkezi<br>Ardahan / Merkez</p>
                             </div>
                         </div>
-
                         <div class="flex items-start gap-4">
                             <div class="bg-white/10 p-2.5 rounded-lg text-primary-400">
                                 <i class="ph ph-phone text-xl"></i>
@@ -305,18 +278,7 @@
                                 <a href="tel:05372751789" class="text-lg font-bold hover:text-primary-400 transition-colors">0537 275 17 89</a>
                             </div>
                         </div>
-
-                        <div class="flex items-start gap-4">
-                            <div class="bg-white/10 p-2.5 rounded-lg text-primary-400">
-                                <i class="ph ph-envelope text-xl"></i>
-                            </div>
-                            <div>
-                                <p class="text-xs text-slate-400 uppercase font-bold mb-1">E-Posta</p>
-                                <a href="mailto:fztilhamiyavuz@gmail.com" class="text-sm hover:text-primary-400 transition-colors">fztilhamiyavuz@gmail.com</a>
-                            </div>
-                        </div>
                     </div>
-
                     <div class="mt-12 pt-8 border-t border-white/10">
                         <a href="https://www.instagram.com/fzt.ilhamiyavuz" target="_blank" class="flex items-center gap-2 text-slate-300 hover:text-white transition-colors">
                             <i class="ph ph-instagram-logo text-2xl"></i>
@@ -331,7 +293,6 @@
                             <i class="ph ph-map-trifold text-3xl text-slate-400"></i>
                         </div>
                         <h4 class="text-slate-900 font-bold mb-2">Harita Konumu</h4>
-                        <p class="text-slate-500 text-sm">İlk Paylaşım Özel Eğitim Merkezi - Ardahan</p>
                         <a href="https://www.google.com/maps/search/?api=1&query=İlk+Paylaşım+Özel+Eğitim+Merkezi+Ardahan" target="_blank" class="mt-4 inline-flex items-center gap-2 text-primary-600 font-bold text-sm hover:underline">
                             Google Haritalarda Aç <i class="ph ph-arrow-square-out"></i>
                         </a>
@@ -350,7 +311,6 @@
 
     <!-- Chatbot Interface -->
     <div id="chat-interface" class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-4">
-        
         <div id="chat-window" class="hidden w-[350px] h-[500px] bg-white rounded-2xl shadow-2xl border border-slate-100 flex-col overflow-hidden transform transition-all duration-300 origin-bottom-right">
             <div class="bg-primary-600 p-4 flex justify-between items-center text-white">
                 <div class="flex items-center gap-3">
@@ -366,13 +326,11 @@
                     <i class="ph ph-x text-lg"></i>
                 </button>
             </div>
-
             <div id="chat-messages" class="flex-1 p-4 overflow-y-auto bg-slate-50 flex flex-col gap-3 scrollbar-hide"></div>
-
             <div class="p-4 bg-white border-t border-slate-100">
                 <div class="flex gap-2">
                     <input type="text" id="chat-input" class="flex-1 bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-sm focus:outline-none focus:border-primary-500 transition-colors" placeholder="Sorunuzu yazın...">
-                    <button id="chat-send" class="bg-primary-600 text-white p-2 rounded-xl hover:bg-primary-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+                    <button id="chat-send" class="bg-primary-600 text-white p-2 rounded-xl hover:bg-primary-700 transition-colors">
                         <i class="ph ph-paper-plane-right text-lg"></i>
                     </button>
                 </div>
@@ -402,16 +360,17 @@
         </button>
     </div>
 
-    <!-- Firebase & Logic Script -->
+    <!-- Scripts -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, collection, addDoc, query, onSnapshot, serverTimestamp, orderBy } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
+        // Global context vars
         const appId = typeof __app_id !== 'undefined' ? __app_id : 'fzt-ilhami-yavuz';
         const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : null;
         
-        // GÜNCELLENEN API ANAHTARI
+        // Sağlanan yeni API Key
         const apiKey = "AIzaSyAvPIV_SgXA4ZUgj7WYktBJvW3dN0OXEHQ"; 
         
         const chatTrigger = document.getElementById('chat-trigger');
@@ -421,124 +380,60 @@
         const chatInput = document.getElementById('chat-input');
         const chatSend = document.getElementById('chat-send');
         const navbar = document.getElementById('navbar');
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
 
         let db, auth, userId;
-        let isChatOpen = false;
         let isLoading = false;
-        let firebaseInitialized = false;
 
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 20) {
-                navbar.classList.add('bg-white/90', 'backdrop-blur-md', 'shadow-sm', 'py-2');
-                navbar.classList.remove('py-4', 'bg-transparent');
-            } else {
-                navbar.classList.remove('bg-white/90', 'backdrop-blur-md', 'shadow-sm', 'py-2');
-                navbar.classList.add('py-4', 'bg-transparent');
+        // Firebase Setup
+        async function init() {
+            if (firebaseConfig) {
+                const app = initializeApp(firebaseConfig);
+                auth = getAuth(app);
+                db = getFirestore(app);
+                await signInAnonymously(auth);
+                onAuthStateChanged(auth, u => { if(u) userId = u.uid; });
             }
-        });
+        }
+        init();
 
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            mobileMenu.classList.toggle('flex');
+        // UI Interactions
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) navbar.classList.add('bg-white/90', 'backdrop-blur-md', 'shadow-sm', 'py-2');
+            else navbar.classList.remove('bg-white/90', 'backdrop-blur-md', 'shadow-sm', 'py-2');
         });
 
         chatTrigger.addEventListener('click', () => {
-            isChatOpen = true;
             chatWindow.classList.remove('hidden');
-            chatWindow.classList.add('flex');
             chatTrigger.classList.add('hidden');
-            
-            if (!firebaseInitialized && firebaseConfig) {
-                 initializeFirebase(); 
-            }
-            
-            if (chatMessages.children.length === 0) {
-                appendMessage("Merhaba! İlhami Hocamızın asistanıyım. Fizyoterapi süreçleri veya randevu hakkında nasıl yardımcı olabilirim?", "bot");
-            }
-            scrollToBottom();
+            if (chatMessages.children.length === 0) appendMessage("Merhaba! İlhami Hocamızın asistanıyım. Size nasıl yardımcı olabilirim?", "bot");
         });
 
         closeChat.addEventListener('click', () => {
-            isChatOpen = false;
             chatWindow.classList.add('hidden');
-            chatWindow.classList.remove('flex');
             chatTrigger.classList.remove('hidden');
         });
-
-        function scrollToBottom() {
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
 
         function appendMessage(text, sender) {
             const div = document.createElement('div');
             const isBot = sender === 'bot';
             div.className = `flex ${isBot ? 'justify-start' : 'justify-end'} animate-fade-in`;
-            div.innerHTML = `
-                <div class="max-w-[80%] p-3 rounded-2xl text-sm ${
-                    isBot 
-                    ? 'bg-white text-slate-700 border border-slate-100 rounded-tl-none shadow-sm' 
-                    : 'bg-primary-600 text-white rounded-tr-none shadow-md'
-                }">${text}</div>
-            `;
+            div.innerHTML = `<div class="max-w-[80%] p-3 rounded-2xl text-sm ${isBot ? 'bg-white text-slate-700 shadow-sm border border-slate-100' : 'bg-primary-600 text-white shadow-md'}">${text}</div>`;
             chatMessages.appendChild(div);
-            scrollToBottom();
-        }
-
-        function showTypingIndicator() {
-            const div = document.createElement('div');
-            div.id = 'typing-indicator';
-            div.className = 'flex justify-start';
-            div.innerHTML = `
-                <div class="bg-white border border-slate-100 p-3 rounded-2xl rounded-tl-none shadow-sm flex gap-1">
-                    <span class="w-2 h-2 bg-slate-400 rounded-full animate-bounce"></span>
-                    <span class="w-2 h-2 bg-slate-400 rounded-full animate-bounce" style="animation-delay: 0.2s"></span>
-                    <span class="w-2 h-2 bg-slate-400 rounded-full animate-bounce" style="animation-delay: 0.4s"></span>
-                </div>
-            `;
-            chatMessages.appendChild(div);
-            scrollToBottom();
-        }
-
-        function removeTypingIndicator() {
-            const el = document.getElementById('typing-indicator');
-            if (el) el.remove();
-        }
-
-        async function initializeFirebase() {
-            if (firebaseInitialized || !firebaseConfig) return; 
-            try {
-                const app = initializeApp(firebaseConfig);
-                auth = getAuth(app);
-                db = getFirestore(app);
-                const initialToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
-                if (initialToken) await signInWithCustomToken(auth, initialToken);
-                else await signInAnonymously(auth);
-                onAuthStateChanged(auth, (user) => { if (user) userId = user.uid; });
-                firebaseInitialized = true;
-            } catch (e) { console.error("Firebase Error:", e); firebaseInitialized = true; }
+            chatMessages.scrollTop = chatMessages.scrollHeight;
         }
 
         async function handleSend() {
             const text = chatInput.value.trim();
             if (!text || isLoading) return;
+            
             chatInput.value = '';
             appendMessage(text, 'user');
             isLoading = true;
-            chatSend.disabled = true;
-            showTypingIndicator();
+
             try {
-                if (userId && db) {
-                    await addDoc(collection(db, `artifacts/${appId}/users/${userId}/messages`), {
-                        role: 'user', content: text, timestamp: serverTimestamp()
-                    });
-                }
-                const systemPrompt = `Sen Fizyoterapist İlhami Yavuz'un (İlhami Hocamız) asistanı FizyoAsistan'sın. 
-                                      Bağlam: Ardahan "İlk Paylaşım Özel Eğitim Merkezi"nde hizmet veriliyor.
-                                      Kişisel Bilgi: İlhami Hocamız 25 yaşındadır.
-                                      Kural: Doğal, profesyonel ve kısa cevap ver. Teşhis koyma. Randevu için 0537 275 17 89 numarasını ver.`;
-                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
+                const systemPrompt = `Sen Fizyoterapist İlhami Yavuz'un asistanı FizyoAsistan'sın. Ardahan İlk Paylaşım Özel Eğitim Merkezi'ndeyiz. İlhami Hocamız 25 yaşındadır. Tıbbi teşhis koymadan profesyonelce bilgi ver. Randevu için 0537 275 17 89'a yönlendir.`;
+                
+                const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
@@ -546,23 +441,25 @@
                         systemInstruction: { parts: [{ text: systemPrompt }] }
                     })
                 });
-                const data = await response.json();
-                const botReply = data.candidates?.[0]?.content?.parts?.[0]?.text || "Şu an yanıt veremiyorum.";
-                removeTypingIndicator();
+
+                const data = await res.json();
+                const botReply = data.candidates?.[0]?.content?.parts?.[0]?.text || "Şu an cevap veremiyorum.";
                 appendMessage(botReply, 'bot');
-                if (userId && db) {
+
+                if (db && userId) {
                     await addDoc(collection(db, `artifacts/${appId}/users/${userId}/messages`), {
-                        role: 'model', content: botReply, timestamp: serverTimestamp()
+                        text, role: 'user', timestamp: serverTimestamp()
                     });
                 }
-            } catch (error) {
-                removeTypingIndicator();
-                appendMessage("Bir hata oluştu. Lütfen 0537 275 17 89'dan ulaşın.", "bot");
-            } finally { isLoading = false; chatSend.disabled = false; chatInput.focus(); }
+            } catch (e) {
+                appendMessage("Üzgünüm, bir bağlantı hatası oluştu.", "bot");
+            } finally {
+                isLoading = false;
+            }
         }
 
         chatSend.addEventListener('click', handleSend);
-        chatInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') handleSend(); });
+        chatInput.addEventListener('keypress', (e) => { if(e.key === 'Enter') handleSend(); });
     </script>
 </body>
 </html>
