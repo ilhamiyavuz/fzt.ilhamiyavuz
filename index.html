@@ -6,13 +6,8 @@
     <title>Fizyoterapist İlhami Yavuz | Ardahan</title>
     <meta name="description" content="Fizyoterapist İlhami Yavuz - Ardahan. Pediatrik (CME), Nörolojik ve Ortopedik Rehabilitasyon. Manuel Terapi ve Kişiye Özel Tedavi.">
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
     <script>
@@ -34,19 +29,15 @@
     <style>
         .scrollbar-hide::-webkit-scrollbar { display: none; }
         .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
-        
-        .chat-scroll-area {
-            overscroll-behavior: contain;
-            -webkit-overflow-scrolling: touch;
-        }
-        
+        .chat-scroll-area { overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
         .shadow-glow { box-shadow: 0 0 15px rgba(37, 99, 235, 0.5); }
-
         @keyframes fade-in {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
         .animate-fade-in { animation: fade-in 0.3s ease-out forwards; }
+        #mobile-menu { transform: translateX(100%); transition: transform 0.3s ease-in-out; }
+        #mobile-menu.active { transform: translateX(0); }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased selection:bg-primary-200 selection:text-primary-900">
@@ -64,7 +55,6 @@
                         <span class="text-xs text-primary-600 font-medium tracking-wider navbar-subtext">ARDAHAN</span>
                     </div>
                 </a>
-
                 <div class="hidden md:flex items-center gap-8">
                     <a href="#home" class="text-sm font-medium hover:text-primary-600 transition-colors nav-item text-slate-600">Anasayfa</a>
                     <a href="#about" class="text-sm font-medium hover:text-primary-600 transition-colors nav-item text-slate-600">Hakkımda</a>
@@ -73,13 +63,28 @@
                         <i class="ph ph-calendar-check text-lg"></i> Randevu Al
                     </a>
                 </div>
-
                 <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-700 hover:text-primary-600 transition-colors">
                     <i class="ph ph-list text-2xl"></i>
                 </button>
             </div>
         </div>
     </nav>
+
+    <!-- Mobil Menü -->
+    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-64 bg-white shadow-2xl z-[60] md:hidden">
+        <div class="p-6">
+            <button id="close-mobile-menu" class="absolute top-4 right-4 p-2 hover:bg-slate-100 rounded-lg">
+                <i class="ph ph-x text-2xl"></i>
+            </button>
+            <div class="mt-12 flex flex-col gap-4">
+                <a href="#home" class="text-lg font-medium hover:text-primary-600 transition-colors mobile-nav-link">Anasayfa</a>
+                <a href="#about" class="text-lg font-medium hover:text-primary-600 transition-colors mobile-nav-link">Hakkımda</a>
+                <a href="#services" class="text-lg font-medium hover:text-primary-600 transition-colors mobile-nav-link">Hizmetler</a>
+                <a href="#contact" class="bg-primary-600 text-white px-5 py-3 rounded-full text-center font-semibold hover:bg-primary-700 transition-all mobile-nav-link">Randevu Al</a>
+            </div>
+        </div>
+    </div>
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/50 z-[55] hidden md:hidden"></div>
 
     <!-- Hero -->
     <header id="home" class="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-slate-900">
@@ -194,9 +199,7 @@
 
     <!-- Chat Interface -->
     <div id="chat-interface" class="fixed bottom-6 right-6 z-[9999] flex flex-col items-end gap-4">
-        <!-- Chat Window -->
         <div id="chat-window" class="hidden w-[360px] max-w-[90vw] h-[520px] max-h-[80vh] bg-white rounded-3xl shadow-2xl border border-slate-100 overflow-hidden flex flex-col transform transition-all duration-300 scale-95 opacity-0 origin-bottom-right">
-            <!-- Header -->
             <div class="bg-primary-600 p-4 flex justify-between items-center text-white shrink-0 shadow-md">
                 <div class="flex items-center gap-3">
                     <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center shadow-inner"><i class="ph ph-robot text-xl"></i></div>
@@ -204,13 +207,7 @@
                 </div>
                 <button id="close-chat" class="p-2 hover:bg-white/10 rounded-full transition-colors"><i class="ph ph-x"></i></button>
             </div>
-
-            <!-- Messages Area -->
-            <div id="chat-messages" class="flex-grow p-4 overflow-y-auto bg-slate-50 flex flex-col gap-3 scrollbar-hide chat-scroll-area">
-                <!-- Mesajlar -->
-            </div>
-
-            <!-- Input Area -->
+            <div id="chat-messages" class="flex-grow p-4 overflow-y-auto bg-slate-50 flex flex-col gap-3 scrollbar-hide chat-scroll-area"></div>
             <div class="p-4 bg-white border-t border-slate-100 shrink-0">
                 <div class="flex gap-2 bg-slate-50 rounded-2xl border p-1 pr-1 items-center focus-within:border-primary-400 transition-all">
                     <input type="text" id="chat-input" class="flex-1 bg-transparent border-none py-2 px-3 text-sm focus:outline-none" placeholder="Şikayetinizi yazın...">
@@ -222,8 +219,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- Mühür Tetikleyici -->
         <button id="chat-trigger" class="group relative flex items-center justify-center bg-white rounded-full shadow-glow transition-all hover:scale-105 animate-pulse-slow">
             <div class="w-24 h-24 relative">
                 <svg viewBox="0 0 100 100" class="w-full h-full fill-primary-700 font-bold">
@@ -247,15 +242,7 @@
         </button>
     </div>
 
-    <!-- Scripts -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-
-        const appId = 'fzt-ilhami-yavuz';
-        const apiKey = "AIzaSyAvPIV_SgXA4ZUgj7WYktBJvW3dN0OXEHQ"; 
-        
+    <script>
         const chatTrigger = document.getElementById('chat-trigger');
         const chatWindow = document.getElementById('chat-window');
         const closeChat = document.getElementById('close-chat');
@@ -263,24 +250,31 @@
         const chatInput = document.getElementById('chat-input');
         const chatSend = document.getElementById('chat-send');
         const navbar = document.getElementById('navbar');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMobileMenu = document.getElementById('close-mobile-menu');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
 
-        let db, auth, userId;
         let isLoading = false;
 
-        async function init() {
-            try {
-                const firebaseConfig = JSON.parse(window.__firebase_config || '{}');
-                if (firebaseConfig.apiKey) {
-                    const app = initializeApp(firebaseConfig);
-                    auth = getAuth(app);
-                    db = getFirestore(app);
-                    const cred = await signInAnonymously(auth);
-                    userId = cred.user.uid;
-                }
-            } catch(e) {}
+        // Mobil Menü
+        function openMobileMenu() {
+            mobileMenu.classList.add('active');
+            mobileMenuOverlay.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
         }
-        init();
+        function closeMobileMenuFunc() {
+            mobileMenu.classList.remove('active');
+            mobileMenuOverlay.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+        mobileMenuBtn.addEventListener('click', openMobileMenu);
+        closeMobileMenu.addEventListener('click', closeMobileMenuFunc);
+        mobileMenuOverlay.addEventListener('click', closeMobileMenuFunc);
+        mobileNavLinks.forEach(link => link.addEventListener('click', closeMobileMenuFunc));
 
+        // Chat
         chatTrigger.addEventListener('click', () => {
             chatWindow.style.display = 'flex';
             setTimeout(() => {
@@ -288,10 +282,8 @@
                 chatWindow.classList.replace('scale-95', 'scale-100');
             }, 10);
             chatTrigger.classList.add('hidden');
-            
-            // Belirlediğiniz özel karşılama mesajı
             if (chatMessages.children.length === 0) {
-                appendMessage("Merhaba, ben FizyoAsistan. Fzt. İlhami Yavuz’un asistanıyım. Size nasıl yardımcı olabilirim? Herhangi bir şikâyetiniz /hastalığınız varsa benimle paylaşabilirsiniz.", "bot");
+                appendMessage("Merhaba, ben FizyoAsistan. Fzt. İlhami Yavuz'un asistanıyım. Size nasıl yardımcı olabilirim?", "bot");
             }
         });
 
@@ -316,31 +308,44 @@
         async function handleSend() {
             const text = chatInput.value.trim();
             if (!text || isLoading) return;
+            
             chatInput.value = '';
             appendMessage(text, 'user');
             isLoading = true;
-            try {
-                const systemPrompt = `Sen Fzt. İlhami Yavuz'un asistanı FizyoAsistan'sın. 
-                Görevin: Kullanıcının şikayetlerini teknik ve tıbbi bir dille analiz edip, fizyoterapi perspektifinden (Pediatrik, Nörolojik, Ortopedik) profesyonel rehberlik sağlamaktır. 
-                Kurallar: 
-                1. Yanıtlarını verirken teknik bir dil kullan ama hastanın anlayabileceği şekilde açıkla.
-                2. Şikayete odaklan, kişisel hayat hikayesi anlatma.
-                3. Tıbbi teşhis koyma, klinik değerlendirme için fizyoterapiste yönlendir.
-                4. Randevu taleplerinde 0537 275 17 89 numarasını belirt.`;
 
-                const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
+            // Loading göstergesi
+            const loadingId = Date.now();
+            const loadingDiv = document.createElement('div');
+            loadingDiv.id = `loading-${loadingId}`;
+            loadingDiv.className = 'flex justify-start animate-fade-in';
+            loadingDiv.innerHTML = `<div class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm border border-slate-100"><div class="flex gap-1"><div class="w-2 h-2 bg-primary-600 rounded-full animate-bounce"></div><div class="w-2 h-2 bg-primary-600 rounded-full animate-bounce" style="animation-delay: 0.1s"></div><div class="w-2 h-2 bg-primary-600 rounded-full animate-bounce" style="animation-delay: 0.2s"></div></div></div>`;
+            chatMessages.appendChild(loadingDiv);
+            chatMessages.scrollTo({ top: chatMessages.scrollHeight, behavior: 'smooth' });
+
+            try {
+                const response = await fetch('/api/chat', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        contents: [{ parts: [{ text: text }] }],
-                        systemInstruction: { parts: [{ text: systemPrompt }] }
-                    })
+                    body: JSON.stringify({ message: text })
                 });
-                const data = await res.json();
-                const botReply = data.candidates?.[0]?.content?.parts?.[0]?.text || "Şikayetlerinize yönelik detaylı analiz için randevu alabilirsiniz.";
+
+                document.getElementById(`loading-${loadingId}`)?.remove();
+
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+
+                const data = await response.json();
+                const botReply = data.reply || 'Üzgünüm, bir sorun oluştu. Lütfen tekrar deneyin.';
                 appendMessage(botReply, 'bot');
-            } catch (e) { appendMessage("Bağlantı hatası oluştu.", "bot"); } 
-            finally { isLoading = false; }
+
+            } catch (error) {
+                document.getElementById(`loading-${loadingId}`)?.remove();
+                console.error('Chat error:', error);
+                appendMessage('Bağlantı hatası oluştu. Lütfen daha sonra tekrar deneyin veya 0537 275 17 89 numaralı telefonu arayın.', 'bot');
+            } finally {
+                isLoading = false;
+            }
         }
 
         chatSend.addEventListener('click', handleSend);
@@ -353,4 +358,3 @@
     </script>
 </body>
 </html>
-
