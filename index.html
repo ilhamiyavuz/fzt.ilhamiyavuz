@@ -6,8 +6,13 @@
     <title>Fizyoterapist İlhami Yavuz | Ardahan</title>
     <meta name="description" content="Fizyoterapist İlhami Yavuz - Ardahan. Pediatrik (CME), Nörolojik ve Ortopedik Rehabilitasyon. Manuel Terapi ve Kişiye Özel Tedavi.">
     
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
     <script>
@@ -29,15 +34,19 @@
     <style>
         .scrollbar-hide::-webkit-scrollbar { display: none; }
         .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
-        .chat-scroll-area { overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
+        
+        .chat-scroll-area {
+            overscroll-behavior: contain;
+            -webkit-overflow-scrolling: touch;
+        }
+        
         .shadow-glow { box-shadow: 0 0 15px rgba(37, 99, 235, 0.5); }
+
         @keyframes fade-in {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
         .animate-fade-in { animation: fade-in 0.3s ease-out forwards; }
-        #mobile-menu { transform: translateX(100%); transition: transform 0.3s ease-in-out; }
-        #mobile-menu.active { transform: translateX(0); }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased selection:bg-primary-200 selection:text-primary-900">
@@ -55,6 +64,7 @@
                         <span class="text-xs text-primary-600 font-medium tracking-wider navbar-subtext">ARDAHAN</span>
                     </div>
                 </a>
+
                 <div class="hidden md:flex items-center gap-8">
                     <a href="#home" class="text-sm font-medium hover:text-primary-600 transition-colors nav-item text-slate-600">Anasayfa</a>
                     <a href="#about" class="text-sm font-medium hover:text-primary-600 transition-colors nav-item text-slate-600">Hakkımda</a>
@@ -63,6 +73,7 @@
                         <i class="ph ph-calendar-check text-lg"></i> Randevu Al
                     </a>
                 </div>
+
                 <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-700 hover:text-primary-600 transition-colors">
                     <i class="ph ph-list text-2xl"></i>
                 </button>
@@ -70,23 +81,7 @@
         </div>
     </nav>
 
-    <!-- Mobil Menü -->
-    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-64 bg-white shadow-2xl z-[60] md:hidden">
-        <div class="p-6">
-            <button id="close-mobile-menu" class="absolute top-4 right-4 p-2 hover:bg-slate-100 rounded-lg">
-                <i class="ph ph-x text-2xl"></i>
-            </button>
-            <div class="mt-12 flex flex-col gap-4">
-                <a href="#home" class="text-lg font-medium hover:text-primary-600 transition-colors mobile-nav-link">Anasayfa</a>
-                <a href="#about" class="text-lg font-medium hover:text-primary-600 transition-colors mobile-nav-link">Hakkımda</a>
-                <a href="#services" class="text-lg font-medium hover:text-primary-600 transition-colors mobile-nav-link">Hizmetler</a>
-                <a href="#contact" class="bg-primary-600 text-white px-5 py-3 rounded-full text-center font-semibold hover:bg-primary-700 transition-all mobile-nav-link">Randevu Al</a>
-            </div>
-        </div>
-    </div>
-    <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/50 z-[55] hidden md:hidden"></div>
-
-    <!-- Hero -->
+    <!-- Hero Section -->
     <header id="home" class="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-slate-900">
         <div class="absolute inset-0 z-0">
             <img src="https://images.unsplash.com/photo-1576091160550-2187d80a16f7?auto=format&fit=crop&q=80" alt="Rehabilitasyon" class="w-full h-full object-cover opacity-40">
@@ -109,18 +104,24 @@
         </div>
     </header>
 
-    <!-- About -->
+    <!-- About Section -->
     <section id="about" class="py-20 bg-white">
         <div class="container mx-auto px-4 md:px-8">
             <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
                 <div class="lg:w-1/2 relative group">
                     <div class="absolute inset-0 bg-primary-600 rounded-2xl rotate-3 opacity-10"></div>
-                    <img src="/images/IMG-20250707-WA0011.jpg" onerror="this.src='https://placehold.co/600x800?text=İlhami+Yavuz'" class="relative rounded-2xl shadow-2xl w-full object-cover h-[500px]">
+                    <img src="./images/IMG-20250707-WA0011.jpg" onerror="this.src='https://placehold.co/600x800?text=İlhami+Yavuz'" class="relative rounded-2xl shadow-2xl w-full object-cover h-[500px]">
+                    <div class="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur p-4 rounded-xl shadow-lg border border-slate-100">
+                        <div class="flex items-center gap-3">
+                            <div class="bg-primary-100 p-2 rounded-lg text-primary-600"><i class="ph ph-graduation-cap text-2xl"></i></div>
+                            <div><p class="text-xs text-slate-500 uppercase font-bold">Fizyoterapist</p><p class="font-bold text-slate-900">İlhami Yavuz</p></div>
+                        </div>
+                    </div>
                 </div>
                 <div class="lg:w-1/2">
                     <h2 class="text-primary-600 font-bold text-sm tracking-wider uppercase mb-2">Hakkımda</h2>
                     <h3 class="text-3xl font-bold text-slate-900 mb-6">Bütüncül Yaklaşım, Fonksiyonel Sonuçlar</h3>
-                    <p class="text-slate-600 mb-6 leading-relaxed">Ardahan İlk Paylaşım Özel Eğitim Merkezi bünyesinde akademik bilgilerimi saha tecrübemle birleştiriyorum. Önceliğim semptomları baskılamak değil, biyomekanik kaynaklı problemleri tespit edip kalıcı çözümler üretmektir.</p>
+                    <p class="text-slate-600 mb-6 leading-relaxed">Ardahan İlk Paylaşım Özel Eğitim Merkezi bünyesinde akademik bilgilerimi saha tecrübemle birleştiriyorum. Önceliğim biyomekanik kaynaklı problemleri tespit edip kalıcı çözümler üretmektir.</p>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                         <div class="flex items-center gap-3 bg-slate-50 p-3 rounded-lg border border-slate-100"><i class="ph ph-check-circle text-primary-600 text-xl"></i><span class="text-sm font-semibold text-slate-700">Pediatrik Uzmanlık</span></div>
                         <div class="flex items-center gap-3 bg-slate-50 p-3 rounded-lg border border-slate-100"><i class="ph ph-check-circle text-primary-600 text-xl"></i><span class="text-sm font-semibold text-slate-700">Manuel Terapi</span></div>
@@ -132,31 +133,34 @@
         </div>
     </section>
 
-    <!-- Services -->
+    <!-- Services Section -->
     <section id="services" class="py-20 bg-slate-50">
         <div class="container mx-auto px-4 md:px-8">
             <h2 class="text-center text-primary-600 font-bold text-sm uppercase mb-2">Klinik Uygulamalar</h2>
             <h3 class="text-center text-3xl font-bold text-slate-900 mb-16">Uzmanlık Alanları</h3>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all border border-slate-100 group overflow-hidden">
-                    <div class="h-48 overflow-hidden"><img src="/images/pexels-thisisengineering-3912370.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-all"></div>
+                    <div class="h-48 overflow-hidden"><img src="./images/pexels-thisisengineering-3912370.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-all"></div>
                     <div class="p-8">
                         <h4 class="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2"><i class="ph ph-baby text-orange-500"></i> Pediatrik Rehab.</h4>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-4">Serebral Palsi, Spina Bifida ve gelişimsel gerilik durumlarında motor fonksiyon kazanımı.</p>
+                        <p class="text-slate-600 text-sm mb-4">Serebral Palsi, Spina Bifida ve gelişimsel gerilik durumlarında motor fonksiyon kazanımı.</p>
+                        <ul class="text-xs text-slate-500 space-y-2 border-t pt-4"><li><i class="ph ph-check text-orange-500 mr-2"></i>CME Terapisi</li><li><i class="ph ph-check text-orange-500 mr-2"></i>Bobath Konsepti</li></ul>
                     </div>
                 </div>
                 <div class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all border border-slate-100 group overflow-hidden">
-                    <div class="h-48 overflow-hidden"><img src="/images/pexels-pixabay-39671.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-all"></div>
+                    <div class="h-48 overflow-hidden"><img src="./images/pexels-pixabay-39671.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-all"></div>
                     <div class="p-8">
                         <h4 class="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2"><i class="ph ph-brain text-blue-500"></i> Nörolojik Rehab.</h4>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-4">İnme, MS ve Parkinson sonrası nöroplastisiteyi hedefleyen fonksiyonel tedaviler.</p>
+                        <p class="text-slate-600 text-sm mb-4">İnme, MS ve Parkinson sonrası nöroplastisiteyi hedefleyen fonksiyonel tedaviler.</p>
+                        <ul class="text-xs text-slate-500 space-y-2 border-t pt-4"><li><i class="ph ph-check text-blue-500 mr-2"></i>Denge & Koordinasyon</li><li><i class="ph ph-check text-blue-500 mr-2"></i>Yürüyüş Analizi</li></ul>
                     </div>
                 </div>
                 <div class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all border border-slate-100 group overflow-hidden">
-                    <div class="h-48 overflow-hidden"><img src="/images/pexels-maksgelatin-6094033.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-all"></div>
+                    <div class="h-48 overflow-hidden"><img src="./images/pexels-maksgelatin-6094033.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-all"></div>
                     <div class="p-8">
                         <h4 class="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2"><i class="ph ph-person-simple-run text-green-500"></i> Ortopedik Rehab.</h4>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-4">Bel-boyun fıtığı, skolyoz ve sporcu yaralanmalarında manuel terapi.</p>
+                        <p class="text-slate-600 text-sm mb-4">Bel-boyun fıtığı, skolyoz ve sporcu yaralanmalarında manuel terapi çözümleri.</p>
+                        <ul class="text-xs text-slate-500 space-y-2 border-t pt-4"><li><i class="ph ph-check text-green-500 mr-2"></i>Manuel Terapi</li><li><i class="ph ph-check text-green-500 mr-2"></i>Klinik Egzersiz</li></ul>
                     </div>
                 </div>
             </div>
@@ -173,11 +177,11 @@
                     <div class="space-y-6">
                         <div class="flex items-start gap-4">
                             <div class="bg-white/10 p-2.5 rounded-lg text-primary-400"><i class="ph ph-map-pin text-xl"></i></div>
-                            <div><p class="text-xs text-slate-400 font-bold mb-1">Adres</p><p class="text-sm">Doğu Cd No.13, Yeni Mahalle, İlk Paylaşım Özel Eğitim Merkezi - Ardahan</p></div>
+                            <div><p class="text-xs text-slate-400 font-bold mb-1">Klinik Adres</p><p class="text-sm">Doğu Cd No.13, Yeni Mahalle, İlk Paylaşım Özel Eğitim Merkezi - Ardahan</p></div>
                         </div>
                         <div class="flex items-start gap-4">
                             <div class="bg-white/10 p-2.5 rounded-lg text-primary-400"><i class="ph ph-phone text-xl"></i></div>
-                            <div><p class="text-xs text-slate-400 font-bold mb-1">Telefon</p><a href="tel:05372751789" class="text-lg font-bold">0537 275 17 89</a></div>
+                            <div><p class="text-xs text-slate-400 font-bold mb-1">Telefon / WhatsApp</p><a href="tel:05372751789" class="text-lg font-bold">0537 275 17 89</a></div>
                         </div>
                     </div>
                 </div>
@@ -199,17 +203,26 @@
 
     <!-- Chat Interface -->
     <div id="chat-interface" class="fixed bottom-6 right-6 z-[9999] flex flex-col items-end gap-4">
+        
+        <!-- Chat Window -->
         <div id="chat-window" class="hidden w-[360px] max-w-[90vw] h-[520px] max-h-[80vh] bg-white rounded-3xl shadow-2xl border border-slate-100 overflow-hidden flex flex-col transform transition-all duration-300 scale-95 opacity-0 origin-bottom-right">
+            <!-- Header -->
             <div class="bg-primary-600 p-4 flex justify-between items-center text-white shrink-0 shadow-md">
                 <div class="flex items-center gap-3">
                     <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center shadow-inner"><i class="ph ph-robot text-xl"></i></div>
-                    <div><h4 class="font-bold text-sm">FizyoAsistan</h4><p class="text-[10px] opacity-80">Uzman Klinik Rehberlik</p></div>
+                    <div><h4 class="font-bold text-sm">FizyoAsistan</h4><p class="text-[10px] opacity-80">Online Rehberlik Hattı</p></div>
                 </div>
                 <button id="close-chat" class="p-2 hover:bg-white/10 rounded-full transition-colors"><i class="ph ph-x"></i></button>
             </div>
-            <div id="chat-messages" class="flex-grow p-4 overflow-y-auto bg-slate-50 flex flex-col gap-3 scrollbar-hide chat-scroll-area"></div>
+
+            <!-- Messages Area -->
+            <div id="chat-messages" class="flex-grow p-4 overflow-y-auto bg-slate-50 flex flex-col gap-3 scrollbar-hide chat-scroll-area">
+                <!-- Mesajlar -->
+            </div>
+
+            <!-- Input Area -->
             <div class="p-4 bg-white border-t border-slate-100 shrink-0">
-                <div class="flex gap-2 bg-slate-50 rounded-2xl border p-1 pr-1 items-center focus-within:border-primary-400 transition-all">
+                <div class="flex gap-2 bg-slate-50 rounded-2xl border p-1 pr-1 items-center focus-within:border-primary-400 focus-within:ring-1 transition-all">
                     <input type="text" id="chat-input" class="flex-1 bg-transparent border-none py-2 px-3 text-sm focus:outline-none" placeholder="Şikayetinizi yazın...">
                     <button id="chat-send" class="bg-primary-600 text-white w-10 h-10 shrink-0 rounded-full hover:bg-primary-700 active:scale-90 transition-all flex items-center justify-center shadow-md">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#ffffff" viewBox="0 0 256 256">
@@ -219,6 +232,8 @@
                 </div>
             </div>
         </div>
+
+        <!-- Mühür Tetikleyici (ORİJİNAL STAMP DESIGN) -->
         <button id="chat-trigger" class="group relative flex items-center justify-center bg-white rounded-full shadow-glow transition-all hover:scale-105 animate-pulse-slow">
             <div class="w-24 h-24 relative">
                 <svg viewBox="0 0 100 100" class="w-full h-full fill-primary-700 font-bold">
@@ -242,7 +257,15 @@
         </button>
     </div>
 
-    <script>
+    <!-- Firebase & Logic -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        const appId = 'fzt-ilhami-yavuz';
+        const apiKey = "AIzaSyAvPIV_SgXA4ZUgj7WYktBJvW3dN0OXEHQ"; 
+        
         const chatTrigger = document.getElementById('chat-trigger');
         const chatWindow = document.getElementById('chat-window');
         const closeChat = document.getElementById('close-chat');
@@ -250,31 +273,24 @@
         const chatInput = document.getElementById('chat-input');
         const chatSend = document.getElementById('chat-send');
         const navbar = document.getElementById('navbar');
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const closeMobileMenu = document.getElementById('close-mobile-menu');
-        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
-        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
 
+        let db, auth, userId;
         let isLoading = false;
 
-        // Mobil Menü
-        function openMobileMenu() {
-            mobileMenu.classList.add('active');
-            mobileMenuOverlay.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
+        async function init() {
+            try {
+                const firebaseConfig = JSON.parse(window.__firebase_config || '{}');
+                if (firebaseConfig.apiKey) {
+                    const app = initializeApp(firebaseConfig);
+                    auth = getAuth(app);
+                    db = getFirestore(app);
+                    const cred = await signInAnonymously(auth);
+                    userId = cred.user.uid;
+                }
+            } catch(e) {}
         }
-        function closeMobileMenuFunc() {
-            mobileMenu.classList.remove('active');
-            mobileMenuOverlay.classList.add('hidden');
-            document.body.style.overflow = '';
-        }
-        mobileMenuBtn.addEventListener('click', openMobileMenu);
-        closeMobileMenu.addEventListener('click', closeMobileMenuFunc);
-        mobileMenuOverlay.addEventListener('click', closeMobileMenuFunc);
-        mobileNavLinks.forEach(link => link.addEventListener('click', closeMobileMenuFunc));
+        init();
 
-        // Chat
         chatTrigger.addEventListener('click', () => {
             chatWindow.style.display = 'flex';
             setTimeout(() => {
@@ -282,8 +298,9 @@
                 chatWindow.classList.replace('scale-95', 'scale-100');
             }, 10);
             chatTrigger.classList.add('hidden');
+            
             if (chatMessages.children.length === 0) {
-                appendMessage("Merhaba, ben FizyoAsistan. Fzt. İlhami Yavuz'un asistanıyım. Size nasıl yardımcı olabilirim?", "bot");
+                appendMessage("Merhaba, ben FizyoAsistan. Fzt. İlhami Yavuz’un asistanıyım. Size nasıl yardımcı olabilirim? Herhangi bir şikâyetiniz /hastalığınız varsa benimle paylaşabilirsiniz.", "bot");
             }
         });
 
@@ -308,44 +325,34 @@
         async function handleSend() {
             const text = chatInput.value.trim();
             if (!text || isLoading) return;
-            
             chatInput.value = '';
             appendMessage(text, 'user');
             isLoading = true;
-
-            // Loading göstergesi
-            const loadingId = Date.now();
-            const loadingDiv = document.createElement('div');
-            loadingDiv.id = `loading-${loadingId}`;
-            loadingDiv.className = 'flex justify-start animate-fade-in';
-            loadingDiv.innerHTML = `<div class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm border border-slate-100"><div class="flex gap-1"><div class="w-2 h-2 bg-primary-600 rounded-full animate-bounce"></div><div class="w-2 h-2 bg-primary-600 rounded-full animate-bounce" style="animation-delay: 0.1s"></div><div class="w-2 h-2 bg-primary-600 rounded-full animate-bounce" style="animation-delay: 0.2s"></div></div></div>`;
-            chatMessages.appendChild(loadingDiv);
-            chatMessages.scrollTo({ top: chatMessages.scrollHeight, behavior: 'smooth' });
-
             try {
-                const response = await fetch('/api/chat', {
+                // YENİ VE DENGELİ SİSTEM PROMPT'U
+                const systemPrompt = `Sen Fzt. İlhami Yavuz'un asistanı FizyoAsistan'sın. 
+                Görevin: Hastaları nazikçe karşılamak, şikayetlerini dinlemek ve onlara klinik bir rehberlik sunmaktır.
+                Kurallar:
+                1. Birisi 'Merhaba', 'Selam' veya 'İyi günler' gibi bir giriş yaparsa, nazikçe selam ver ve 'Size nasıl yardımcı olabilirim? Şikayetlerinizi veya fizik tedavi ihtiyacınızı belirtirseniz rehberlik edebilirim' de. Hemen randevu numarası verme.
+                2. Hasta bir ağrı veya şikayet belirtirse, önce 'Geçmiş olsun' de. Ardından durumu anlamak için kısa bir soru sor (Örn: 'Ağrı kola vuruyor mu?').
+                3. Teknik terim kullandığında halk arasındaki karşılığını parantez içinde belirt (Örn: Lomber bölge (Bel bölgesi)).
+                4. Kesinlikle yıldız (*) işareti kullanma. Metni kalınlaştırma veya madde işareti koyma.
+                5. Cevapların kısa, net ve profesyonel olsun.
+                6. Rehberlik yaptıktan sonra 'Detaylı klinik değerlendirme ve randevu için 0537 275 17 89 numaralı hattan iletişime geçebilirsiniz' diyerek bitir.`;
+
+                const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ message: text })
+                    body: JSON.stringify({
+                        contents: [{ parts: [{ text: text }] }],
+                        systemInstruction: { parts: [{ text: systemPrompt }] }
+                    })
                 });
-
-                document.getElementById(`loading-${loadingId}`)?.remove();
-
-                if (!response.ok) {
-                    throw new Error(`HTTP ${response.status}`);
-                }
-
-                const data = await response.json();
-                const botReply = data.reply || 'Üzgünüm, bir sorun oluştu. Lütfen tekrar deneyin.';
+                const data = await res.json();
+                const botReply = data.candidates?.[0]?.content?.parts?.[0]?.text || "Size yardımcı olabilmem için şikayetinizi yazar mısınız?";
                 appendMessage(botReply, 'bot');
-
-            } catch (error) {
-                document.getElementById(`loading-${loadingId}`)?.remove();
-                console.error('Chat error:', error);
-                appendMessage('Bağlantı hatası oluştu. Lütfen daha sonra tekrar deneyin veya 0537 275 17 89 numaralı telefonu arayın.', 'bot');
-            } finally {
-                isLoading = false;
-            }
+            } catch (e) { appendMessage("Bağlantı hatası oluştu.", "bot"); } 
+            finally { isLoading = false; }
         }
 
         chatSend.addEventListener('click', handleSend);
@@ -358,3 +365,4 @@
     </script>
 </body>
 </html>
+
