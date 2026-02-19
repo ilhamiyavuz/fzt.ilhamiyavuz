@@ -25,7 +25,8 @@
                             50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6',
                             600: '#2563eb', 700: '#1d4ed8', 900: '#1e3a8a',
                         }
-                    }
+                    },
+                    animation: { 'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite' }
                 }
             }
         }
@@ -109,7 +110,7 @@
             <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
                 <div class="lg:w-1/2 relative group">
                     <div class="absolute inset-0 bg-primary-600 rounded-2xl rotate-3 opacity-10"></div>
-                    <img src="https://raw.githubusercontent.com/ilhamiyavuz/fzt.ilhamiyavuz/main/images/IMG-20250707-WA0011.jpg" alt="Fizyoterapist İlhami Yavuz" class="relative rounded-2xl shadow-2xl w-full object-cover h-[500px]">
+                    <img src="https://raw.githubusercontent.com/ilhamiyavuz/fzt.ilhamiyavuz/main/images/IMG-20250707-WA0011.jpg" onerror="this.src='./images/1000198887.jpg'" alt="Fizyoterapist İlhami Yavuz" class="relative rounded-2xl shadow-2xl w-full object-cover h-[500px]">
                     <div class="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur p-4 rounded-xl shadow-lg border border-slate-100">
                         <div class="flex items-center gap-3">
                             <div class="bg-primary-100 p-2 rounded-lg text-primary-600"><i class="ph ph-graduation-cap text-2xl"></i></div>
@@ -138,7 +139,6 @@
             <h2 class="text-center text-primary-600 font-bold text-sm uppercase mb-2">Klinik Uygulamalar</h2>
             <h3 class="text-center text-3xl font-bold text-slate-900 mb-16">Uzmanlık Alanları</h3>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Pediatrik -->
                 <div class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all border border-slate-100 group overflow-hidden">
                     <div class="h-48 overflow-hidden"><img src="https://raw.githubusercontent.com/ilhamiyavuz/fzt.ilhamiyavuz/main/images/pexels-thisisengineering-3912370.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-500"></div>
                     <div class="p-8">
@@ -147,7 +147,6 @@
                         <ul class="text-xs text-slate-500 space-y-2 border-t pt-4"><li><i class="ph ph-check text-orange-500 mr-2"></i>Cuevas Medek Terapi (CME)</li><li><i class="ph ph-check text-orange-500 mr-2"></i>Bobath Konsepti</li></ul>
                     </div>
                 </div>
-                <!-- Nörolojik -->
                 <div class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all border border-slate-100 group overflow-hidden">
                     <div class="h-48 overflow-hidden"><img src="https://raw.githubusercontent.com/ilhamiyavuz/fzt.ilhamiyavuz/main/images/pexels-pixabay-39671.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-500"></div>
                     <div class="p-8">
@@ -156,7 +155,6 @@
                         <ul class="text-xs text-slate-500 space-y-2 border-t pt-4"><li><i class="ph ph-check text-blue-500 mr-2"></i>Denge & Koordinasyon</li><li><i class="ph ph-check text-blue-500 mr-2"></i>Yürüyüş Analizi</li></ul>
                     </div>
                 </div>
-                <!-- Ortopedik -->
                 <div class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all border border-slate-100 group overflow-hidden">
                     <div class="h-48 overflow-hidden"><img src="https://raw.githubusercontent.com/ilhamiyavuz/fzt.ilhamiyavuz/main/images/pexels-maksgelatin-6094033.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-500"></div>
                     <div class="p-8">
@@ -218,7 +216,7 @@
     <div id="chat-interface" class="fixed bottom-6 right-6 z-[9999] flex flex-col items-end gap-4">
         
         <!-- Chat Window -->
-        <div id="chat-window" class="hidden w-[360px] max-w-[90vw] h-[520px] max-h-[80vh] bg-white rounded-3xl shadow-2xl border border-slate-100 overflow-hidden flex flex-col transform transition-all duration-300 scale-95 opacity-0 origin-bottom-right">
+        <div id="chat-window" class="hidden w-[360px] max-w-[90vw] h-[520px] max-h-[80vh] bg-white rounded-3xl shadow-2xl border border-slate-100 overflow-hidden flex-col transform transition-all duration-300 scale-95 opacity-0 origin-bottom-right">
             <div class="bg-primary-600 p-4 flex justify-between items-center text-white shrink-0 shadow-md">
                 <div class="flex items-center gap-3">
                     <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center shadow-inner"><i class="ph ph-robot text-xl"></i></div>
@@ -239,29 +237,27 @@
             </div>
         </div>
 
-        <!-- Mükemmel Ortalanmış ve Okunaklı İkon -->
-        <button id="chat-trigger" class="group relative flex items-center justify-center bg-white rounded-full shadow-glow transition-all hover:scale-105 animate-[pulse_3s_infinite] w-24 h-24">
-            <!-- Yazı Çerçevesi -->
-            <svg viewBox="0 0 100 100" class="absolute inset-0 w-full h-full fill-primary-700 font-bold">
+        <!-- Chat Trigger (Stamp Design) - POINTER EVENTS DÜZELTİLDİ -->
+        <!-- Flex eklendi, hidden class geçişleri JavaScript tarafında daha stabil hale getirildi -->
+        <button id="chat-trigger" class="flex relative items-center justify-center bg-white rounded-full shadow-glow transition-all hover:scale-105 animate-[pulse_3s_infinite] w-24 h-24">
+            <!-- pointer-events-none ile tıklamaların doğrudan butona yansıması sağlandı -->
+            <svg viewBox="0 0 100 100" class="absolute inset-0 w-full h-full fill-primary-700 font-bold pointer-events-none">
                 <defs>
-                    <!-- YAY YOLU: Üst kısımda sağdan sola okunan mükemmel kavis -->
                     <path id="top-arc" d="M 12 55 A 38 38 0 0 1 88 55" />
                 </defs>
                 <text font-size="11" text-anchor="middle" letter-spacing="0.5">
-                    <!-- Yazı tam tepe noktasına ortalandı -->
                     <textPath href="#top-arc" startOffset="50%">
                         FizyoAsistan Sohbet
                     </textPath>
                 </text>
             </svg>
-            <!-- Merkez İkon -->
-            <div class="relative z-10 w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center shadow-lg border-2 border-white">
+            <div class="relative z-10 w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center shadow-lg border-2 border-white pointer-events-none">
                 <i class="ph ph-chat-teardrop-text text-2xl"></i>
             </div>
         </button>
     </div>
 
-    <!-- SADECE FRONTEND FETCH MANTIĞI (VERCEL BACKEND GEREKTİRMEZ) -->
+    <!-- Güvenli Vercel Backend İstek Mantığı -->
     <script type="module">
         const chatTrigger = document.getElementById('chat-trigger');
         const chatWindow = document.getElementById('chat-window');
@@ -271,29 +267,38 @@
         const chatSend = document.getElementById('chat-send');
         const navbar = document.getElementById('navbar');
 
-        // Gemini API Anahtarınız
-        const apiKey = AIzaSyDrSkVlZIleRyXHR2EsPIl3UbFrQF9P-ZE";
         let isLoading = false;
 
+        // Butona tıklandığında Chat Ekranını Açma (DOM Class Manipülasyonu Düzeltildi)
         chatTrigger.addEventListener('click', () => {
-            chatWindow.style.display = 'flex';
+            chatWindow.classList.remove('hidden');
+            chatWindow.classList.add('flex');
+            
             setTimeout(() => {
                 chatWindow.classList.replace('opacity-0', 'opacity-100');
                 chatWindow.classList.replace('scale-95', 'scale-100');
             }, 10);
-            chatTrigger.style.display = 'none';
+            
+            // Trigger butonunu gizle
+            chatTrigger.classList.remove('flex');
+            chatTrigger.classList.add('hidden');
             
             if (chatMessages.children.length === 0) {
-                appendMessage("Merhaba, ben FizyoAsistan. Fzt. İlhami Yavuz’un asistanıyım. Size nasıl yardımcı olabilirim? Herhangi bir şikâyetiniz/hastalığınız varsa benimle paylaşabilirsiniz.", "bot");
+                appendMessage("Merhaba, ben FizyoAsistan. Fzt. İlhami Yavuz’un asistanıyım. Size nasıl yardımcı olabilirim?", "bot");
             }
         });
 
+        // Chat Ekranını Kapatma
         closeChat.addEventListener('click', () => {
             chatWindow.classList.replace('opacity-100', 'opacity-0');
             chatWindow.classList.replace('scale-100', 'scale-95');
+            
             setTimeout(() => { 
-                chatWindow.style.display = 'none'; 
-                chatTrigger.style.display = 'flex'; 
+                chatWindow.classList.remove('flex');
+                chatWindow.classList.add('hidden'); 
+                
+                chatTrigger.classList.remove('hidden');
+                chatTrigger.classList.add('flex');
             }, 300);
         });
 
@@ -315,34 +320,22 @@
             isLoading = true;
 
             try {
-                // Sisteme verilecek rol ve kurallar
-                const systemPrompt = `Sen Fizyoterapist İlhami Yavuz'un dijital asistanı FizyoAsistan'sın.
-Bağlam: Erzurum "Paylaşım Özel Eğitim ve Rehabilitasyon Merkezi"nde hizmet veriyorsunuz.
-Profil: Fzt. İlhami Yavuz 25 yaşında, genç, dinamik ve biyomekanik problemleri kaynak odaklı çözen bir uzmandır.
-Görev: Gelen soruya doğrudan, net ve profesyonelce yanıt ver. Kendini tekrar tanıtma.
-Kısıtlama: Kesinlikle tıbbi teşhis koyma. "Kesin tanı için İlhami Hocamızın değerlendirmesi gerekir" de.
-İletişim: Randevu veya adres sorulursa 05372751789 numarasını ver.`;
-
-                // Doğrudan Google Gemini API'sine güvenli HTTPS isteği (Backend gerekmez)
-                const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
+                // DİKKAT: Artık doğrudan /api/chat endpointine istek atıyoruz. API anahtarı burada YOK.
+                const res = await fetch("/api/chat", {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        contents: [{ parts: [{ text: text }] }],
-                        systemInstruction: { parts: [{ text: systemPrompt }] }
-                    })
+                    body: JSON.stringify({ message: text })
                 });
 
                 const data = await res.json();
                 
-                if (!res.ok) throw new Error(data.error?.message || "API Hatası");
+                if (!res.ok) throw new Error(data.error || "Server Error");
 
-                const botReply = data.candidates?.[0]?.content?.parts?.[0]?.text;
-                appendMessage(botReply || "Mesajınızı tam anlayamadım, detaylı bilgi için arayabilirsiniz.", "bot");
+                appendMessage(data.reply || "Mesajınızı tam anlayamadım.", "bot");
 
             } catch (e) {
-                console.error("Chat Hatası:", e);
-                appendMessage("Sistem geçici olarak yanıt veremiyor. Lütfen 0537 275 17 89 numaralı hattan İlhami Hocamıza doğrudan ulaşın.", "bot");
+                console.error("Backend İstek Hatası:", e);
+                appendMessage("Şu an bağlantı kuramıyorum. Lütfen 0537 275 17 89 numaralı hattan İlhami Hocamıza doğrudan ulaşın.", "bot");
             } finally { 
                 isLoading = false; 
             }
