@@ -6,15 +6,16 @@
     <title>Fizyoterapist İlhami Yavuz | Erzurum</title>
     <meta name="description" content="Fizyoterapist İlhami Yavuz - Erzurum. Pediatrik (CME), Nörolojik ve Ortopedik Rehabilitasyon. Manuel Terapi ve Kişiye Özel Tedavi.">
     
-    <!-- Tailwind CSS -->
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts -->
+    <!-- Typography -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Phosphor Icons -->
+    <!-- Phosphor Icons (Lightweight SVG icons) -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
+    <!-- Tailwind Config -->
     <script>
         tailwind.config = {
             theme: {
@@ -32,6 +33,7 @@
         }
     </script>
     <style>
+        /* DOM manipülasyonu ve UI optimizasyonları */
         .scrollbar-hide::-webkit-scrollbar { display: none; }
         .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
         
@@ -51,10 +53,11 @@
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased selection:bg-primary-200 selection:text-primary-900">
 
-    <!-- Navbar -->
+    <!-- Navigation Component -->
     <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent py-4">
         <div class="container mx-auto px-4 md:px-8">
             <div class="flex justify-between items-center">
+                <!-- Brand Identity -->
                 <a href="#" class="flex items-center gap-2 group">
                     <div class="bg-primary-600 text-white p-2 rounded-lg group-hover:bg-primary-700 transition-colors">
                         <i class="ph ph-activity text-2xl"></i>
@@ -65,6 +68,7 @@
                     </div>
                 </a>
 
+                <!-- Desktop Routing -->
                 <div class="hidden md:flex items-center gap-8">
                     <a href="#home" class="text-sm font-medium hover:text-primary-600 transition-colors nav-item text-slate-600">Anasayfa</a>
                     <a href="#about" class="text-sm font-medium hover:text-primary-600 transition-colors nav-item text-slate-600">Hakkımda</a>
@@ -74,6 +78,7 @@
                     </a>
                 </div>
 
+                <!-- Mobile Hamburger Menu Trigger -->
                 <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-700 hover:text-primary-600 transition-colors">
                     <i class="ph ph-list text-2xl"></i>
                 </button>
@@ -81,12 +86,14 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Jumbotron -->
     <header id="home" class="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-slate-900">
+        <!-- Background Asset rendering -->
         <div class="absolute inset-0 z-0">
             <img src="https://images.unsplash.com/photo-1576091160550-2187d80a16f7?auto=format&fit=crop&q=80" alt="Rehabilitasyon" class="w-full h-full object-cover opacity-40">
             <div class="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/90 to-transparent"></div>
         </div>
+        <!-- Copywriting Section -->
         <div class="container mx-auto px-4 md:px-8 relative z-10">
             <div class="max-w-3xl">
                 <div class="inline-flex items-center gap-2 bg-primary-500/20 backdrop-blur-sm border border-primary-500/30 rounded-full px-4 py-1.5 mb-6">
@@ -95,6 +102,7 @@
                 </div>
                 <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">Hareketi Özgürleştir, <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-blue-500">Yaşam Kaliteni Artır.</span></h1>
                 <p class="text-lg text-slate-300 mb-10 max-w-2xl leading-relaxed">Pediatrik, nörolojik ve ortopedik rehabilitasyon alanlarında bilimsel yaklaşımlar. Erzurum'da çocuklardan yetişkinlere uzanan özel tedavi protokolleri.</p>
+                <!-- Call to Action Buttons -->
                 <div class="flex flex-col sm:flex-row gap-4">
                     <a href="https://wa.me/905372751789" target="_blank" class="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-xl font-bold shadow-lg flex items-center justify-center gap-2 group transition-all">
                         <i class="ph ph-whatsapp-logo text-xl"></i> WhatsApp Danışma
@@ -104,13 +112,14 @@
         </div>
     </header>
 
-    <!-- About Section -->
+    <!-- Profile & About Module -->
     <section id="about" class="py-20 bg-white">
         <div class="container mx-auto px-4 md:px-8">
             <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+                <!-- Profile Image Node mapping to Raw GitHub Asset -->
                 <div class="lg:w-1/2 relative group">
                     <div class="absolute inset-0 bg-primary-600 rounded-2xl rotate-3 opacity-10"></div>
-                    <img src="./images/IMG-20250707-WA0011.jpg" onerror="this.src='./images/1000198887.jpg'" alt="Fizyoterapist İlhami Yavuz" class="relative rounded-2xl shadow-2xl w-full object-cover h-[500px]">
+                    <img src="https://raw.githubusercontent.com/ilhamiyavuz/fzt.ilhamiyavuz/main/images/IMG-20250707-WA0011.jpg" alt="Fizyoterapist İlhami Yavuz" class="relative rounded-2xl shadow-2xl w-full object-cover h-[500px]">
                     <div class="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur p-4 rounded-xl shadow-lg border border-slate-100">
                         <div class="flex items-center gap-3">
                             <div class="bg-primary-100 p-2 rounded-lg text-primary-600"><i class="ph ph-graduation-cap text-2xl"></i></div>
@@ -118,6 +127,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- Bio Description Data -->
                 <div class="lg:w-1/2">
                     <h2 class="text-primary-600 font-bold text-sm tracking-wider uppercase mb-2">Hakkımda</h2>
                     <h3 class="text-3xl font-bold text-slate-900 mb-6">Bütüncül Yaklaşım, Fonksiyonel Sonuçlar</h3>
@@ -133,33 +143,36 @@
         </div>
     </section>
 
-    <!-- Services Section -->
+    <!-- Clinical Services Rendering Grid -->
     <section id="services" class="py-20 bg-slate-50">
         <div class="container mx-auto px-4 md:px-8">
             <h2 class="text-center text-primary-600 font-bold text-sm uppercase mb-2">Klinik Uygulamalar</h2>
             <h3 class="text-center text-3xl font-bold text-slate-900 mb-16">Uzmanlık Alanları</h3>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Pediatrik -->
+                
+                <!-- Pediatric Service Node mapping to Raw GitHub Asset -->
                 <div class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all border border-slate-100 group overflow-hidden">
-                    <div class="h-48 overflow-hidden"><img src="./images/pexels-thisisengineering-3912370.jpg" onerror="this.src='./images/1000190402.jpg'" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-500"></div>
+                    <div class="h-48 overflow-hidden"><img src="https://raw.githubusercontent.com/ilhamiyavuz/fzt.ilhamiyavuz/main/images/pexels-thisisengineering-3912370.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-500"></div>
                     <div class="p-8">
                         <h4 class="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2"><i class="ph ph-baby text-orange-500"></i> Pediatrik Rehab.</h4>
                         <p class="text-slate-600 text-sm leading-relaxed mb-4">Serebral Palsi, Spina Bifida ve gelişimsel gerilik durumlarında özel terapiler.</p>
                         <ul class="text-xs text-slate-500 space-y-2 border-t pt-4"><li><i class="ph ph-check text-orange-500 mr-2"></i>Cuevas Medek Terapi (CME)</li><li><i class="ph ph-check text-orange-500 mr-2"></i>Bobath Konsepti</li></ul>
                     </div>
                 </div>
-                <!-- Nörolojik -->
+                
+                <!-- Neurological Service Node mapping to Raw GitHub Asset -->
                 <div class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all border border-slate-100 group overflow-hidden">
-                    <div class="h-48 overflow-hidden"><img src="./images/pexels-pixabay-39671.jpg" onerror="this.src='./images/1000190404.jpg'" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-500"></div>
+                    <div class="h-48 overflow-hidden"><img src="https://raw.githubusercontent.com/ilhamiyavuz/fzt.ilhamiyavuz/main/images/pexels-pixabay-39671.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-500"></div>
                     <div class="p-8">
                         <h4 class="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2"><i class="ph ph-brain text-blue-500"></i> Nörolojik Rehab.</h4>
                         <p class="text-slate-600 text-sm leading-relaxed mb-4">İnme, MS, Parkinson ve kafa travmaları sonrası fonksiyonel bağımsızlık tedavileri.</p>
                         <ul class="text-xs text-slate-500 space-y-2 border-t pt-4"><li><i class="ph ph-check text-blue-500 mr-2"></i>Denge & Koordinasyon</li><li><i class="ph ph-check text-blue-500 mr-2"></i>Yürüyüş Analizi</li></ul>
                     </div>
                 </div>
-                <!-- Ortopedik -->
+                
+                <!-- Orthopedic Service Node mapping to Raw GitHub Asset -->
                 <div class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all border border-slate-100 group overflow-hidden">
-                    <div class="h-48 overflow-hidden"><img src="./images/pexels-maksgelatin-6094033.jpg" onerror="this.src='./images/1000190450.jpg'" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-500"></div>
+                    <div class="h-48 overflow-hidden"><img src="https://raw.githubusercontent.com/ilhamiyavuz/fzt.ilhamiyavuz/main/images/pexels-maksgelatin-6094033.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-500"></div>
                     <div class="p-8">
                         <h4 class="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2"><i class="ph ph-person-simple-run text-green-500"></i> Ortopedik Rehab.</h4>
                         <p class="text-slate-600 text-sm leading-relaxed mb-4">Bel-boyun fıtığı, skolyoz ve sporcu yaralanmalarında manuel terapi çözümleri.</p>
@@ -170,7 +183,7 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact & Geographic Integration -->
     <section id="contact" class="py-20 bg-white">
         <div class="container mx-auto px-4 md:px-8">
             <div class="flex flex-col lg:flex-row gap-8">
@@ -199,6 +212,7 @@
                         </a>
                     </div>
                 </div>
+                <!-- Google Maps External Payload URL -->
                 <div class="lg:w-2/3 bg-slate-50 rounded-2xl border flex flex-col items-center justify-center p-8 min-h-[300px]">
                     <div class="text-center w-full max-w-md">
                         <i class="ph ph-map-trifold text-4xl text-slate-400 mb-4"></i>
@@ -211,16 +225,17 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer Area -->
     <footer class="bg-white border-t py-8 text-center text-sm text-slate-500">
         <p>&copy; 2026 Fizyoterapist İlhami Yavuz. Tüm Hakları Saklıdır.</p>
     </footer>
 
-    <!-- Chat Interface -->
+    <!-- Conversational AI UI Wrapper -->
     <div id="chat-interface" class="fixed bottom-6 right-6 z-[9999] flex flex-col items-end gap-4">
-        <!-- Chat Window -->
+        
+        <!-- Interactive Chat Window Modal -->
         <div id="chat-window" class="hidden w-[360px] max-w-[90vw] h-[520px] max-h-[80vh] bg-white rounded-3xl shadow-2xl border border-slate-100 overflow-hidden flex flex-col transform transition-all duration-300 scale-95 opacity-0 origin-bottom-right">
-            <!-- Header -->
+            
             <div class="bg-primary-600 p-4 flex justify-between items-center text-white shrink-0 shadow-md">
                 <div class="flex items-center gap-3">
                     <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center shadow-inner"><i class="ph ph-robot text-xl"></i></div>
@@ -229,10 +244,8 @@
                 <button id="close-chat" class="p-2 hover:bg-white/10 rounded-full transition-colors"><i class="ph ph-x text-xl"></i></button>
             </div>
 
-            <!-- Messages Area -->
             <div id="chat-messages" class="flex-grow p-4 overflow-y-auto bg-slate-50 flex flex-col gap-3 scrollbar-hide chat-scroll-area"></div>
 
-            <!-- Input Area -->
             <div class="p-4 bg-white border-t border-slate-100 shrink-0">
                 <div class="flex gap-2 bg-slate-50 rounded-2xl border p-1 pr-1 items-center focus-within:border-primary-400 focus-within:ring-1 transition-all">
                     <input type="text" id="chat-input" class="flex-1 bg-transparent border-none py-2 px-3 text-sm focus:outline-none" placeholder="Şikayetinizi yazın...">
@@ -245,7 +258,7 @@
             </div>
         </div>
 
-        <!-- Mühür Tetikleyici (Stamp Design) -->
+        <!-- Chat Trigger Graphic Element (Stamp UI Module) -->
         <button id="chat-trigger" class="group relative flex items-center justify-center bg-white rounded-full shadow-glow transition-all hover:scale-105 animate-pulse-slow">
             <div class="w-24 h-24 relative">
                 <svg viewBox="0 0 100 100" class="w-full h-full fill-primary-700 font-bold">
@@ -269,6 +282,7 @@
         </button>
     </div>
 
+    <!-- DOM Rendering & Fetch Logic -->
     <script type="module">
         const chatTrigger = document.getElementById('chat-trigger');
         const chatWindow = document.getElementById('chat-window');
@@ -280,6 +294,7 @@
 
         let isLoading = false;
 
+        // Initialization execution binding
         chatTrigger.addEventListener('click', () => {
             chatWindow.style.display = 'flex';
             setTimeout(() => {
@@ -287,17 +302,21 @@
                 chatWindow.classList.replace('scale-95', 'scale-100');
             }, 10);
             chatTrigger.classList.add('hidden');
+            
+            // Checking inner DOM node iteration to spawn system prompt payload
             if (chatMessages.children.length === 0) {
-                appendMessage("Merhaba, ben FizyoAsistan. Fzt. İlhami Yavuz’un asistanıyım. Size nasıl yardımcı olabilirim? Herhangi bir şikâyetiniz/hastalığınız varsa benimle paylaşabilirsiniz.", "bot");
+                appendMessage("Merhaba, ben FizyoAsistan. Fzt. İlhami Yavuz’un asistanıyım. Size nasıl yardımcı olabilirim? Herhangi bir şikâyetiniz /hastalığınız varsa benimle paylaşabilirsiniz.", "bot");
             }
         });
 
+        // Dismount UI listener handling
         closeChat.addEventListener('click', () => {
             chatWindow.classList.replace('opacity-100', 'opacity-0');
             chatWindow.classList.replace('scale-100', 'scale-95');
             setTimeout(() => { chatWindow.style.display = 'none'; chatTrigger.classList.remove('hidden'); }, 300);
         });
 
+        // Function constructor handling DOM element injection for messaging logic
         function appendMessage(text, sender) {
             const div = document.createElement('div');
             const isBot = sender === 'bot';
@@ -307,6 +326,7 @@
             chatMessages.scrollTo({ top: chatMessages.scrollHeight, behavior: 'smooth' });
         }
 
+        // Asynchronous POST function for executing payload injection
         async function handleSend() {
             const text = chatInput.value.trim();
             if (!text || isLoading) return;
@@ -314,7 +334,7 @@
             appendMessage(text, 'user');
             isLoading = true;
             try {
-                // İlhami hocam, Vercel yönlendirmesi için /api/chat endpoint'i kullanılıyor
+                // Backend controller binding (Endpoint: /api/chat based on framework schema constraint)
                 const res = await fetch("/api/chat", {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -323,13 +343,16 @@
                 const data = await res.json();
                 appendMessage(data.reply || "Mesajınızı tam anlayamadım, detaylı bilgi için arayabilirsiniz.", "bot");
             } catch (e) {
+                // Catching exception block handling standard errors
                 appendMessage("Bağlantı hatası oluştu. Lütfen 0537 275 17 89 numaralı hattan İlhami Hocamıza ulaşın.", "bot");
             } finally { isLoading = false; }
         }
 
+        // Event listener hooks to action handlers
         chatSend.addEventListener('click', handleSend);
         chatInput.addEventListener('keypress', (e) => { if(e.key === 'Enter') handleSend(); });
 
+        // Throttle hook to manipulate navigation CSS node handling
         window.addEventListener('scroll', () => {
             if (window.scrollY > 20) navbar.classList.add('bg-white/95', 'backdrop-blur-sm', 'shadow-sm', 'py-2');
             else navbar.classList.remove('bg-white/95', 'backdrop-blur-sm', 'shadow-sm', 'py-2');
