@@ -1,90 +1,88 @@
 module.exports = async function handler(req, res) {
-    // CORS (Cross-Origin) Başlıkları
+    // CORS (Cross-Origin Resource Sharing) Güvenlik Politikaları
     res.setHeader('Access-Control-Allow-Credentials', 'true');
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
     res.setHeader('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version');
 
+    // Preflight isteklerini (OPTIONS) hızlı bypass etme
     if (req.method === 'OPTIONS') {
         return res.status(200).end();
     }
 
+    // Method Restriction (Sadece POST kabul edilir)
     if (req.method !== 'POST') {
-        return res.status(405).json({ reply: 'Hata 405: Sadece POST metoduna izin veriliyor.' });
+        return res.status(405).json({ reply: 'Hata 405: Method Not Allowed' });
     }
 
     try {
         const apiKey = process.env.GEMINI_API_KEY;
 
         if (!apiKey) {
-            console.error("CRITICAL: GEMINI_API_KEY ortam değişkeni bulunamadı.");
-            return res.status(500).json({ reply: 'Sunucu Hatası: API Anahtarı tanımlanmamış.' });
+            console.error("CRITICAL EXCEPTION: GEMINI_API_KEY ortam değişkeni eksik.");
+            return res.status(500).json({ reply: 'Sunucu Hatası: Vercel üzerinde API Anahtarı bulunamadı.' });
         }
 
         const message = req.body?.message || "";
 
-        const systemInstruction = `Sen Fizyoterapist İlhami Yavuz'un dijital asistanı FizyoAsistan'sın.
+        // Context Injection (Bağlam ve Persona Tanımlaması)
+        const systemInstructionText = `Sen Fizyoterapist İlhami Yavuz'un dijital asistanı FizyoAsistan'sın.
 Bağlam: Erzurum "Paylaşım Özel Eğitim ve Rehabilitasyon Merkezi"nde hizmet veriyorsunuz.
 Profil: Fzt. İlhami Yavuz 25 yaşında, genç, dinamik ve biyomekanik problemleri kaynak odaklı çözen bir uzmandır.
-Görev: Gelen soruya doğrudan, net ve profesyonelce yanıt ver.
+Görev: Gelen soruya doğrudan, net ve profesyonelce yanıt ver. Kendini tekrar tanıtma.
 Kısıtlama: Kesinlikle tıbbi teşhis koyma. "Kesin tanı için İlhami Hocamızın değerlendirmesi gerekir" de.
 İletişim: Randevu için 05372751789 numarasını ver.`;
 
+        // Native v1beta API Schema (Sistem talimatı ve kullanıcı mesajı izole edildi)
         const payload = {
-            contents: [{ parts: [{ text: `${systemInstruction}\n\nKullanıcı: ${message}\nFizyoAsistan:` }] }]
+            systemInstruction: {
+                parts: [{ text: systemInstructionText }]
+            },
+            contents: [
+                {
+                    role: "user",
+                    parts: [{ text: message }]
+                }
+            ]
         };
 
-        // DİNAMİK MODEL YÖNLENDİRMESİ (FALLBACK ALGORİTMASI)
-        let modelId = 'gemini-1.5-flash-latest';
-        let apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${modelId}:generateContent?key=${apiKey}`;
+        // Stabil ve global olarak yetkilendirilmiş Model Endpoint'i
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
 
-        // 1. İstek: Güncel modele (1.5-flash-latest) deneme yapıyoruz
-        let response = await fetch(apiUrl, {
+        // Asenkron HTTP İstediği
+        const response = await fetch(apiUrl, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
         });
 
-        let responseText = await response.text();
+        const responseText = await response.text();
         let data;
         
         try {
             data = JSON.parse(responseText);
         } catch (e) {
-            return res.status(502).json({ reply: `Gateway Hatası: Google sunucuları geçersiz yanıt döndürdü.` });
+            console.error("JSON Parse Exception:", responseText);
+            return res.status(502).json({ reply: `Gateway Hatası: API geçerli bir JSON döndürmedi.` });
         }
 
-        // 2. İstek (Fallback): Eğer 1.5 modeli 404 (Not Found) verirse, gemini-pro'ya geri çekil (Graceful Degradation)
-        if (!response.ok && data.error?.code === 404) {
-            console.warn(`Model ${modelId} bulunamadı. Stabil 'gemini-pro' modeline fallback yapılıyor...`);
-            modelId = 'gemini-pro';
-            apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${modelId}:generateContent?key=${apiKey}`;
-            
-            response = await fetch(apiUrl, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            });
-            
-            responseText = await response.text();
-            data = JSON.parse(responseText);
-        }
-
-        // Son Hata Kontrolü
+        // Hata durumunda spesifik mesajı fırlat
         if (!response.ok) {
-            console.error('Gemini API Reddi:', data);
-            return res.status(response.status).json({ reply: `Yapay Zeka Hatası: ${data.error?.message || 'Bilinmeyen Hata'}` });
+            console.error('Downstream API Error:', data);
+            return res.status(response.status).json({ reply: `API İletişim Hatası: ${data.error?.message || 'Bilinmeyen Hata'}` });
         }
 
+        // Response Data Extraction (Yanıt verisinin ayrıştırılması)
         const replyText = data.candidates?.[0]?.content?.parts?.[0]?.text;
+        
         if (!replyText) {
-             return res.status(500).json({ reply: 'Yapay zeka geçerli bir metin üretemedi.' });
+             return res.status(500).json({ reply: 'Model geçerli bir text node üretemedi.' });
         }
 
         return res.status(200).json({ reply: replyText });
 
     } catch (error) {
-        console.error('Lambda Execution Error:', error);
-        return res.status(500).json({ reply: `İç Sunucu Hatası: ${error.message}` });
+        console.error('Serverless Function Exception:', error);
+        return res.status(500).json({ reply: `İç Sunucu Hatası (Exception): ${error.message}` });
     }
 };
