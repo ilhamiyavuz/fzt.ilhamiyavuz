@@ -139,6 +139,7 @@
             <h2 class="text-center text-primary-600 font-bold text-sm uppercase mb-2">Klinik Uygulamalar</h2>
             <h3 class="text-center text-3xl font-bold text-slate-900 mb-16">Uzmanlık Alanları</h3>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Pediatrik -->
                 <div class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all border border-slate-100 group overflow-hidden">
                     <div class="h-48 overflow-hidden"><img src="https://raw.githubusercontent.com/ilhamiyavuz/fzt.ilhamiyavuz/main/images/pexels-thisisengineering-3912370.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-500"></div>
                     <div class="p-8">
@@ -147,6 +148,7 @@
                         <ul class="text-xs text-slate-500 space-y-2 border-t pt-4"><li><i class="ph ph-check text-orange-500 mr-2"></i>Cuevas Medek Terapi (CME)</li><li><i class="ph ph-check text-orange-500 mr-2"></i>Bobath Konsepti</li></ul>
                     </div>
                 </div>
+                <!-- Nörolojik -->
                 <div class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all border border-slate-100 group overflow-hidden">
                     <div class="h-48 overflow-hidden"><img src="https://raw.githubusercontent.com/ilhamiyavuz/fzt.ilhamiyavuz/main/images/pexels-pixabay-39671.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-500"></div>
                     <div class="p-8">
@@ -155,6 +157,7 @@
                         <ul class="text-xs text-slate-500 space-y-2 border-t pt-4"><li><i class="ph ph-check text-blue-500 mr-2"></i>Denge & Koordinasyon</li><li><i class="ph ph-check text-blue-500 mr-2"></i>Yürüyüş Analizi</li></ul>
                     </div>
                 </div>
+                <!-- Ortopedik -->
                 <div class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all border border-slate-100 group overflow-hidden">
                     <div class="h-48 overflow-hidden"><img src="https://raw.githubusercontent.com/ilhamiyavuz/fzt.ilhamiyavuz/main/images/pexels-maksgelatin-6094033.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-500"></div>
                     <div class="p-8">
@@ -167,7 +170,7 @@
         </div>
     </section>
 
-    <!-- Contact -->
+    <!-- Contact Section -->
     <section id="contact" class="py-20 bg-white">
         <div class="container mx-auto px-4 md:px-8">
             <div class="flex flex-col lg:flex-row gap-8">
@@ -208,6 +211,7 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="bg-white border-t py-8 text-center text-sm text-slate-500">
         <p>&copy; 2026 Fizyoterapist İlhami Yavuz. Tüm Hakları Saklıdır.</p>
     </footer>
@@ -237,10 +241,8 @@
             </div>
         </div>
 
-        <!-- Chat Trigger (Stamp Design) - POINTER EVENTS DÜZELTİLDİ -->
-        <!-- Flex eklendi, hidden class geçişleri JavaScript tarafında daha stabil hale getirildi -->
+        <!-- Chat Trigger (Stamp Design) -->
         <button id="chat-trigger" class="flex relative items-center justify-center bg-white rounded-full shadow-glow transition-all hover:scale-105 animate-[pulse_3s_infinite] w-24 h-24">
-            <!-- pointer-events-none ile tıklamaların doğrudan butona yansıması sağlandı -->
             <svg viewBox="0 0 100 100" class="absolute inset-0 w-full h-full fill-primary-700 font-bold pointer-events-none">
                 <defs>
                     <path id="top-arc" d="M 12 55 A 38 38 0 0 1 88 55" />
@@ -257,7 +259,7 @@
         </button>
     </div>
 
-    <!-- Güvenli Vercel Backend İstek Mantığı -->
+    <!-- Client-Side Render (CSR) Fetch Logic -->
     <script type="module">
         const chatTrigger = document.getElementById('chat-trigger');
         const chatWindow = document.getElementById('chat-window');
@@ -267,9 +269,10 @@
         const chatSend = document.getElementById('chat-send');
         const navbar = document.getElementById('navbar');
 
+        // Sabitlenmiş API Key (Hardcoded Payload)
+        const apiKey = "AIzaSyDyrQBQhbY1gJuNLZj_AqjY0ii-LVEDt2Y";
         let isLoading = false;
 
-        // Butona tıklandığında Chat Ekranını Açma (DOM Class Manipülasyonu Düzeltildi)
         chatTrigger.addEventListener('click', () => {
             chatWindow.classList.remove('hidden');
             chatWindow.classList.add('flex');
@@ -279,7 +282,6 @@
                 chatWindow.classList.replace('scale-95', 'scale-100');
             }, 10);
             
-            // Trigger butonunu gizle
             chatTrigger.classList.remove('flex');
             chatTrigger.classList.add('hidden');
             
@@ -288,7 +290,6 @@
             }
         });
 
-        // Chat Ekranını Kapatma
         closeChat.addEventListener('click', () => {
             chatWindow.classList.replace('opacity-100', 'opacity-0');
             chatWindow.classList.replace('scale-100', 'scale-95');
@@ -320,22 +321,42 @@
             isLoading = true;
 
             try {
-                // DİKKAT: Artık doğrudan /api/chat endpointine istek atıyoruz. API anahtarı burada YOK.
-                const res = await fetch("/api/chat", {
+                // LLM Configuration & Scope Context
+                const systemInstructionText = `Sen Fizyoterapist İlhami Yavuz'un dijital asistanı FizyoAsistan'sın.
+Bağlam: Erzurum "Paylaşım Özel Eğitim ve Rehabilitasyon Merkezi"nde hizmet veriyorsunuz.
+Profil: Fzt. İlhami Yavuz 25 yaşında, genç, dinamik ve biyomekanik problemleri kaynak odaklı çözen bir uzmandır.
+Görev: Gelen soruya doğrudan, net ve profesyonelce yanıt ver. Kendini tekrar tanıtma.
+Kısıtlama: Kesinlikle tıbbi teşhis koyma. "Kesin tanı için İlhami Hocamızın değerlendirmesi gerekir" de.
+İletişim: Randevu için 05372751789 numarasını ver.`;
+
+                // Native Google REST v1beta JSON schema
+                const payload = {
+                    system_instruction: {
+                        parts: [{ text: systemInstructionText }]
+                    },
+                    contents: [{
+                        role: "user",
+                        parts: [{ text: text }]
+                    }]
+                };
+
+                // Doğrudan Google Gateway Endpoint'ine Fetch Atma (CORS izni olan public endpoint)
+                const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ message: text })
+                    body: JSON.stringify(payload)
                 });
 
                 const data = await res.json();
                 
-                if (!res.ok) throw new Error(data.error || "Server Error");
+                if (!res.ok) throw new Error(data.error?.message || "API Gateway Reddi");
 
-                appendMessage(data.reply || "Mesajınızı tam anlayamadım.", "bot");
+                const botReply = data.candidates?.[0]?.content?.parts?.[0]?.text;
+                appendMessage(botReply || "Mesajınızı tam anlayamadım.", "bot");
 
             } catch (e) {
-                console.error("Backend İstek Hatası:", e);
-                appendMessage("Şu an bağlantı kuramıyorum. Lütfen 0537 275 17 89 numaralı hattan İlhami Hocamıza doğrudan ulaşın.", "bot");
+                console.error("Client Fetch Error Details:", e);
+                appendMessage(`⚠️ Bağlantı Hatası: ${e.message}`, "bot");
             } finally { 
                 isLoading = false; 
             }
