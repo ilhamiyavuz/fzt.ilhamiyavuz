@@ -259,7 +259,7 @@
         </button>
     </div>
 
-    <!-- Client-Side AI Fetch Logic (Fail-Safe Multiple Endpoints) -->
+    <!-- Client-Side Script with Serverless Backend Fetch -->
     <script type="module">
         const chatTrigger = document.getElementById('chat-trigger');
         const chatWindow = document.getElementById('chat-window');
@@ -269,8 +269,6 @@
         const chatSend = document.getElementById('chat-send');
         const navbar = document.getElementById('navbar');
 
-        // Sabitlenmiş API Key
-        const apiKey = "AIzaSyDyrQBQhbY1gJuNLZj_AqjY0ii-LVEDt2Y";
         let isLoading = false;
 
         chatTrigger.addEventListener('click', () => {
@@ -321,65 +319,27 @@
             isLoading = true;
 
             try {
-                const systemInstructionText = `Sen Fizyoterapist İlhami Yavuz'un dijital asistanı FizyoAsistan'sın.
-Bağlam: Erzurum "Paylaşım Özel Eğitim ve Rehabilitasyon Merkezi"nde hizmet veriyorsunuz.
-Profil: Fzt. İlhami Yavuz 25 yaşında, genç, dinamik ve biyomekanik problemleri kaynak odaklı çözen bir uzmandır.
-Görev: Gelen soruya doğrudan, net ve profesyonelce yanıt ver. Kendini tekrar tanıtma.
-Kısıtlama: Kesinlikle tıbbi teşhis koyma.
-İletişim: Randevu için 05372751789 numarasını ver.`;
+                // API isteği kendi Vercel Serverless Endpoint'imize (Backend) yönlendirildi.
+                const response = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message: text })
+                });
 
-                const payload = {
-                    systemInstruction: {
-                        parts: [{ text: systemInstructionText }]
-                    },
-                    contents: [{
-                        role: "user",
-                        parts: [{ text: text }]
-                    }]
-                };
-
-                // Asenkron Model Fallback Algoritması (Hata önleyici)
-                const endpointsToTry = [
-                    `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`,
-                    `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${apiKey}`,
-                    `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro:generateContent?key=${apiKey}`
-                ];
-
-                let res, data;
-                let success = false;
-
-                // Modelleri sırayla dener, çalışanı bulduğu an döngüyü kırıp yanıtı verir.
-                for (const url of endpointsToTry) {
-                    try {
-                        res = await fetch(url, {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify(payload)
-                        });
-                        
-                        data = await res.json();
-                        
-                        if (res.ok) {
-                            success = true;
-                            break; // API başarılı, döngüden çık.
-                        } else {
-                            console.warn("Endpoint başarısız:", url, data.error?.message);
-                        }
-                    } catch (fetchErr) {
-                        console.warn("Fetch Exception:", fetchErr);
-                    }
-                }
+                // Yanıt JSON olarak çözümleniyor
+                const data = await response.json();
                 
-                if (!success) {
-                    throw new Error(data?.error?.message || "Tüm API modelleri erişilemez durumda.");
+                // HTTP 200 harici bir kod dönerse hata fırlat
+                if (!response.ok) {
+                    throw new Error(data.reply || data.error || "İç Sunucu Hatası (HTTP " + response.status + ")");
                 }
 
-                const botReply = data.candidates?.[0]?.content?.parts?.[0]?.text;
-                appendMessage(botReply || "Mesajınızı tam anlayamadım.", "bot");
+                // Backend'den gelen yanıtı ekrana basıyoruz
+                appendMessage(data.reply, "bot");
 
             } catch (e) {
-                console.error("Client Fetch Error Details:", e);
-                appendMessage(`⚠️ Bağlantı Hatası: Lütfen İlhami Hocamıza (0537 275 17 89) doğrudan ulaşın.`, "bot");
+                console.error("Endpoint İletişim Hatası:", e);
+                appendMessage(`⚠️ Bağlantı Hatası: ${e.message}`, "bot");
             } finally { 
                 isLoading = false; 
             }
