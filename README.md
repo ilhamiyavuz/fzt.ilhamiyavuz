@@ -140,6 +140,25 @@ Eğer Windows CMD'de şu hataları alıyorsanız:
 
 bu adımları birebir uygulayın.
 
+### 10.0 ZIP sonrası iç içe klasör kontrolü (çok önemli)
+
+Bazı indirmelerde klasör yapısı şöyle olur:
+
+- `fzt.ilhamiyavuz`
+  - `fzt.ilhamiyavuz-codex-design-ai-based-physiotherapy-platform`
+    - `backend`, `web`, `mobile`
+
+Bu durumda `backend` klasörüne doğrudan giremezsiniz. Önce içteki klasöre geçin:
+
+```bat
+cd /d "%USERPROFILE%\Downloads\fzt.ilhamiyavuz"
+dir
+cd fzt.ilhamiyavuz-codex-design-ai-based-physiotherapy-platform
+dir
+```
+
+Sonra backend komutlarını çalıştırın.
+
 ### 10.1 Doğru klasöre girin
 `app` hatasının ana nedeni genelde yanlış klasörde komut çalıştırmaktır.
 
@@ -153,6 +172,14 @@ dir
 ### 10.2 Backend (Windows CMD)
 
 > Not: Windows'ta `cp` yerine `copy`, `python` yerine `py` kullanın.
+
+Eğer iç içe klasör varsa şu yolu kullanın:
+
+```bat
+cd /d "%USERPROFILE%\Downloads\fzt.ilhamiyavuz\fzt.ilhamiyavuz-codex-design-ai-based-physiotherapy-platform\backend"
+```
+
+Standart durumda veya bir üst adımdan sonra:
 
 ```bat
 cd /d "%USERPROFILE%\Downloads\fzt.ilhamiyavuz\backend"
@@ -178,6 +205,15 @@ Sonra web paneli:
 
 ```bat
 cd /d "%USERPROFILE%\Downloads\fzt.ilhamiyavuz\web"
+copy .env.example .env.local
+npm install
+npm run dev
+```
+
+Eğer iç içe klasör varsa web için doğru yol:
+
+```bat
+cd /d "%USERPROFILE%\Downloads\fzt.ilhamiyavuz\fzt.ilhamiyavuz-codex-design-ai-based-physiotherapy-platform\web"
 copy .env.example .env.local
 npm install
 npm run dev
