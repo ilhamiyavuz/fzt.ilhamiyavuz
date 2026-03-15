@@ -1,0 +1,70 @@
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-fizio_db}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-fizio_db}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  backend:
+    build:
+      context: ./backend
+    env_file:
+      - ./backend/.env.example
+    environment:
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@db:5432/${POSTGRES_DB:-fizio_db}
+    ports:
+      - "${BACKEND_PORT:-8000}:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  backend_migrate_seed:
+    build:
+      context: ./backend
+    env_file:
+      - ./backend/.env.example
+    environment:
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@db:5432/${POSTGRES_DB:-fizio_db}
+    command: ["bash", "-lc", "alembic upgrade head && python -m scripts.seed_demo"]
+    depends_on:
+      db:
+        condition: service_healthy
+
+  web:
+    image: node:20-alpine
+    working_dir: /app
+    volumes:
+      - ./web:/app
+    env_file:
+      - ./web/.env.example
+    command: sh -lc "npm install && npm run dev -- -p ${WEB_PORT:-3000}"
+    ports:
+      - "${WEB_PORT:-3000}:${WEB_PORT:-3000}"
+    depends_on:
+      - backend
+
+  mobile:
+    image: node:20-alpine
+    working_dir: /app
+    volumes:
+      - ./mobile:/app
+    env_file:
+      - ./mobile/.env.example
+    command: sh -lc "npm install && npm run web -- --port ${MOBILE_WEB_PORT:-19006}"
+    ports:
+      - "${MOBILE_WEB_PORT:-19006}:${MOBILE_WEB_PORT:-19006}"
+    depends_on:
+      - backend
+
+volumes:
+  pgdata:
