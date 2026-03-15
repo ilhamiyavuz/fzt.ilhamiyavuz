@@ -1,0 +1,117 @@
+### Sağlık kontrolü
+GET http://localhost:8000/health
+
+### 1) Fizyoterapist login
+POST http://localhost:8000/api/v1/auth/login
+Content-Type: application/json
+
+{
+  "email_or_phone": "fzt.demo@platform.local",
+  "password": "Demo1234!"
+}
+
+### 2) Yeni hasta ekle (TOKEN_FZT ile)
+POST http://localhost:8000/api/v1/patients
+Authorization: Bearer {{TOKEN_FZT}}
+Content-Type: application/json
+
+{
+  "full_name": "Yeni Demo Hasta",
+  "birth_date": "1995-09-10",
+  "gender": "Kadın",
+  "height_cm": 165,
+  "weight_kg": 60,
+  "rehab_phase": "Erken Faz",
+  "email": "yeni.hasta@platform.local",
+  "password": "Demo1234!"
+}
+
+### 3) Egzersiz kütüphanesini al
+GET http://localhost:8000/api/v1/exercises/library
+Authorization: Bearer {{TOKEN_FZT}}
+
+### 4) Hastaya diz fleksiyon programı ata
+POST http://localhost:8000/api/v1/exercises/programs
+Authorization: Bearer {{TOKEN_FZT}}
+Content-Type: application/json
+
+{
+  "patient_id": "{{PATIENT_ID}}",
+  "title_tr": "Diz Fleksiyon Hafta 1",
+  "start_date": "2026-03-15",
+  "items": [
+    {
+      "exercise_id": "{{EXERCISE_KNEE_FLEXION_ID}}",
+      "day_of_week": 1,
+      "sets": 3,
+      "reps": 12,
+      "hold_seconds": 1,
+      "rest_seconds": 20,
+      "order_no": 1
+    }
+  ]
+}
+
+### 5) Hasta login
+POST http://localhost:8000/api/v1/auth/login
+Content-Type: application/json
+
+{
+  "email_or_phone": "hasta.demo@platform.local",
+  "password": "Demo1234!"
+}
+
+### 6) Hasta bugünkü plan
+GET http://localhost:8000/api/v1/patients/me/today-plan
+Authorization: Bearer {{TOKEN_PATIENT}}
+
+### 7) Hasta seans başlat
+POST http://localhost:8000/api/v1/exercises/sessions/start
+Authorization: Bearer {{TOKEN_PATIENT}}
+Content-Type: application/json
+
+{
+  "patient_id": "{{PATIENT_ID}}",
+  "program_item_id": "{{PROGRAM_ITEM_ID}}"
+}
+
+### 8) AI analiz - landmark ile tekrar/geri bildirim
+POST http://localhost:8000/api/v1/ai-analysis/session-frame
+Authorization: Bearer {{TOKEN_PATIENT}}
+Content-Type: application/json
+
+{
+  "session_id": "{{SESSION_ID}}",
+  "exercise_type": "knee_flexion",
+  "landmarks": {
+    "left_hip": { "x": 0.52, "y": 0.42, "z": 0, "visibility": 0.99 },
+    "left_knee": { "x": 0.50, "y": 0.62, "z": 0, "visibility": 0.99 },
+    "left_ankle": { "x": 0.62, "y": 0.74, "z": 0, "visibility": 0.99 }
+  }
+}
+
+### 9) Ağrı günlüğü gir
+POST http://localhost:8000/api/v1/pain-logs
+Authorization: Bearer {{TOKEN_PATIENT}}
+Content-Type: application/json
+
+{
+  "patient_id": "{{PATIENT_ID}}",
+  "pain_level": 4,
+  "fatigue_level": 3,
+  "stiffness_level": 2,
+  "swelling_level": 1,
+  "note_tr": "Egzersiz sonrası ağrım azaldı."
+}
+
+### 10) Fizyoterapist dashboard
+GET http://localhost:8000/api/v1/physiotherapists/me/dashboard
+Authorization: Bearer {{TOKEN_FZT}}
+
+### 11) Fizyoterapist takip ekranı - hasta follow-up
+GET http://localhost:8000/api/v1/physiotherapists/patients/{{PATIENT_ID}}/follow-up
+Authorization: Bearer {{TOKEN_FZT}}
+
+### 12) Fizyoterapist - hasta ağrı logları
+GET http://localhost:8000/api/v1/pain-logs/patient/{{PATIENT_ID}}
+Authorization: Bearer {{TOKEN_FZT}}
