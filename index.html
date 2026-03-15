@@ -96,7 +96,7 @@
                 <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">Hareketi Özgürleştir, <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-blue-500">Yaşam Kaliteni Artır.</span></h1>
                 <p class="text-lg text-slate-300 mb-10 max-w-2xl leading-relaxed">Pediatrik, nörolojik ve ortopedik rehabilitasyon alanlarında bilimsel yaklaşımlar. Erzurum'da çocuklardan yetişkinlere uzanan özel tedavi protokolleri.</p>
                 <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="https://wa.me/905372751789" target="_blank" class="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-xl font-bold shadow-lg flex items-center justify-center gap-2 group transition-all">
+                    <a href="https://wa.me/905372751789" target="_blank" rel="noopener noreferrer" class="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-xl font-bold shadow-lg flex items-center justify-center gap-2 group transition-all">
                         <i class="ph ph-whatsapp-logo text-xl"></i> WhatsApp Danışma
                     </a>
                 </div>
@@ -194,7 +194,7 @@
                         </div>
                     </div>
                     <div class="mt-12 pt-8 border-t border-white/10">
-                        <a href="https://www.instagram.com/fzt.ilhamiyavuz" target="_blank" class="flex items-center gap-2 text-slate-300 hover:text-white transition-colors">
+                        <a href="https://www.instagram.com/fzt.ilhamiyavuz" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-slate-300 hover:text-white transition-colors">
                             <i class="ph ph-instagram-logo text-2xl"></i><span>@fzt.ilhamiyavuz</span>
                         </a>
                     </div>
@@ -204,7 +204,7 @@
                         <i class="ph ph-map-trifold text-4xl text-slate-400 mb-4"></i>
                         <h4 class="font-bold mb-2 text-slate-900">Harita Konumu</h4>
                         <p class="text-slate-500 text-xs mb-4">Paylaşım Özel Eğitim ve Rehabilitasyon Merkezi & Floortime & Duyu Bütünleme Merkezi<br>Palandöken, Erzurum</p>
-                        <a href="https://www.google.com/maps/search/?api=1&query=Paylaşım+Özel+Eğitim+ve+Rehabilitasyon+Merkezi+Hüseyin+Avni+Ulaş+Yaren+Sk+No:24+Palandöken+Erzurum" target="_blank" class="text-primary-600 font-bold hover:underline inline-flex items-center gap-1">Google Haritalarda Aç <i class="ph ph-arrow-square-out"></i></a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Paylaşım+Özel+Eğitim+ve+Rehabilitasyon+Merkezi+Hüseyin+Avni+Ulaş+Yaren+Sk+No:24+Palandöken+Erzurum" target="_blank" rel="noopener noreferrer" class="text-primary-600 font-bold hover:underline inline-flex items-center gap-1">Google Haritalarda Aç <i class="ph ph-arrow-square-out"></i></a>
                     </div>
                 </div>
             </div>
@@ -270,6 +270,18 @@
         const navbar = document.getElementById('navbar');
 
         let isLoading = false;
+        const chatApiEndpoint = (() => {
+            const protocol = window.location?.protocol || '';
+            const host = window.location?.host || '';
+            const isHttpProtocol = protocol === 'http:' || protocol === 'https:';
+
+            // Webview/about:blank gibi bağlamlarda relative fetch URL parse hatasına düşebilir.
+            if (!isHttpProtocol || !host) {
+                return null;
+            }
+
+            return `${protocol}//${host}/api/chat`;
+        })();
 
         chatTrigger.addEventListener('click', () => {
             chatWindow.classList.remove('hidden');
@@ -302,11 +314,16 @@
         });
 
         function appendMessage(text, sender) {
-            const div = document.createElement('div');
+            const wrapper = document.createElement('div');
+            const bubble = document.createElement('div');
             const isBot = sender === 'bot';
-            div.className = `flex ${isBot ? 'justify-start' : 'justify-end'} animate-fade-in`;
-            div.innerHTML = `<div class="max-w-[85%] p-3 rounded-2xl text-sm ${isBot ? 'bg-white text-slate-700 shadow-sm border border-slate-100 rounded-tl-none' : 'bg-primary-600 text-white rounded-tr-none'}">${text}</div>`;
-            chatMessages.appendChild(div);
+
+            wrapper.className = `flex ${isBot ? 'justify-start' : 'justify-end'} animate-fade-in`;
+            bubble.className = `max-w-[85%] p-3 rounded-2xl text-sm ${isBot ? 'bg-white text-slate-700 shadow-sm border border-slate-100 rounded-tl-none' : 'bg-primary-600 text-white rounded-tr-none'}`;
+            bubble.textContent = text;
+
+            wrapper.appendChild(bubble);
+            chatMessages.appendChild(wrapper);
             chatMessages.scrollTo({ top: chatMessages.scrollHeight, behavior: 'smooth' });
         }
 
@@ -319,27 +336,37 @@
             isLoading = true;
 
             try {
+                if (!chatApiEndpoint) {
+                    throw new Error('Geçersiz sayfa bağlamı. Linki doğrudan tarayıcıda (https://...) açıp tekrar deneyin.');
+                }
+
                 // API isteği kendi Vercel Serverless Endpoint'imize (Backend) yönlendirildi.
-                const response = await fetch('/api/chat', {
+                const response = await fetch(chatApiEndpoint, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ message: text })
                 });
 
-                // Yanıt JSON olarak çözümleniyor
-                const data = await response.json();
-                
+                const data = await response.json().catch(() => ({}));
+
                 // HTTP 200 harici bir kod dönerse hata fırlat
                 if (!response.ok) {
-                    throw new Error(data.reply || data.error || "İç Sunucu Hatası (HTTP " + response.status + ")");
+                    const errorText = data.reply || data.error || "İç Sunucu Hatası (HTTP " + response.status + ")";
+                    const detailText = typeof data.details === 'string' ? ` ${data.details}` : '';
+                    throw new Error(`${errorText}${detailText}`.trim());
                 }
 
                 // Backend'den gelen yanıtı ekrana basıyoruz
-                appendMessage(data.reply, "bot");
+                appendMessage(data.reply || 'Anlayamadım, lütfen tekrar deneyin.', "bot");
 
             } catch (e) {
                 console.error("Endpoint İletişim Hatası:", e);
-                appendMessage(`⚠️ Bağlantı Hatası: ${e.message}`, "bot");
+                const rawErrorMessage = e?.message || 'Bilinmeyen hata';
+                const hasUrlPatternError = /expected pattern|invalid url|failed to parse url/i.test(rawErrorMessage);
+                const message = hasUrlPatternError
+                    ? 'Tarayıcı bağlantı hatası: Linki cihazın normal tarayıcısında (Chrome/Safari) açıp tekrar deneyin.'
+                    : rawErrorMessage;
+                appendMessage(`⚠️ Bağlantı Hatası: ${message}`, "bot");
             } finally { 
                 isLoading = false; 
             }
@@ -355,5 +382,3 @@
     </script>
 </body>
 </html>
-
-
