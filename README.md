@@ -129,3 +129,64 @@ cp .env.example .env
 npm install
 npx expo start
 ```
+
+## 10) Windows CMD için Sorunsuz Kurulum (Hata Çözümleriyle)
+
+Eğer Windows CMD'de şu hataları alıyorsanız:
+- `'cp' is not recognized`
+- `'python' bulunamad`
+- `'npm' is not recognized`
+- `ModuleNotFoundError: No module named 'app'`
+
+bu adımları birebir uygulayın.
+
+### 10.1 Doğru klasöre girin
+`app` hatasının ana nedeni genelde yanlış klasörde komut çalıştırmaktır.
+
+```bat
+cd /d "%USERPROFILE%\Downloads\fzt.ilhamiyavuz"
+dir
+```
+
+`dir` çıktısında `backend`, `web`, `mobile` klasörlerini görmelisiniz.
+
+### 10.2 Backend (Windows CMD)
+
+> Not: Windows'ta `cp` yerine `copy`, `python` yerine `py` kullanın.
+
+```bat
+cd /d "%USERPROFILE%\Downloads\fzt.ilhamiyavuz\backend"
+copy .env.example .env
+py -m pip install -r requirements.txt
+py -m alembic upgrade head
+py seed.py
+py -m uvicorn app.main:app --reload
+```
+
+### 10.3 Web (Windows CMD)
+
+Önce Node.js LTS kurun: https://nodejs.org
+
+Yeni CMD açıp doğrulayın:
+
+```bat
+node -v
+npm -v
+```
+
+Sonra web paneli:
+
+```bat
+cd /d "%USERPROFILE%\Downloads\fzt.ilhamiyavuz\web"
+copy .env.example .env.local
+npm install
+npm run dev
+```
+
+### 10.4 Sık sorulanlar
+- **Komutları Python CMD'den mi normal CMD'den mi çalıştırayım?**
+  - Normal **CMD** veya **PowerShell** yeterlidir.
+- **Her komuttan sonra Enter'a basacak mıyım?**
+  - Evet, her komutu yazıp **Enter** ile tek tek çalıştırın.
+- **`py --version` çalışıyor, `python --version` çalışmıyor.**
+  - Bu normal olabilir. Bu projede komutları `py -m ...` formatında çalıştırın.
