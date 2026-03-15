@@ -9,7 +9,9 @@ function normalizeAllowedOrigins(value) {
         .split(',')
         .map((item) => item.trim())
         .filter(Boolean)
-        .map((origin) => origin.replace(/\/$/, ''));
+        .map((origin) => origin.replace(/\/$/, ''))
+        .map((origin) => origin.replace(/\/\*$/, ''))
+        .map((origin) => origin.toLowerCase());
 }
 
 function getClientIp(req) {
@@ -23,13 +25,13 @@ function getClientIp(req) {
 function getRequestOrigin(req) {
     const origin = req.headers.origin;
     if (typeof origin === 'string' && origin.trim()) {
-        return origin.trim().replace(/\/$/, '');
+        return origin.trim().replace(/\/$/, '').toLowerCase();
     }
 
     const referer = req.headers.referer;
     if (typeof referer === 'string' && referer.trim()) {
         try {
-            return new URL(referer).origin.replace(/\/$/, '');
+            return new URL(referer).origin.replace(/\/$/, '').toLowerCase();
         } catch {
             return '';
         }
@@ -50,6 +52,26 @@ function getRequestHost(req) {
     }
 
     return '';
+}
+
+function getAllowedHosts(allowedOrigins) {
+    return allowedOrigins
+        .map((origin) => {
+            try {
+                return new URL(origin).host.toLowerCase();
+            } catch {
+                return '';
+            }
+        })
+        .filter(Boolean);
+}
+
+function isAllowedOrigin(requestOrigin, allowedOrigins) {
+    if (!requestOrigin) return false;
+
+    return allowedOrigins.some((allowedOrigin) => (
+        requestOrigin === allowedOrigin || requestOrigin.startsWith(`${allowedOrigin}/`)
+    ));
 }
 
 function isRateLimited(ip) {
@@ -76,18 +98,16 @@ export default async function handler(req, res) {
     if (allowedOrigins.length > 0) {
         const requestOrigin = getRequestOrigin(req);
         const requestHost = getRequestHost(req);
+        const allowedHosts = getAllowedHosts(allowedOrigins);
 
-        const isAllowedOrigin = allowedOrigins.includes(requestOrigin);
-        const isAllowedHost = allowedOrigins.some((origin) => {
-            try {
-                return new URL(origin).host.toLowerCase() === requestHost;
-            } catch {
-                return false;
-            }
-        });
+        const isAllowedByOrigin = isAllowedOrigin(requestOrigin, allowedOrigins);
+        const isAllowedByHost = allowedHosts.includes(requestHost);
 
-        if (!isAllowedOrigin && !isAllowedHost) {
-            return res.status(403).json({ error: 'Bu endpoint sadece izinli domainden kullanılabilir.' });
+        if (!isAllowedByOrigin && !isAllowedByHost) {
+            return res.status(403).json({
+                error: 'Bu endpoint sadece izinli domainden kullanılabilir.',
+                details: 'Vercel > Settings > Environment Variables içinde ALLOWED_ORIGINS değerini kontrol edin.'
+            });
         }
     }
 
@@ -105,9 +125,12 @@ export default async function handler(req, res) {
         return res.status(400).json({ error: 'Mesaj çok uzun. Lütfen 1000 karakter altında tutun.' });
     }
 
-    const apiKey = process.env.GEMINI_API_KEY;
+    const apiKey = process.env.GEMINI_API_KEY?.trim();
     if (!apiKey) {
-        return res.status(500).json({ error: 'Sunucu yapılandırma hatası.' });
+        return res.status(500).json({
+            error: 'Sunucu yapılandırma hatası: GEMINI_API_KEY eksik.',
+            details: 'Vercel > Settings > Environment Variables alanına GEMINI_API_KEY ekleyip yeniden deploy edin.'
+        });
     }
 
     try {
@@ -125,7 +148,7 @@ export default async function handler(req, res) {
             }
         );
 
-        const data = await response.json();
+        const data = await response.json().catch(() => ({}));
 
         if (!response.ok) {
             const upstreamError = data?.error?.message || 'Yapay zeka servisine erişilemedi.';
