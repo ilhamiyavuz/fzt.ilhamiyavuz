@@ -2,16 +2,58 @@
 <html lang="tr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fizyoterapist İlhami Yavuz | Erzurum</title>
-    <meta name="description" content="Fizyoterapist İlhami Yavuz - Erzurum. Pediatrik (CME), Nörolojik ve Ortopedik Rehabilitasyon. Manuel Terapi ve Kişiye Özel Tedavi.">
-    
+    <meta name="description" content="Fizyoterapist İlhami Yavuz - Erzurum. Uluslararası sertifikalı Schroth Best Practice skolyoz terapisti. Pediatrik (CME), Nörolojik ve Ortopedik Rehabilitasyon.">
+    <link rel="canonical" href="https://www.ilhamiyavuz.com.tr/">
+
+    <!-- Open Graph / Sosyal Medya Paylaşım Kartı -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Fizyoterapist İlhami Yavuz | Erzurum">
+    <meta property="og:description" content="Uluslararası sertifikalı Schroth Best Practice skolyoz terapisti. Pediatrik (CME), Nörolojik ve Ortopedik Rehabilitasyon.">
+    <meta property="og:url" content="https://www.ilhamiyavuz.com.tr/">
+    <meta property="og:image" content="https://www.ilhamiyavuz.com.tr/images/IMG-20250707-WA0011.jpg">
+    <meta property="og:locale" content="tr_TR">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Yapılandırılmış Veri (Google için) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "İlhami Yavuz",
+      "honorificPrefix": "Fzt.",
+      "jobTitle": "Fizyoterapist",
+      "url": "https://www.ilhamiyavuz.com.tr/",
+      "telephone": "+905372751789",
+      "sameAs": ["https://www.instagram.com/fzt.ilhamiyavuz"],
+      "workLocation": {
+        "@type": "Place",
+        "name": "Paylaşım Özel Eğitim ve Rehabilitasyon Merkezi",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Hüseyin Avni Ulaş, Yaren Sk. No:24",
+          "postalCode": "25100",
+          "addressLocality": "Palandöken",
+          "addressRegion": "Erzurum",
+          "addressCountry": "TR"
+        }
+      },
+      "knowsAbout": ["Skolyoz Rehabilitasyonu", "Schroth Best Practice", "Pediatrik Rehabilitasyon", "Nörolojik Rehabilitasyon", "Ortopedik Rehabilitasyon", "Cuevas Medek Terapi", "Manuel Terapi"],
+      "hasCredential": {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "Sertifika",
+        "name": "Schroth Best Practice Sertifikalı Terapist"
+      }
+    }
+    </script>
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
+
     <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
@@ -34,12 +76,12 @@
     <style>
         .scrollbar-hide::-webkit-scrollbar { display: none; }
         .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
-        
+
         .chat-scroll-area {
             overscroll-behavior: contain;
             -webkit-overflow-scrolling: touch;
         }
-        
+
         .shadow-glow { box-shadow: 0 0 15px rgba(37, 99, 235, 0.5); }
 
         @keyframes fade-in {
@@ -47,6 +89,10 @@
             to { opacity: 1; transform: translateY(0); }
         }
         .animate-fade-in { animation: fade-in 0.3s ease-out forwards; }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation: none !important; transition: none !important; }
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased selection:bg-primary-200 selection:text-primary-900">
@@ -69,14 +115,26 @@
                     <a href="#home" class="text-sm font-medium hover:text-primary-600 transition-colors nav-item text-slate-600">Anasayfa</a>
                     <a href="#about" class="text-sm font-medium hover:text-primary-600 transition-colors nav-item text-slate-600">Hakkımda</a>
                     <a href="#services" class="text-sm font-medium hover:text-primary-600 transition-colors nav-item text-slate-600">Hizmetler</a>
+                    <a href="#schroth" class="text-sm font-medium hover:text-primary-600 transition-colors nav-item text-slate-600">Skolyoz</a>
                     <a href="#contact" class="bg-primary-600 text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-primary-700 transition-all shadow-lg hover:shadow-primary-600/30 flex items-center gap-2">
                         <i class="ph ph-calendar-check text-lg"></i> Randevu Al
                     </a>
                 </div>
 
-                <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-700 hover:text-primary-600 transition-colors">
-                    <i class="ph ph-list text-2xl"></i>
+                <button id="mobile-menu-btn" aria-label="Menüyü aç/kapat" aria-expanded="false" aria-controls="mobile-menu" class="md:hidden p-2 text-slate-700 hover:text-primary-600 transition-colors">
+                    <i id="mobile-menu-icon" class="ph ph-list text-2xl"></i>
                 </button>
+            </div>
+
+            <!-- Mobil Menü (açılır panel) -->
+            <div id="mobile-menu" class="hidden md:hidden mt-3 bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden">
+                <a href="#home" class="mobile-nav-link block px-5 py-3.5 text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-primary-600 border-b border-slate-50">Anasayfa</a>
+                <a href="#about" class="mobile-nav-link block px-5 py-3.5 text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-primary-600 border-b border-slate-50">Hakkımda</a>
+                <a href="#services" class="mobile-nav-link block px-5 py-3.5 text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-primary-600 border-b border-slate-50">Hizmetler</a>
+                <a href="#schroth" class="mobile-nav-link block px-5 py-3.5 text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-primary-600 border-b border-slate-50">Skolyoz (Schroth)</a>
+                <a href="#contact" class="mobile-nav-link block px-5 py-3.5 text-sm font-bold text-primary-600 hover:bg-primary-50">
+                    <i class="ph ph-calendar-check mr-1"></i> Randevu Al
+                </a>
             </div>
         </div>
     </nav>
@@ -84,7 +142,7 @@
     <!-- Hero Section -->
     <header id="home" class="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-slate-900">
         <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1576091160550-2187d80a16f7?auto=format&fit=crop&q=80" alt="Rehabilitasyon" class="w-full h-full object-cover opacity-40">
+            <img src="./images/hero.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1576091160550-2187d80a16f7?auto=format&fit=crop&q=80'" alt="Fizyoterapi ve rehabilitasyon uygulaması" class="w-full h-full object-cover opacity-40" fetchpriority="high">
             <div class="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/90 to-transparent"></div>
         </div>
         <div class="container mx-auto px-4 md:px-8 relative z-10">
@@ -96,7 +154,7 @@
                 <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">Hareketi Özgürleştir, <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-blue-500">Yaşam Kaliteni Artır.</span></h1>
                 <p class="text-lg text-slate-300 mb-10 max-w-2xl leading-relaxed">Pediatrik, nörolojik ve ortopedik rehabilitasyon alanlarında bilimsel yaklaşımlar. Erzurum'da çocuklardan yetişkinlere uzanan özel tedavi protokolleri.</p>
                 <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="https://wa.me/905372751789" target="_blank" class="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-xl font-bold shadow-lg flex items-center justify-center gap-2 group transition-all">
+                    <a href="https://wa.me/905372751789" target="_blank" rel="noopener" class="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-xl font-bold shadow-lg flex items-center justify-center gap-2 group transition-all">
                         <i class="ph ph-whatsapp-logo text-xl"></i> WhatsApp Danışma
                     </a>
                 </div>
@@ -110,7 +168,7 @@
             <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
                 <div class="lg:w-1/2 relative group">
                     <div class="absolute inset-0 bg-primary-600 rounded-2xl rotate-3 opacity-10"></div>
-                    <img src="https://raw.githubusercontent.com/ilhamiyavuz/fzt.ilhamiyavuz/main/images/IMG-20250707-WA0011.jpg" onerror="this.src='./images/1000198887.jpg'" alt="Fizyoterapist İlhami Yavuz" class="relative rounded-2xl shadow-2xl w-full object-cover h-[500px]">
+                    <img src="./images/IMG-20250707-WA0011.jpg" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/ilhamiyavuz/fzt.ilhamiyavuz/main/images/IMG-20250707-WA0011.jpg'" alt="Fizyoterapist İlhami Yavuz" loading="lazy" class="relative rounded-2xl shadow-2xl w-full object-cover h-[500px]">
                     <div class="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur p-4 rounded-xl shadow-lg border border-slate-100">
                         <div class="flex items-center gap-3">
                             <div class="bg-primary-100 p-2 rounded-lg text-primary-600"><i class="ph ph-graduation-cap text-2xl"></i></div>
@@ -127,6 +185,7 @@
                         <div class="flex items-center gap-3 bg-slate-50 p-3 rounded-lg border border-slate-100"><i class="ph ph-check-circle text-primary-600 text-xl"></i><span class="text-sm font-semibold text-slate-700">Manuel Terapi</span></div>
                         <div class="flex items-center gap-3 bg-slate-50 p-3 rounded-lg border border-slate-100"><i class="ph ph-check-circle text-primary-600 text-xl"></i><span class="text-sm font-semibold text-slate-700">Cuevas Medek (CME)</span></div>
                         <div class="flex items-center gap-3 bg-slate-50 p-3 rounded-lg border border-slate-100"><i class="ph ph-check-circle text-primary-600 text-xl"></i><span class="text-sm font-semibold text-slate-700">Kinezyolojik Bantlama</span></div>
+                        <div class="flex items-center gap-3 bg-primary-50 p-3 rounded-lg border border-primary-100 sm:col-span-2"><i class="ph ph-certificate text-primary-600 text-xl"></i><span class="text-sm font-semibold text-primary-900">Schroth Best Practice — Uluslararası Sertifikalı Skolyoz Terapisti</span></div>
                     </div>
                 </div>
             </div>
@@ -141,7 +200,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Pediatrik -->
                 <div class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all border border-slate-100 group overflow-hidden">
-                    <div class="h-48 overflow-hidden"><img src="https://raw.githubusercontent.com/ilhamiyavuz/fzt.ilhamiyavuz/main/images/pexels-thisisengineering-3912370.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-500"></div>
+                    <div class="h-48 overflow-hidden"><img src="./images/pexels-thisisengineering-3912370.jpg" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/ilhamiyavuz/fzt.ilhamiyavuz/main/images/pexels-thisisengineering-3912370.jpg'" alt="Pediatrik rehabilitasyon seansı" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-500"></div>
                     <div class="p-8">
                         <h4 class="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2"><i class="ph ph-baby text-orange-500"></i> Pediatrik Rehab.</h4>
                         <p class="text-slate-600 text-sm leading-relaxed mb-4">Serebral Palsi, Spina Bifida ve gelişimsel gerilik durumlarında özel terapiler.</p>
@@ -150,7 +209,7 @@
                 </div>
                 <!-- Nörolojik -->
                 <div class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all border border-slate-100 group overflow-hidden">
-                    <div class="h-48 overflow-hidden"><img src="https://raw.githubusercontent.com/ilhamiyavuz/fzt.ilhamiyavuz/main/images/pexels-pixabay-39671.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-500"></div>
+                    <div class="h-48 overflow-hidden"><img src="./images/pexels-pixabay-39671.jpg" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/ilhamiyavuz/fzt.ilhamiyavuz/main/images/pexels-pixabay-39671.jpg'" alt="Nörolojik rehabilitasyon çalışması" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-500"></div>
                     <div class="p-8">
                         <h4 class="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2"><i class="ph ph-brain text-blue-500"></i> Nörolojik Rehab.</h4>
                         <p class="text-slate-600 text-sm leading-relaxed mb-4">İnme, MS, Parkinson ve kafa travmaları sonrası fonksiyonel bağımsızlık tedavileri.</p>
@@ -159,14 +218,70 @@
                 </div>
                 <!-- Ortopedik -->
                 <div class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all border border-slate-100 group overflow-hidden">
-                    <div class="h-48 overflow-hidden"><img src="https://raw.githubusercontent.com/ilhamiyavuz/fzt.ilhamiyavuz/main/images/pexels-maksgelatin-6094033.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-500"></div>
+                    <div class="h-48 overflow-hidden"><img src="./images/pexels-maksgelatin-6094033.jpg" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/ilhamiyavuz/fzt.ilhamiyavuz/main/images/pexels-maksgelatin-6094033.jpg'" alt="Ortopedik rehabilitasyon ve manuel terapi" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-500"></div>
                     <div class="p-8">
                         <h4 class="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2"><i class="ph ph-person-simple-run text-green-500"></i> Ortopedik Rehab.</h4>
                         <p class="text-slate-600 text-sm leading-relaxed mb-4">Bel-boyun fıtığı, skolyoz ve sporcu yaralanmalarında manuel terapi çözümleri.</p>
-                        <ul class="text-xs text-slate-500 space-y-2 border-t pt-4"><li><i class="ph ph-check text-green-500 mr-2"></i>Manuel Terapi</li><li><i class="ph ph-check text-green-500 mr-2"></i>Klinik Egzersiz</li></ul>
+                        <ul class="text-xs text-slate-500 space-y-2 border-t pt-4"><li><i class="ph ph-check text-green-500 mr-2"></i>Manuel Terapi</li><li><i class="ph ph-check text-green-500 mr-2"></i>Klinik Egzersiz</li><li><i class="ph ph-check text-green-500 mr-2"></i>Schroth Skolyoz Terapisi</li></ul>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Schroth / Skolyoz Section -->
+    <section id="schroth" class="py-20 bg-slate-900 text-white relative overflow-hidden">
+        <div class="absolute top-1/2 -left-32 w-96 h-96 bg-primary-600 rounded-full opacity-10 blur-3xl pointer-events-none"></div>
+        <div class="container mx-auto px-4 md:px-8 relative z-10">
+
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center gap-2 bg-primary-500/20 border border-primary-500/30 rounded-full px-4 py-1.5 mb-6">
+                    <i class="ph ph-certificate text-primary-300"></i>
+                    <span class="text-primary-100 text-xs font-bold tracking-wide uppercase">Uluslararası Sertifikalı Terapist</span>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 leading-tight">Skolyoz Tedavisinde <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-blue-500">Schroth Best Practice</span></h2>
+                <p class="text-slate-300 leading-relaxed mb-4">Schroth yöntemi, skolyozu tek bir eğrilik olarak değil; gövdenin üç düzlemde (önden-arkadan, yandan ve rotasyonel) bozulmuş bir dizilimi olarak ele alır. Tedavi, omurgayı pasif olarak zorlamak yerine hastanın kendi kas kontrolüyle düzeltmeyi öğrenmesine dayanır.</p>
+                <p class="text-slate-300 leading-relaxed mb-12">Schroth Best Practice, klasik Schroth programının güncel bilimsel kanıtlarla sadeleştirilmiş ve günlük hayata uyarlanmış versiyonudur. Uzun ve karmaşık egzersiz setleri yerine, hastanın evde sürdürebileceği kısa ve öğrenmesi kolay düzeltme kalıpları hedeflenir.</p>
+            </div>
+
+            <h3 class="text-lg font-bold mb-6 text-slate-200">Programın Temel Bileşenleri</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mb-14">
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors">
+                    <div class="bg-primary-500/20 w-11 h-11 rounded-xl flex items-center justify-center text-primary-300 mb-4"><i class="ph ph-scan text-2xl"></i></div>
+                    <h4 class="font-bold mb-2">Eğrilik Sınıflandırması</h4>
+                    <p class="text-sm text-slate-400 leading-relaxed">Eğriliğin tipi ve gövde bloklarının konumu belirlenir; egzersiz programı bu sınıflandırmaya göre kişiye özel kurgulanır.</p>
+                </div>
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors">
+                    <div class="bg-primary-500/20 w-11 h-11 rounded-xl flex items-center justify-center text-primary-300 mb-4"><i class="ph ph-wind text-2xl"></i></div>
+                    <h4 class="font-bold mb-2">Rotasyonel Solunum</h4>
+                    <p class="text-sm text-slate-400 leading-relaxed">Çökmüş kaburga bölgesine yönlendirilen nefes ile gövdenin daralmış tarafı açılır, göğüs kafesi dizilimi desteklenir.</p>
+                </div>
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors">
+                    <div class="bg-primary-500/20 w-11 h-11 rounded-xl flex items-center justify-center text-primary-300 mb-4"><i class="ph ph-person-arms-spread text-2xl"></i></div>
+                    <h4 class="font-bold mb-2">Postür Düzeltme ve Stabilizasyon</h4>
+                    <p class="text-sm text-slate-400 leading-relaxed">Aktif düzeltme pozisyonu ayna eşliğinde öğrenilir ve kas kuvvetiyle bu pozisyonun korunması çalışılır.</p>
+                </div>
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors">
+                    <div class="bg-primary-500/20 w-11 h-11 rounded-xl flex items-center justify-center text-primary-300 mb-4"><i class="ph ph-house text-2xl"></i></div>
+                    <h4 class="font-bold mb-2">Günlük Yaşama Aktarım</h4>
+                    <p class="text-sm text-slate-400 leading-relaxed">Oturma, yürüme ve ders çalışma gibi günlük duruşlar düzeltilir; ev programı sürdürülebilir olacak şekilde sadeleştirilir.</p>
+                </div>
+            </div>
+
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-8">
+                <h3 class="text-lg font-bold mb-5">Kimler İçin Uygundur?</h3>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3 text-sm text-slate-300">
+                    <li class="flex items-start gap-3"><i class="ph ph-check-circle text-primary-400 text-lg shrink-0 mt-0.5"></i>Büyüme çağında idiyopatik skolyoz tanısı alan çocuk ve ergenler</li>
+                    <li class="flex items-start gap-3"><i class="ph ph-check-circle text-primary-400 text-lg shrink-0 mt-0.5"></i>Korse tedavisi gören ve egzersizle desteklenmesi planlanan hastalar</li>
+                    <li class="flex items-start gap-3"><i class="ph ph-check-circle text-primary-400 text-lg shrink-0 mt-0.5"></i>Sırt ağrısı ve duruş bozukluğu tarifleyen erişkin skolyoz olguları</li>
+                    <li class="flex items-start gap-3"><i class="ph ph-check-circle text-primary-400 text-lg shrink-0 mt-0.5"></i>Skolyoz cerrahisi sonrası fonksiyonel takip gereken hastalar</li>
+                </ul>
+                <p class="text-xs text-slate-500 mt-6 leading-relaxed border-t border-white/10 pt-5">Programın içeriği ve seans sıklığı, hastanın yaşına, Cobb açısına ve büyüme potansiyeline göre değerlendirme sonrasında belirlenir. Bu sayfadaki bilgiler tanı veya tedavi yerine geçmez.</p>
+                <a href="https://wa.me/905372751789?text=Merhaba,%20skolyoz%20(Schroth)%20de%C4%9Ferlendirmesi%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener" class="mt-6 inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-6 py-3.5 rounded-xl font-bold transition-colors">
+                    <i class="ph ph-whatsapp-logo text-xl"></i> Skolyoz Değerlendirmesi İçin Yazın
+                </a>
+            </div>
+
         </div>
     </section>
 
@@ -189,12 +304,12 @@
                             <div class="bg-white/10 p-2.5 rounded-lg text-primary-400 shrink-0"><i class="ph ph-phone text-xl"></i></div>
                             <div>
                                 <p class="text-xs text-slate-400 font-bold mb-1">Telefon / WhatsApp</p>
-                                <a href="tel:05372751789" class="text-lg font-bold">0537 275 17 89</a>
+                                <a href="tel:+905372751789" class="text-lg font-bold">0537 275 17 89</a>
                             </div>
                         </div>
                     </div>
                     <div class="mt-12 pt-8 border-t border-white/10">
-                        <a href="https://www.instagram.com/fzt.ilhamiyavuz" target="_blank" class="flex items-center gap-2 text-slate-300 hover:text-white transition-colors">
+                        <a href="https://www.instagram.com/fzt.ilhamiyavuz" target="_blank" rel="noopener" class="flex items-center gap-2 text-slate-300 hover:text-white transition-colors">
                             <i class="ph ph-instagram-logo text-2xl"></i><span>@fzt.ilhamiyavuz</span>
                         </a>
                     </div>
@@ -204,7 +319,7 @@
                         <i class="ph ph-map-trifold text-4xl text-slate-400 mb-4"></i>
                         <h4 class="font-bold mb-2 text-slate-900">Harita Konumu</h4>
                         <p class="text-slate-500 text-xs mb-4">Paylaşım Özel Eğitim ve Rehabilitasyon Merkezi & Floortime & Duyu Bütünleme Merkezi<br>Palandöken, Erzurum</p>
-                        <a href="https://www.google.com/maps/search/?api=1&query=Paylaşım+Özel+Eğitim+ve+Rehabilitasyon+Merkezi+Hüseyin+Avni+Ulaş+Yaren+Sk+No:24+Palandöken+Erzurum" target="_blank" class="text-primary-600 font-bold hover:underline inline-flex items-center gap-1">Google Haritalarda Aç <i class="ph ph-arrow-square-out"></i></a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Paylaşım+Özel+Eğitim+ve+Rehabilitasyon+Merkezi+Hüseyin+Avni+Ulaş+Yaren+Sk+No:24+Palandöken+Erzurum" target="_blank" rel="noopener" class="text-primary-600 font-bold hover:underline inline-flex items-center gap-1">Google Haritalarda Aç <i class="ph ph-arrow-square-out"></i></a>
                     </div>
                 </div>
             </div>
@@ -213,12 +328,12 @@
 
     <!-- Footer -->
     <footer class="bg-white border-t py-8 text-center text-sm text-slate-500">
-        <p>&copy; 2026 Fizyoterapist İlhami Yavuz. Tüm Hakları Saklıdır.</p>
+        <p>&copy; <span id="footer-year">2026</span> Fizyoterapist İlhami Yavuz. Tüm Hakları Saklıdır.</p>
     </footer>
 
     <!-- Chat Interface -->
     <div id="chat-interface" class="fixed bottom-6 right-6 z-[9999] flex flex-col items-end gap-4">
-        
+
         <!-- Chat Window -->
         <div id="chat-window" class="hidden w-[360px] max-w-[90vw] h-[520px] max-h-[80vh] bg-white rounded-3xl shadow-2xl border border-slate-100 overflow-hidden flex-col transform transition-all duration-300 scale-95 opacity-0 origin-bottom-right">
             <div class="bg-primary-600 p-4 flex justify-between items-center text-white shrink-0 shadow-md">
@@ -226,24 +341,25 @@
                     <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center shadow-inner"><i class="ph ph-robot text-xl"></i></div>
                     <div><h4 class="font-bold text-sm">FizyoAsistan</h4><p class="text-[10px] opacity-80">Uzman Klinik Rehber</p></div>
                 </div>
-                <button id="close-chat" class="p-2 hover:bg-white/10 rounded-full transition-colors"><i class="ph ph-x text-xl"></i></button>
+                <button id="close-chat" aria-label="Sohbeti kapat" class="p-2 hover:bg-white/10 rounded-full transition-colors"><i class="ph ph-x text-xl"></i></button>
             </div>
 
-            <div id="chat-messages" class="flex-grow p-4 overflow-y-auto bg-slate-50 flex flex-col gap-3 scrollbar-hide chat-scroll-area"></div>
+            <div id="chat-messages" class="flex-grow p-4 overflow-y-auto bg-slate-50 flex flex-col gap-3 scrollbar-hide chat-scroll-area" aria-live="polite"></div>
 
             <div class="p-4 bg-white border-t border-slate-100 shrink-0">
                 <div class="flex gap-2 bg-slate-50 rounded-2xl border p-1 pr-1 items-center focus-within:border-primary-400 focus-within:ring-1 transition-all">
-                    <input type="text" id="chat-input" class="flex-1 bg-transparent border-none py-2 px-3 text-sm focus:outline-none" placeholder="Şikayetinizi yazın...">
-                    <button id="chat-send" class="bg-primary-600 text-white w-10 h-10 shrink-0 rounded-full hover:bg-primary-700 active:scale-90 active:translate-y-0.5 transition-all flex items-center justify-center shadow-md">
+                    <input type="text" id="chat-input" class="flex-1 bg-transparent border-none py-2 px-3 text-sm focus:outline-none" placeholder="Şikayetinizi yazın..." aria-label="Mesajınız">
+                    <button id="chat-send" aria-label="Mesajı gönder" class="bg-primary-600 text-white w-10 h-10 shrink-0 rounded-full hover:bg-primary-700 active:scale-90 active:translate-y-0.5 transition-all flex items-center justify-center shadow-md">
                         <i class="ph ph-paper-plane-right text-xl"></i>
                     </button>
                 </div>
+                <p class="text-[10px] text-slate-400 mt-2 text-center leading-relaxed">Bu asistan tanı koymaz. Lütfen kişisel sağlık bilgilerinizi buraya yazmayın; randevu için WhatsApp'ı kullanın.</p>
             </div>
         </div>
 
         <!-- Chat Trigger (Stamp Design) -->
-        <button id="chat-trigger" class="flex relative items-center justify-center bg-white rounded-full shadow-glow transition-all hover:scale-105 animate-[pulse_3s_infinite] w-24 h-24">
-            <svg viewBox="0 0 100 100" class="absolute inset-0 w-full h-full fill-primary-700 font-bold pointer-events-none">
+        <button id="chat-trigger" aria-label="FizyoAsistan sohbetini aç" class="flex relative items-center justify-center bg-white rounded-full shadow-glow transition-all hover:scale-105 animate-[pulse_3s_infinite] w-24 h-24">
+            <svg viewBox="0 0 100 100" class="absolute inset-0 w-full h-full fill-primary-700 font-bold pointer-events-none" aria-hidden="true">
                 <defs>
                     <path id="top-arc" d="M 12 55 A 38 38 0 0 1 88 55" />
                 </defs>
@@ -269,33 +385,64 @@
         const chatSend = document.getElementById('chat-send');
         const navbar = document.getElementById('navbar');
 
+        // ---- Mobil Menü ----
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuIcon = document.getElementById('mobile-menu-icon');
+
+        function toggleMobileMenu(forceClose = false) {
+            const isOpen = !mobileMenu.classList.contains('hidden');
+            if (isOpen || forceClose) {
+                mobileMenu.classList.add('hidden');
+                mobileMenuIcon.classList.replace('ph-x', 'ph-list');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                if (window.scrollY <= 20) navbar.classList.remove('bg-white/95', 'backdrop-blur-sm', 'shadow-sm');
+            } else {
+                mobileMenu.classList.remove('hidden');
+                mobileMenuIcon.classList.replace('ph-list', 'ph-x');
+                mobileMenuBtn.setAttribute('aria-expanded', 'true');
+                navbar.classList.add('bg-white/95', 'backdrop-blur-sm', 'shadow-sm');
+            }
+        }
+
+        mobileMenuBtn.addEventListener('click', () => toggleMobileMenu());
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => toggleMobileMenu(true));
+        });
+
+        // ---- Footer yılı otomatik ----
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+        // ---- Sohbet ----
         let isLoading = false;
+        let conversation = []; // {role: 'user'|'assistant', content: string}
 
         chatTrigger.addEventListener('click', () => {
             chatWindow.classList.remove('hidden');
             chatWindow.classList.add('flex');
-            
+
             setTimeout(() => {
                 chatWindow.classList.replace('opacity-0', 'opacity-100');
                 chatWindow.classList.replace('scale-95', 'scale-100');
             }, 10);
-            
+
             chatTrigger.classList.remove('flex');
             chatTrigger.classList.add('hidden');
-            
+
             if (chatMessages.children.length === 0) {
                 appendMessage("Merhaba, ben FizyoAsistan. Fzt. İlhami Yavuz’un asistanıyım. Size nasıl yardımcı olabilirim?", "bot");
             }
+            chatInput.focus();
         });
 
         closeChat.addEventListener('click', () => {
             chatWindow.classList.replace('opacity-100', 'opacity-0');
             chatWindow.classList.replace('scale-100', 'scale-95');
-            
-            setTimeout(() => { 
+
+            setTimeout(() => {
                 chatWindow.classList.remove('flex');
-                chatWindow.classList.add('hidden'); 
-                
+                chatWindow.classList.add('hidden');
+
                 chatTrigger.classList.remove('hidden');
                 chatTrigger.classList.add('flex');
             }, 300);
@@ -305,43 +452,75 @@
             const div = document.createElement('div');
             const isBot = sender === 'bot';
             div.className = `flex ${isBot ? 'justify-start' : 'justify-end'} animate-fade-in`;
-            div.innerHTML = `<div class="max-w-[85%] p-3 rounded-2xl text-sm ${isBot ? 'bg-white text-slate-700 shadow-sm border border-slate-100 rounded-tl-none' : 'bg-primary-600 text-white rounded-tr-none'}">${text}</div>`;
+            const bubble = document.createElement('div');
+            bubble.className = `max-w-[85%] p-3 rounded-2xl text-sm ${isBot ? 'bg-white text-slate-700 shadow-sm border border-slate-100 rounded-tl-none' : 'bg-primary-600 text-white rounded-tr-none'}`;
+            bubble.textContent = text;
+            div.appendChild(bubble);
             chatMessages.appendChild(div);
             chatMessages.scrollTo({ top: chatMessages.scrollHeight, behavior: 'smooth' });
+            return div;
+        }
+
+        function showTyping() {
+            const div = document.createElement('div');
+            div.id = 'typing-indicator';
+            div.className = 'flex justify-start animate-fade-in';
+            div.innerHTML = '<div class="bg-white border border-slate-100 shadow-sm rounded-2xl rounded-tl-none px-4 py-3 flex gap-1.5"><span class="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" style="animation-delay:0ms"></span><span class="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" style="animation-delay:150ms"></span><span class="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" style="animation-delay:300ms"></span></div>';
+            chatMessages.appendChild(div);
+            chatMessages.scrollTo({ top: chatMessages.scrollHeight, behavior: 'smooth' });
+        }
+
+        function hideTyping() {
+            const el = document.getElementById('typing-indicator');
+            if (el) el.remove();
+        }
+
+        function setLoading(state) {
+            isLoading = state;
+            chatSend.disabled = state;
+            chatInput.disabled = state;
+            chatSend.classList.toggle('opacity-50', state);
         }
 
         async function handleSend() {
             const text = chatInput.value.trim();
             if (!text || isLoading) return;
-            
+
             chatInput.value = '';
             appendMessage(text, 'user');
-            isLoading = true;
+            setLoading(true);
+            showTyping();
 
             try {
-                // API isteği kendi Vercel Serverless Endpoint'imize (Backend) yönlendirildi.
+                // İstek kendi sunucumuzdaki /api/chat adresine gidiyor.
+                // API anahtarı orada tutulur, tarayıcıya asla gönderilmez.
                 const response = await fetch('/api/chat', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ message: text })
+                    body: JSON.stringify({ message: text, history: conversation })
                 });
 
-                // Yanıt JSON olarak çözümleniyor
                 const data = await response.json();
-                
-                // HTTP 200 harici bir kod dönerse hata fırlat
+
                 if (!response.ok) {
-                    throw new Error(data.reply || data.error || "İç Sunucu Hatası (HTTP " + response.status + ")");
+                    throw new Error(data.reply || data.error || 'Sunucu hatası (' + response.status + ')');
                 }
 
-                // Backend'den gelen yanıtı ekrana basıyoruz
-                appendMessage(data.reply, "bot");
+                hideTyping();
+                appendMessage(data.reply, 'bot');
+
+                // Bağlamın korunması için geçmişi tut (son 10 mesaj)
+                conversation.push({ role: 'user', content: text });
+                conversation.push({ role: 'assistant', content: data.reply });
+                conversation = conversation.slice(-10);
 
             } catch (e) {
-                console.error("Endpoint İletişim Hatası:", e);
-                appendMessage(`⚠️ Bağlantı Hatası: ${e.message}`, "bot");
-            } finally { 
-                isLoading = false; 
+                console.error('Sohbet hatası:', e);
+                hideTyping();
+                appendMessage(e.message || 'Bağlantı kurulamadı. Lütfen WhatsApp üzerinden yazın: 0537 275 17 89', 'bot');
+            } finally {
+                setLoading(false);
+                chatInput.focus();
             }
         }
 
@@ -350,10 +529,8 @@
 
         window.addEventListener('scroll', () => {
             if (window.scrollY > 20) navbar.classList.add('bg-white/95', 'backdrop-blur-sm', 'shadow-sm', 'py-2');
-            else navbar.classList.remove('bg-white/95', 'backdrop-blur-sm', 'shadow-sm', 'py-2');
+            else if (mobileMenu.classList.contains('hidden')) navbar.classList.remove('bg-white/95', 'backdrop-blur-sm', 'shadow-sm', 'py-2');
         });
     </script>
 </body>
 </html>
-
-
