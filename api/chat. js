@@ -1,8 +1,7 @@
-// api/chat.js — Vercel Serverless Function (Google Gemini sürümü)
-// FizyoAsistan sohbet botunun arka ucu.
-// API anahtarı SADECE burada (sunucu tarafında) kullanılır, tarayıcıya asla gitmez.
+// api/chat.js — Vercel Serverless Function (Gemini / CommonJS sürümü)
+// CommonJS kullanır: package.json'da "type": "module" olsun ya da olmasın çalışır.
 
-const MODEL = 'gemini-2.0-flash'; // Ücretsiz katmanda çalışan Flash sınıfı model
+const MODEL = 'gemini-2.0-flash';
 
 const SYSTEM_PROMPT = `Sen "FizyoAsistan"sın. Fzt. İlhami Yavuz'un Erzurum'daki web sitesinde çalışan bir karşılama asistanısın.
 
@@ -37,38 +36,60 @@ KESİN KURALLAR:
 const MAX_MESSAGE_LENGTH = 800;
 const FALLBACK = 'Asistana şu anda ulaşılamıyor. Lütfen WhatsApp üzerinden yazın: 0537 275 17 89';
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
+  res.setHeader('Content-Type', 'application/json; charset=utf-8');
+
+  // Tarayıcıdan doğrudan açıldığında test yanıtı ver (fonksiyon canlı mı kontrolü)
+  if (req.method === 'GET') {
+    return res.status(200).json({
+      ok: true,
+      message: 'FizyoAsistan arka ucu calisiyor.',
+      apiKeyTanimli: Boolean(process.env.GEMINI_API_KEY)
+    });
+  }
+
   if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Yalnızca POST desteklenir.' });
+    return res.status(405).json({ reply: 'Yalnızca POST desteklenir.' });
   }
 
   if (!process.env.GEMINI_API_KEY) {
     console.error('GEMINI_API_KEY tanımlı değil.');
-    return res.status(500).json({ reply: 'Asistan şu anda yapılandırılıyor. Lütfen WhatsApp üzerinden yazın: 0537 275 17 89' });
+    return res.status(200).json({ reply: 'Asistan şu anda yapılandırılıyor. Lütfen WhatsApp üzerinden yazın: 0537 275 17 89' });
   }
 
   try {
-    const { message, history } = req.body || {};
+    // Gövde bazen string gelebilir — iki durumu da karşıla
+    let body = req.body;
+    if (typeof body === 'string') {
+      try { body = JSON.parse(body); } catch (e) { body = {}; }
+    }
+    body = body || {};
+
+    const message = body.message;
+    const history = body.history;
 
     if (typeof message !== 'string' || !message.trim()) {
-      return res.status(400).json({ error: 'Mesaj boş olamaz.' });
+      return res.status(200).json({ reply: 'Mesaj boş görünüyor. Lütfen tekrar yazın.' });
     }
     if (message.length > MAX_MESSAGE_LENGTH) {
-      return res.status(400).json({ reply: 'Mesajınız çok uzun. Lütfen daha kısa yazın veya WhatsApp üzerinden iletin.' });
+      return res.status(200).json({ reply: 'Mesajınız çok uzun. Lütfen daha kısa yazın veya WhatsApp üzerinden iletin.' });
     }
 
-    // Sohbet geçmişi (son 10 mesaj). Gemini'de roller: 'user' ve 'model'
     const priorTurns = Array.isArray(history)
       ? history
-          .filter(m => m && (m.role === 'user' || m.role === 'assistant') && typeof m.content === 'string')
+          .filter(function (m) {
+            return m && (m.role === 'user' || m.role === 'assistant') && typeof m.content === 'string';
+          })
           .slice(-10)
-          .map(m => ({
-            role: m.role === 'assistant' ? 'model' : 'user',
-            parts: [{ text: m.content.slice(0, MAX_MESSAGE_LENGTH) }]
-          }))
+          .map(function (m) {
+            return {
+              role: m.role === 'assistant' ? 'model' : 'user',
+              parts: [{ text: m.content.slice(0, MAX_MESSAGE_LENGTH) }]
+            };
+          })
       : [];
 
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`;
+    const url = 'https://generativelanguage.googleapis.com/v1beta/models/' + MODEL + ':generateContent';
 
     const geminiRes = await fetch(url, {
       method: 'POST',
@@ -78,11 +99,8 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
-        contents: [...priorTurns, { role: 'user', parts: [{ text: message.trim() }] }],
-        generationConfig: {
-          temperature: 0.4,
-          maxOutputTokens: 400
-        }
+        contents: priorTurns.concat([{ role: 'user', parts: [{ text: message.trim() }] }]),
+        generationConfig: { temperature: 0.4, maxOutputTokens: 400 }
       })
     });
 
@@ -90,21 +108,17 @@ export default async function handler(req, res) {
       const errText = await geminiRes.text();
       console.error('Gemini API hatası:', geminiRes.status, errText);
 
-      // 429 = ücretsiz katman kotası doldu
       if (geminiRes.status === 429) {
-        return res.status(429).json({
+        return res.status(200).json({
           reply: 'Asistan şu an yoğun. Lütfen birkaç dakika sonra tekrar deneyin veya WhatsApp üzerinden yazın: 0537 275 17 89'
         });
       }
-      return res.status(502).json({ reply: FALLBACK });
+      return res.status(200).json({ reply: FALLBACK });
     }
 
     const data = await geminiRes.json();
-
-    const reply = (data?.candidates?.[0]?.content?.parts || [])
-      .map(p => p.text || '')
-      .join('\n')
-      .trim();
+    const parts = (data && data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts) || [];
+    const reply = parts.map(function (p) { return p.text || ''; }).join('\n').trim();
 
     return res.status(200).json({
       reply: reply || 'Sorunuzu tam anlayamadım. Biraz daha açabilir misiniz?'
@@ -112,6 +126,6 @@ export default async function handler(req, res) {
 
   } catch (err) {
     console.error('Sunucu hatası:', err);
-    return res.status(500).json({ reply: FALLBACK });
+    return res.status(200).json({ reply: FALLBACK });
   }
-}
+};
