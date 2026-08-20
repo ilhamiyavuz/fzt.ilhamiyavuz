@@ -500,10 +500,17 @@
                     body: JSON.stringify({ message: text, history: conversation })
                 });
 
-                const data = await response.json();
+                const raw = await response.text();
+                let data;
+                try {
+                    data = JSON.parse(raw);
+                } catch (parseErr) {
+                    // Sunucu JSON yerine HTML döndürdü (çoğunlukla /api/chat bulunamadı demektir)
+                    throw new Error('Asistan sunucusuna ulaşılamadı (HTTP ' + response.status + '). Lütfen WhatsApp üzerinden yazın: 0537 275 17 89');
+                }
 
-                if (!response.ok) {
-                    throw new Error(data.reply || data.error || 'Sunucu hatası (' + response.status + ')');
+                if (!response.ok && !data.reply) {
+                    throw new Error(data.error || 'Sunucu hatası (' + response.status + ')');
                 }
 
                 hideTyping();
